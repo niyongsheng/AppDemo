@@ -31,7 +31,7 @@ pod update
 ## [Auto Fill](https://github.com/niyongsheng/AppDemo/blob/master/AutoFill.md):
 APP SignIn | APPLE SignIn | STORE SCORE
 ------------ | ------------- | -------------
-<img src="https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Document/AppDemoScreenshot/IMG_0229.png"> | <img src="https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Document/AppDemoScreenshot/IMG_0227.jpg"> | <img src="https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Document/AppDemoScreenshot/IMG_0230.png">
+<img src="https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Document/AppDemoScreenshot/IMG_0229.PNG"> | <img src="https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Document/AppDemoScreenshot/IMG_0227.jpg"> | <img src="https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Document/AppDemoScreenshot/IMG_0230.PNG">
 
 SignIn | RPWD | REG
 ------------ | ------------- | -------------
