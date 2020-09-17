@@ -15,9 +15,10 @@ PODS:
   - JPush (3.3.6):
     - JCore (< 3.0.0, >= 2.0.0)
   - JXCategoryView (1.5.6)
+  - JXPagingView/Pager (2.0.12)
   - Masonry (1.1.0)
   - MJRefresh (3.5.0)
-  - NYSTK (0.0.5):
+  - NYSTK (0.0.6):
     - Masonry (>= 1.0.0)
     - ReactiveObjC (>= 1.0.1)
   - ReactiveObjC (3.1.1)
@@ -61,9 +62,10 @@ DEPENDENCIES:
   - IQKeyboardManager
   - JPush
   - JXCategoryView
+  - JXPagingView/Pager
   - Masonry
   - MJRefresh
-  - NYSTK (~> 0.0.5)
+  - NYSTK (~> 0.0.6)
   - ReactiveObjC
   - RongCloudIM
   - SDAutoLayout
@@ -87,6 +89,7 @@ SPEC REPOS:
     - JCore
     - JPush
     - JXCategoryView
+    - JXPagingView
     - Masonry
     - MJRefresh
     - NYSTK
@@ -109,9 +112,10 @@ SPEC CHECKSUMS:
   JCore: 8aa29dc57ba3730dd9fe7544ce1a4e1cbe221135
   JPush: a401b946dcc76b37335422487201bc1ecc8dd296
   JXCategoryView: 603ccd8277a89b1a73e9cedb9d8ed4b294576008
+  JXPagingView: 8271bfc6b380ccaf7af8c3075ab162245e96a4c9
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
-  NYSTK: 9c22a3cc27089b67cacb9d5337782a6f146e7622
+  NYSTK: f12ac9e3fea7ccf8db2efbb628d1f7b20f9a9565
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   RongCloudIM: 8a068b5c6bd6fb2e770a5f245fcd9d6832296515
   SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
@@ -123,6 +127,6 @@ SPEC CHECKSUMS:
   YTKNetwork: a096f80c18c7e7cc0e623a0fbea0a1bfd3f5bcf2
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 06da72f4b477805534a9716c638396d0df01a6c3
+PODFILE CHECKSUM: da54a52a20e734997b085ee922c4cc53d71df4a2
 
 COCOAPODS: 1.9.1

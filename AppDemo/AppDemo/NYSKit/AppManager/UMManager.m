@@ -7,7 +7,6 @@
 //
 
 #import "UMManager.h"
-#import <UShareUI/UShareUI.h>
 
 @implementation UMManager
 
@@ -74,6 +73,19 @@ SINGLETON_FOR_CLASS(UMManager);
     }];
     [alertController addAction:alertAction];
     [NRootViewController presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)thirdSignInWithPlatform:(UserLoginType)loginType currentViewController:(id)currentViewController completion:(UMSocialRequestCompletionHandler)completion {
+    [SVProgressHUD showWithStatus:@"授权中..."];
+
+    UMSocialPlatformType platFormType;
+    switch (loginType) {
+        case NUserLoginTypeQQ : platFormType = UMSocialPlatformType_QQ; break;
+        case NUserLoginTypeWeChat : platFormType = UMSocialPlatformType_WechatSession; break;
+        default : platFormType = UMSocialPlatformType_UnKnown; break;
+    }
+    
+    [[UMSocialManager defaultManager] getUserInfoWithPlatform:platFormType currentViewController:currentViewController completion:completion];
 }
 
 @end

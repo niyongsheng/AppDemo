@@ -22,7 +22,7 @@ ASAuthorizationControllerPresentationContextProviding
 @property (weak, nonatomic) IBOutlet UITextField *accountTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
-
+@property (weak, nonatomic) IBOutlet UIButton *wechatLoginBtn;
 @end
 
 @implementation NYSLoginViewController
@@ -32,6 +32,7 @@ ASAuthorizationControllerPresentationContextProviding
     
     [self configTheme];
     ViewRadius(_loginBtn, 7.0f);
+    ViewRadius(_wechatLoginBtn, 7.0f);
     
     if (@available(iOS 13.0, *)) {
         [self appleSignBtn];
@@ -47,10 +48,10 @@ ASAuthorizationControllerPresentationContextProviding
         [_appleSignBtn addTarget:self action:@selector(appleSignBtnOnClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:_appleSignBtn];
         _appleSignBtn.sd_layout
-        .centerXEqualToView(_loginBtn)
-        .topSpaceToView(_loginBtn, 20.0f)
-        .widthRatioToView(_loginBtn, 1)
-        .heightRatioToView(_loginBtn, 1);
+        .centerXEqualToView(_wechatLoginBtn)
+        .topSpaceToView(_wechatLoginBtn, 20.0f)
+        .widthRatioToView(_wechatLoginBtn, 1)
+        .heightRatioToView(_wechatLoginBtn, 1);
     }
     return _appleSignBtn;
 }
@@ -142,6 +143,16 @@ ASAuthorizationControllerPresentationContextProviding
             [SVProgressHUD showInfoWithStatus:description];
             [SVProgressHUD dismissWithDelay:1.f];
         }
+    }];
+}
+
+- (IBAction)wechatLoginBtnOnClicked:(UIButton *)sender {
+    [NYSTools zoomToShow:sender];
+    
+    [NUserManager login:NUserLoginTypeWeChat
+                 params:nil
+             completion:^(BOOL success, id description) {
+        
     }];
 }
 

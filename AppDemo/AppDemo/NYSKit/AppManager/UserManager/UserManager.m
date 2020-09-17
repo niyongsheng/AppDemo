@@ -93,7 +93,20 @@ SINGLETON_FOR_CLASS(UserManager);
             break;
             
         case NUserLoginTypeWeChat: {
-            
+            [[UMManager sharedUMManager] thirdSignInWithPlatform:NUserLoginTypeWeChat
+                                           currentViewController:nil
+                                                      completion:^(id result, NSError *error) {
+                if (error) {
+                    if (completion) {
+                        completion(NO, error.localizedDescription);
+                    }
+                } else {
+                    UMSocialUserInfoResponse *resp = result;
+                    NLog(@"UMSocialManager originalResponse: %@", resp.originalResponse);
+                    // sign in logic
+                    
+                }
+            }];
         }
             break;
             
@@ -104,7 +117,7 @@ SINGLETON_FOR_CLASS(UserManager);
 
 #pragma mark -- 自动登录 —-
 - (void)autoLoginToServer:(loginBlock)completion{
-
+    
 }
 
 #pragma mark —- 登录成功处理 —-
@@ -175,7 +188,7 @@ SINGLETON_FOR_CLASS(UserManager);
     [JPUSHService cleanTags:^(NSInteger iResCode, NSSet *iTags, NSInteger seq) {
         NLog(@"clearTags code:%ld content:%@ seq:%ld", (long)iResCode, iTags, (long)seq);
     } seq:++seq];
-
+    
     // 清除APP角标
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     [[UIApplication sharedApplication] unregisterForRemoteNotifications];

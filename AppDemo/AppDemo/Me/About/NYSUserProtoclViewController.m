@@ -18,8 +18,7 @@
     [super viewDidLoad];
     
     // 1、创建UIWebView:
-    CGRect bouds = [[UIScreen mainScreen] applicationFrame];
-    UIWebView* webView = [[UIWebView alloc] initWithFrame:bouds];
+    UIWebView* webView = [[UIWebView alloc] initWithFrame:NScreen_Bounds];
     [self.view addSubview:webView];
     
     // 2、设置UIWebView的相关属性:

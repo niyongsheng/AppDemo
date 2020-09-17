@@ -18,13 +18,20 @@ AppDemo
     * 自定义TabBar              `CALayer、UIBezierPath`
     * IM+推送+分享+统计+第三方登录 `IM+Push+Share+Statistical`
 
+## Usage：
+```ruby
+cd ../AppDemo-master/AppDemo
+
+pod update
+```
+
 ## ScreenShot:
 ![image](https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Document/AppDemoScreenshot/AppDemo_1.gif)
 
 ## [Auto Fill](https://github.com/niyongsheng/AppDemo/blob/master/AutoFill.md):
-SignIn | RPWD | REG
+APP SignIn | APPLE SignIn | STORE SCORE
 ------------ | ------------- | -------------
-<img src="https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Document/AppDemoScreenshot/Simulator%20Screen%20Shot%20-%20iPhone%208%20Plus%20-%202018-11-21%20at%2016.12.20.png"> | <img src="https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Document/AppDemoScreenshot/Simulator%20Screen%20Shot%20-%20iPhone%208%20Plus%20-%202018-11-21%20at%2016.12.26.png"> | <img src="https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Document/AppDemoScreenshot/Simulator%20Screen%20Shot%20-%20iPhone%208%20Plus%20-%202018-11-21%20at%2016.12.22.png">
+<img src="https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Document/AppDemoScreenshot/IMG_0229.png"> | <img src="https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Document/AppDemoScreenshot/IMG_0227.jpg"> | <img src="https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Document/AppDemoScreenshot/IMG_0230.png">
 
 SignIn | RPWD | REG
 ------------ | ------------- | -------------

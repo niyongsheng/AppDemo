@@ -11,9 +11,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NYSLoginViewController">
             <connections>
                 <outlet property="accountTextField" destination="r2O-yr-yVH" id="Thw-VC-Ek1"/>
-                <outlet property="loginBtn" destination="6pO-fz-wmz" id="Z9h-wc-ykd"/>
+                <outlet property="loginBtn" destination="hnP-yR-ZkN" id="vfF-t8-7oZ"/>
                 <outlet property="passwordTextField" destination="6jO-pW-oL1" id="QcA-3A-qsT"/>
                 <outlet property="view" destination="Wsz-Re-I4y" id="rCg-tr-015"/>
+                <outlet property="wechatLoginBtn" destination="6pO-fz-wmz" id="9WR-ew-s55"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -47,22 +48,36 @@
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6pO-fz-wmz">
-                    <rect key="frame" x="120" y="488" width="174" height="42"/>
-                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6pO-fz-wmz">
+                    <rect key="frame" x="120" y="525" width="174" height="42"/>
+                    <color key="backgroundColor" red="0.0" green="0.78409016129999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="42" id="U3l-Il-hE5"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
-                    <state key="normal" title="Log In">
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title=" wechat" image="wechat_icon">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
-                        <action selector="loginBtnOnClicked:" destination="-1" eventType="touchUpInside" id="TUe-ja-bID"/>
+                        <action selector="wechatLoginBtnOnClicked:" destination="-1" eventType="touchUpInside" id="BTC-mD-wqz"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnP-yR-ZkN">
+                    <rect key="frame" x="120" y="463" width="174" height="42"/>
+                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="Gov-iK-hsx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                    <state key="normal" title="Sign In">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="loginBtnOnClicked:" destination="-1" eventType="touchUpInside" id="WlF-Vl-vSd"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhX-BK-epX">
-                    <rect key="frame" x="153.5" y="732" width="107" height="30"/>
+                    <rect key="frame" x="153.5" y="792" width="107" height="30"/>
                     <state key="normal" title="Create Account">
                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -71,7 +86,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0m-1N-NgB">
-                    <rect key="frame" x="145.5" y="694" width="123" height="30"/>
+                    <rect key="frame" x="145.5" y="754" width="123" height="30"/>
                     <state key="normal" title="Forgot Password?">
                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
@@ -85,7 +100,7 @@
                     <textInputTraits key="textInputTraits" keyboardType="alphabet" secureTextEntry="YES" textContentType="password"/>
                 </textField>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="F9y-hk-dEm">
-                    <rect key="frame" x="40" y="540" width="334" height="144"/>
+                    <rect key="frame" x="40" y="577" width="334" height="167"/>
                 </stackView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="cpG-ks-DFB">
                     <rect key="frame" x="157" y="94" width="100" height="100"/>
@@ -111,7 +126,6 @@
                 <constraint firstItem="RwH-MO-o7Y" firstAttribute="centerX" secondItem="Wsz-Re-I4y" secondAttribute="centerX" id="Q3o-65-Shc"/>
                 <constraint firstItem="Pce-OA-E40" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="r2O-yr-yVH" secondAttribute="trailing" constant="40" id="Vo9-r4-WTd"/>
                 <constraint firstItem="NUf-4O-7jq" firstAttribute="leading" secondItem="r2O-yr-yVH" secondAttribute="leading" id="YAR-gR-CPO"/>
-                <constraint firstItem="6pO-fz-wmz" firstAttribute="top" secondItem="6jO-pW-oL1" secondAttribute="bottom" constant="40" id="aWO-5T-3x1"/>
                 <constraint firstItem="6jO-pW-oL1" firstAttribute="trailing" secondItem="NUf-4O-7jq" secondAttribute="trailing" id="am2-zB-Jcd"/>
                 <constraint firstItem="6jO-pW-oL1" firstAttribute="width" secondItem="r2O-yr-yVH" secondAttribute="width" id="cdc-jj-XX7"/>
                 <constraint firstItem="bhX-BK-epX" firstAttribute="centerX" secondItem="Pce-OA-E40" secondAttribute="centerX" id="d1V-Xz-yAa"/>
@@ -120,8 +134,12 @@
                 <constraint firstItem="F9y-hk-dEm" firstAttribute="leading" secondItem="6jO-pW-oL1" secondAttribute="leading" id="fzp-AE-4gg"/>
                 <constraint firstItem="T0m-1N-NgB" firstAttribute="centerX" secondItem="Pce-OA-E40" secondAttribute="centerX" id="h5N-Zo-REv"/>
                 <constraint firstItem="RwH-MO-o7Y" firstAttribute="top" secondItem="cpG-ks-DFB" secondAttribute="bottom" constant="20" id="i45-AY-1XQ"/>
+                <constraint firstItem="6pO-fz-wmz" firstAttribute="top" secondItem="hnP-yR-ZkN" secondAttribute="bottom" constant="20" id="pqR-Mb-EST"/>
                 <constraint firstItem="r2O-yr-yVH" firstAttribute="trailing" secondItem="UMx-KV-mAS" secondAttribute="trailing" id="rhd-S6-AZy"/>
-                <constraint firstItem="Pce-OA-E40" firstAttribute="bottom" secondItem="bhX-BK-epX" secondAttribute="bottom" priority="200" constant="100" id="tF9-lX-ymv"/>
+                <constraint firstItem="6pO-fz-wmz" firstAttribute="centerX" secondItem="hnP-yR-ZkN" secondAttribute="centerX" id="snp-18-4ZP"/>
+                <constraint firstItem="6pO-fz-wmz" firstAttribute="width" secondItem="hnP-yR-ZkN" secondAttribute="width" id="t1b-BF-MQd"/>
+                <constraint firstItem="Pce-OA-E40" firstAttribute="bottom" secondItem="bhX-BK-epX" secondAttribute="bottom" priority="200" constant="40" id="tF9-lX-ymv"/>
+                <constraint firstItem="hnP-yR-ZkN" firstAttribute="top" secondItem="6jO-pW-oL1" secondAttribute="bottom" constant="15" id="uqy-iN-q0A"/>
                 <constraint firstItem="F9y-hk-dEm" firstAttribute="trailing" secondItem="6jO-pW-oL1" secondAttribute="trailing" id="vga-tL-k8j"/>
                 <constraint firstItem="6jO-pW-oL1" firstAttribute="top" secondItem="NUf-4O-7jq" secondAttribute="bottom" constant="2" id="wSk-h5-u2b"/>
                 <constraint firstItem="T0m-1N-NgB" firstAttribute="top" secondItem="F9y-hk-dEm" secondAttribute="bottom" constant="10" id="xCH-Cm-i6M"/>
@@ -134,5 +152,6 @@
     </objects>
     <resources>
         <image name="logo" width="200" height="200"/>
+        <image name="wechat_icon" width="30" height="30"/>
     </resources>
 </document>

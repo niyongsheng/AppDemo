@@ -9,7 +9,7 @@
 #import "NYSNewViewController.h"
 
 @interface NYSNewViewController ()
-
+@property (nonatomic, strong) UIBarButtonItem *rightItem2;
 @end
 
 @implementation NYSNewViewController
@@ -18,29 +18,36 @@
     [super viewDidLoad];
     
     UIBarButtonItem *rightItem1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:nil];
-    UIButton *themeBtn = [UIButton new];
-    themeBtn.titleLabel.font = [UIFont boldSystemFontOfSize:17.0f];
-    [themeBtn.titleLabel setTextColor:[UIColor colorWithHexString:@"#4183ED"]];
-    themeBtn.lee_theme
-    .LeeAddCustomConfig(DAY, ^(id  _Nonnull item) {
-        [(UIButton *)item setTitle:@"Light" forState:UIControlStateNormal];
-    })
-    .LeeAddCustomConfig(NIGHT, ^(id  _Nonnull item) {
-        [(UIButton *)item setTitle:@"Dark " forState:UIControlStateNormal];
-    });
-    themeBtn.lee_theme.LeeConfigButtonTitleColor(@"common_nav_font_color_1", UIControlStateNormal);
-    [[themeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        [[ThemeManager sharedThemeManager] changeTheme:NAppWindow];
-    }];
-    UIBarButtonItem *rightItem2 = [[UIBarButtonItem alloc] initWithCustomView:themeBtn];
     WS(weakSelf);
     [rightItem1 setActionBlock:^(id _Nonnull sender) {
         [weakSelf.webView reload];
     }];
+    
     self.navigationItem.rightBarButtonItems = @[rightItem1];
     
     self.urlStr = GitHubURl;
     self.autoTitle = NO;
+}
+
+- (UIBarButtonItem *)rightItem2 {
+    if (!_rightItem2) {
+        UIButton *themeBtn = [UIButton new];
+        themeBtn.titleLabel.font = [UIFont boldSystemFontOfSize:17.0f];
+        [themeBtn.titleLabel setTextColor:[UIColor colorWithHexString:@"#4183ED"]];
+        themeBtn.lee_theme
+        .LeeAddCustomConfig(DAY, ^(id  _Nonnull item) {
+            [(UIButton *)item setTitle:@"Light" forState:UIControlStateNormal];
+        })
+        .LeeAddCustomConfig(NIGHT, ^(id  _Nonnull item) {
+            [(UIButton *)item setTitle:@"Dark " forState:UIControlStateNormal];
+        });
+        themeBtn.lee_theme.LeeConfigButtonTitleColor(@"common_nav_font_color_1", UIControlStateNormal);
+        [[themeBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+            [[ThemeManager sharedThemeManager] changeTheme:NAppWindow];
+        }];
+        _rightItem2 = [[UIBarButtonItem alloc] initWithCustomView:themeBtn];
+    }
+    return _rightItem2;
 }
 
 @end

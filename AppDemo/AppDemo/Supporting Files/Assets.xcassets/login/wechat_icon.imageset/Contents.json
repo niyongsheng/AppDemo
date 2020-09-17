@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "wechat_icon.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "wechat.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

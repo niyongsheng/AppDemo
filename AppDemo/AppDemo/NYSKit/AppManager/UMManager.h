@@ -7,8 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-NS_ASSUME_NONNULL_BEGIN
+#import <UShareUI/UShareUI.h>
 
 @interface UMManager : NSObject
 
@@ -17,6 +16,11 @@ SINGLETON_FOR_HEADER(UMManager);
 /** 分享弹框 */
 - (void)showShareView;
 
+/// 第三方登录
+/// @param loginType 登录方式
+/// @param currentViewController 控制器
+/// @param completion 回调
+- (void)thirdSignInWithPlatform:(UserLoginType)loginType currentViewController:(id)currentViewController completion:(UMSocialRequestCompletionHandler)completion;
+
 @end
 
-NS_ASSUME_NONNULL_END
