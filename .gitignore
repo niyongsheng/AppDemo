@@ -1,0 +1,31 @@
+
+# Ignore file
+
+# 忽略编译和日志文件
+target/
+build/
+DerivedData/
+
+# 日志 库
+.DS_Store
+*.log
+*.so
+*.apk
+*.ipa
+
+# CocoaPods files
+Pods/
+
+# Gradle files
+.gradle/
+
+# ART/Dalvik VM 文件
+*.dex
+
+# Java class 文件
+*.class
+
+# Generated 文件夹
+bin/
+gen/
+out/

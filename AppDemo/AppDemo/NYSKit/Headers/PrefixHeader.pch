@@ -1,0 +1,60 @@
+//
+//  PrefixHeader.pch
+//  BaseIOS
+//
+//  Created by 倪永胜 on 2020/7/10.
+//  Copyright © 2020 niyongsheng. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#pragma mark -- 第三方框架 --
+#import <YYKit/YYKit.h>
+#import <YTKNetwork/YTKNetwork.h>
+#import <ReactiveObjC/ReactiveObjC.h>
+#import <Masonry/Masonry.h>
+#import <SDAutoLayout/SDAutoLayout.h>
+#import <SVProgressHUD/SVProgressHUD.h>
+//#import <AsyncDisplayKit/AsyncDisplayKit.h>
+#import <IQKeyboardManager/IQKeyboardManager.h>
+#import <SafariServices/SFSafariViewController.h>
+#import <NYSTK/NYSTK.h>
+
+#pragma mark -- 宏定义 --
+#import "UtilsMacros.h"
+#import "ThemeMacros.h"
+#import "CommonMacros.h"
+
+#pragma mark -- 主题 --
+#import "LEETheme.h"
+
+#pragma mark -- 基类 --
+#import "NYSBaseNavigationController.h"
+#import "NYSBaseViewController.h"
+#import "NYSWebViewController.h"
+
+#pragma mark -- 服务类 --
+#import "AppDelegate+AppService.h"
+#import "AppDelegate+PushService.h"
+
+#pragma mark -- 网络类 --
+#import "NYSRequest.h"
+
+#pragma mark -- 管理类 --
+#import "AppManager.h"
+#import "ThemeManager.h"
+#import "UserManager.h"
+#import "DBManager.h"
+#import "IMManager.h"
+#import "UMManager.h"
+#import "ADManager.h"
+
+#pragma mark -- 工具类 --
+#import "NYSTools.h"
+#import "NYSSignHandleKeyChain.h"
+
+#pragma mark -- 分类 --
+#import "NSDictionary+NilSafe.h"
+
+#endif /* PrefixHeader_pch */

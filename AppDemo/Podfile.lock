@@ -1,0 +1,128 @@
+PODS:
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - FLAnimatedImage (1.0.12)
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
+  - IQKeyboardManager (6.5.6)
+  - JCore (2.3.4)
+  - JPush (3.3.6):
+    - JCore (< 3.0.0, >= 2.0.0)
+  - JXCategoryView (1.5.6)
+  - Masonry (1.1.0)
+  - MJRefresh (3.5.0)
+  - NYSTK (0.0.5):
+    - Masonry (>= 1.0.0)
+    - ReactiveObjC (>= 1.0.1)
+  - ReactiveObjC (3.1.1)
+  - RongCloudIM (4.0.2):
+    - RongCloudIM/IMKit (= 4.0.2)
+    - RongCloudIM/IMLib (= 4.0.2)
+    - RongCloudIM/RongSticker (= 4.0.2)
+    - RongCloudIM/Sight (= 4.0.2)
+  - RongCloudIM/IMKit (4.0.2):
+    - RongCloudIM/IMLib
+  - RongCloudIM/IMLib (4.0.2)
+  - RongCloudIM/RongSticker (4.0.2):
+    - RongCloudIM/IMKit
+  - RongCloudIM/Sight (4.0.2):
+    - RongCloudIM/IMKit
+  - SDAutoLayout (2.2.1)
+  - SVProgressHUD (2.2.5)
+  - UMCCommon (7.1.1)
+  - UMCCommonLog (2.0.0)
+  - UMengUShare/Core (6.4.8.2):
+    - UMengUShare/Network
+  - UMengUShare/Network (6.4.8.2)
+  - UMengUShare/Social/ReducedQQ (6.4.8.2):
+    - UMengUShare/Core
+  - UMengUShare/Social/ReducedSina (6.4.8.2):
+    - UMengUShare/Core
+  - UMengUShare/Social/ReducedWeChat (6.4.8.2):
+    - UMengUShare/Core
+  - UMengUShare/UI (6.4.8.2):
+    - UMengUShare/Core
+  - XHLaunchAd (3.9.12):
+    - FLAnimatedImage (~> 1.0.12)
+  - YTKNetwork (3.0.4):
+    - AFNetworking/NSURLSession (~> 4.0)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
+
+DEPENDENCIES:
+  - FMDB
+  - IQKeyboardManager
+  - JPush
+  - JXCategoryView
+  - Masonry
+  - MJRefresh
+  - NYSTK (~> 0.0.5)
+  - ReactiveObjC
+  - RongCloudIM
+  - SDAutoLayout
+  - SVProgressHUD
+  - UMCCommon
+  - UMCCommonLog
+  - UMengUShare/Social/ReducedQQ
+  - UMengUShare/Social/ReducedSina
+  - UMengUShare/Social/ReducedWeChat
+  - UMengUShare/UI
+  - XHLaunchAd
+  - YTKNetwork
+  - YYKit
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+    - FLAnimatedImage
+    - FMDB
+    - IQKeyboardManager
+    - JCore
+    - JPush
+    - JXCategoryView
+    - Masonry
+    - MJRefresh
+    - NYSTK
+    - ReactiveObjC
+    - RongCloudIM
+    - SDAutoLayout
+    - SVProgressHUD
+    - UMCCommon
+    - UMCCommonLog
+    - UMengUShare
+    - XHLaunchAd
+    - YTKNetwork
+    - YYKit
+
+SPEC CHECKSUMS:
+  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
+  JCore: 8aa29dc57ba3730dd9fe7544ce1a4e1cbe221135
+  JPush: a401b946dcc76b37335422487201bc1ecc8dd296
+  JXCategoryView: 603ccd8277a89b1a73e9cedb9d8ed4b294576008
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
+  NYSTK: 9c22a3cc27089b67cacb9d5337782a6f146e7622
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+  RongCloudIM: 8a068b5c6bd6fb2e770a5f245fcd9d6832296515
+  SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  UMCCommon: f455f92c125342e360d6ad9eafe484945351eeb5
+  UMCCommonLog: 9b7ddde5d14a52fc1986ba5ac3121b8b2f433638
+  UMengUShare: 370d180101e13ee0227ae657ab119ba97243d2b3
+  XHLaunchAd: 6320f9c68732667323072fc3a5f104e40fbe9cfe
+  YTKNetwork: a096f80c18c7e7cc0e623a0fbea0a1bfd3f5bcf2
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+
+PODFILE CHECKSUM: 06da72f4b477805534a9716c638396d0df01a6c3
+
+COCOAPODS: 1.9.1
