@@ -12,7 +12,7 @@
 #import <CoreMotion/CoreMotion.h>
 #import "NYSAboutViewController.h"
 
-#define HEADER_HEIGHT RealValue(230)
+#define HEADER_HEIGHT RealValue(260)
 
 @interface NYSMeViewController ()
 <

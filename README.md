@@ -12,8 +12,9 @@ AppDemo
     * 用户管理                  `User Manager`
     * 广告管理                  `AD Manager`
     * 主题管理                  `Theme Manager`
-    * 核心动画                  `CoreAnimation`
     * 新特性页                  `NewFeature`
+    * 核心动画                  `CoreAnimation`
+    * 苹果登录                  `Sign With Apple`
     * 自动填充                  `Autofill iOS 12.0`
     * 自定义TabBar              `CALayer、UIBezierPath`
     * IM+推送+分享+统计+第三方登录 `IM+Push+Share+Statistical`
@@ -22,10 +23,10 @@ AppDemo
 ```ruby
 cd ../AppDemo-master/AppDemo
 
-pod update
+pod install
 ```
 
-## ScreenShot:
+## Screenshot:
 ![image](https://github.com/niyongsheng/niyongsheng.github.io/blob/master/Document/AppDemoScreenshot/AppDemo_1.gif)
 
 ## [Auto Fill](https://github.com/niyongsheng/AppDemo/blob/master/AutoFill.md):

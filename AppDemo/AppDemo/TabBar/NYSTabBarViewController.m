@@ -41,7 +41,7 @@
     [super viewDidLoad];
     
     // KVC替换tabbar
-    NYSBlugeTabBar *myTabBar = [[NYSBlugeTabBar alloc] initWithStandOutHeight:StandOutHeight radius:27.0f strokelineWidth:0.7f];
+    NYSBlugeTabBar *myTabBar = [[NYSBlugeTabBar alloc] initWithStandOutHeight:StandOutHeight radius:27.0f strokelineWidth:0.45f];
     myTabBar.tabBarItemY = RealValue(15.0);
     myTabBar.centerTabBarItemY = isIphonex ? RealValue(-10) : -1;
     myTabBar.alpha = 0.95;
