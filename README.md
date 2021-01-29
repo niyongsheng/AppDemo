@@ -2,7 +2,6 @@
 AppDemo
 ===
 [![](https://img.shields.io/badge/platform-iOS-orange.svg)](https://developer.apple.com/ios/)
-[![](http://img.shields.io/travis/CocoaPods/CocoaPods/master.svg?style=flat)](https://travis-ci.org/CocoaPods/AppDemo)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/niyongsheng/AppDemo/blob/master/LICENSE)
 ===
 > 基于[NYSKit](https://github.com/niyongsheng/NYSKit)的ios项目模板 <br>
