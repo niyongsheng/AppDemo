@@ -21,7 +21,7 @@ target 'AppDemo' do
   pod 'NYSTK','~>0.0.6'
   pod 'JXCategoryView'
   pod 'JXPagingView/Pager'
-  #  pod 'SGPagingView'
+#  pod 'SGPagingView'
 #  pod 'AXWebViewController'
 #  pod 'WMZBanner'
 #  pod 'TXScrollLabelView', '1.3.2'
@@ -41,6 +41,6 @@ target 'AppDemo' do
   pod 'UMCCommonLog'
   pod 'UMengUShare/UI'
   pod 'UMengUShare/Social/ReducedWeChat'
-  pod 'UMengUShare/Social/ReducedQQ'
-  pod 'UMengUShare/Social/ReducedSina‘
+#  pod 'UMengUShare/Social/ReducedQQ'
+#  pod 'UMengUShare/Social/ReducedSina‘
 end

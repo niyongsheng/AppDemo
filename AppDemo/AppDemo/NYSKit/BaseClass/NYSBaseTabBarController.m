@@ -26,7 +26,7 @@
     NSMutableArray *subControllers = [[NSMutableArray alloc] init];
     for (NSDictionary *viewController in VCArray) {
         NYSBaseNavigationController *navC = [[NYSBaseNavigationController alloc] initWithRootViewController:[[NSClassFromString(viewController[@"vc"]) alloc] init]];
-        navC.viewControllers.firstObject.title = viewController[@"itemTitle"];
+//        navC.viewControllers.firstObject.title = viewController[@"itemTitle"];
         navC.tabBarItem.title = viewController[@"itemTitle"];
         navC.tabBarItem.image = [UIImage imageNamed:viewController[@"normalImg"]];
         navC.tabBarItem.selectedImage = [UIImage imageNamed:viewController[@"selectImg"]];

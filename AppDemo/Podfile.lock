@@ -41,10 +41,6 @@ PODS:
   - UMengUShare/Core (6.4.8.2):
     - UMengUShare/Network
   - UMengUShare/Network (6.4.8.2)
-  - UMengUShare/Social/ReducedQQ (6.4.8.2):
-    - UMengUShare/Core
-  - UMengUShare/Social/ReducedSina (6.4.8.2):
-    - UMengUShare/Core
   - UMengUShare/Social/ReducedWeChat (6.4.8.2):
     - UMengUShare/Core
   - UMengUShare/UI (6.4.8.2):
@@ -72,8 +68,6 @@ DEPENDENCIES:
   - SVProgressHUD
   - UMCCommon
   - UMCCommonLog
-  - UMengUShare/Social/ReducedQQ
-  - UMengUShare/Social/ReducedSina
   - UMengUShare/Social/ReducedWeChat
   - UMengUShare/UI
   - XHLaunchAd
@@ -127,6 +121,6 @@ SPEC CHECKSUMS:
   YTKNetwork: a096f80c18c7e7cc0e623a0fbea0a1bfd3f5bcf2
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: da54a52a20e734997b085ee922c4cc53d71df4a2
+PODFILE CHECKSUM: 671781b509dc830e3e6ab6b0c4321f9cc45fab32
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.0

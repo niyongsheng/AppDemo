@@ -32,6 +32,8 @@ XRWaterfallLayoutDelegate
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setTitle:@"Home"];
+    
     [self initNavItem];
     [self initUI];
     [self.collectionView.mj_footer beginRefreshing];
@@ -97,7 +99,7 @@ XRWaterfallLayoutDelegate
     
     // 模拟网络加载
     WS(weakSelf);
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         for (NSString *json in dictArr) {
             [weakSelf.collectionDataArray insertObject:[NYSHomeModel modelWithJSON:json] atIndex:0];
         }
@@ -122,7 +124,7 @@ XRWaterfallLayoutDelegate
     
     if (self.pageNum < pageSize) {
         WS(weakSelf);
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.9f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             for (NSString *json in dictArr) {
                 [weakSelf.collectionDataArray addObject:[NYSHomeModel modelWithJSON:json]];
             }

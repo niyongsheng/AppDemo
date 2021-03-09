@@ -43,6 +43,7 @@ UITableViewDataSource
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setTitle:@"Me"];
     
     self.tableView.mj_header = nil;
     self.tableView.mj_footer = nil;
