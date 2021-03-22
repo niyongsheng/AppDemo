@@ -76,14 +76,26 @@
 
 /// navigation delegate hidden method
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    
+
     if ([viewController isKindOfClass:[NYSBaseViewController class]]) {
         NYSBaseViewController *vc = (NYSBaseViewController *)viewController;
         if (vc.isHidenNaviBar) {
-            vc.view.top = 0;
+//            vc.view.top = 0;
             [vc.navigationController setNavigationBarHidden:YES animated:animated];
         } else {
-            vc.view.top = NTopHeight;
+//            vc.view.top = NTopHeight;
+            [vc.navigationController setNavigationBarHidden:NO animated:animated];
+        }
+    }
+}
+
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+
+    if ([viewController isKindOfClass:[NYSBaseViewController class]]) {
+        NYSBaseViewController *vc = (NYSBaseViewController *)viewController;
+        if (vc.isHidenNaviBar) {
+            [vc.navigationController setNavigationBarHidden:YES animated:animated];
+        } else {
             [vc.navigationController setNavigationBarHidden:NO animated:animated];
         }
     }

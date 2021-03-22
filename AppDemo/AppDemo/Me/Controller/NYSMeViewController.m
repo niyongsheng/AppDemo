@@ -234,8 +234,10 @@ UITableViewDataSource
             }
                 break;
                 
-            case 1:
-                [self.navigationController pushViewController:[NYSAboutViewController new] animated:YES];
+            case 1: {
+                NYSAboutViewController *aboutVC = [NYSAboutViewController new];
+                [self.navigationController pushViewController:aboutVC animated:YES];
+            }
                 break;
                 
             default:

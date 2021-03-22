@@ -40,6 +40,7 @@
     if (@available(iOS 11.0, *)) {
         self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeNever;
     }
+//    self.isHidenNaviBar = YES;
     
     [self initNavItem];
     
