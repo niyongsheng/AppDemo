@@ -466,11 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				C884CAF424C2C266008774A0 /* AppDemo.entitlements */,
-				C891E7FC24B80FFD00AF0019 /* TabBar */,
-				C891E7EA24B80B1900AF0019 /* Login */,
-				C891E7EB24B80D3800AF0019 /* Home */,
-				C8C58D4724B9645600CFB68F /* GitHub */,
-				C8E0D98C250B3295009CE1AB /* Me */,
+				C8A495B02685D8CF00CCECF5 /* Modules */,
 				C891E80E24B8141900AF0019 /* NYSKit */,
 				C891E80D24B8126D00AF0019 /* Supporting Files */,
 			);
@@ -721,6 +717,18 @@
 				C8E0D983250B0957009CE1AB /* NYSHomeModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		C8A495B02685D8CF00CCECF5 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				C891E7FC24B80FFD00AF0019 /* TabBar */,
+				C891E7EA24B80B1900AF0019 /* Login */,
+				C891E7EB24B80D3800AF0019 /* Home */,
+				C8C58D4724B9645600CFB68F /* GitHub */,
+				C8E0D98C250B3295009CE1AB /* Me */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		C8C431A124BC34B70041311C /* UserManager */ = {
@@ -1273,7 +1281,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AppDemo/AppDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F9J739W8Y4;
+				DEVELOPMENT_TEAM = N92S3NU839;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AppDemo/NYSKit/Headers/PrefixHeader.pch";
 				INFOPLIST_FILE = "AppDemo/Supporting Files/Info.plist";
@@ -1281,7 +1289,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.niyongsheng.appdemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.niyongsheng.appdemo.TEST;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AppDemo/NYSKit/Headers/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1298,7 +1306,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = AppDemo/AppDemo.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F9J739W8Y4;
+				DEVELOPMENT_TEAM = N92S3NU839;
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/AppDemo/NYSKit/Headers/PrefixHeader.pch";
 				INFOPLIST_FILE = "AppDemo/Supporting Files/Info.plist";
@@ -1306,7 +1314,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.niyongsheng.appdemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.niyongsheng.appdemo.TEST;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AppDemo/NYSKit/Headers/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
