@@ -9,7 +9,6 @@
 #import "AppDelegate+AppService.h"
 #import <UMSocialCore/UMSocialCore.h>
 #import <UMCommon/UMCommon.h>
-#import <UMCommon/MobClick.h>
 #import <UMCommonLog/UMCommonLogManager.h>
 
 #import "NYSBaseWindow.h"
@@ -136,7 +135,7 @@
     [UMConfigure initWithAppkey:UMengKey channel:@"App Store"];
     [UMCommonLogManager setUpUMCommonLogManager];
     [UMConfigure setLogEnabled:YES];
-    [MobClick setCrashReportEnabled:YES];
+    [UMConfigure setAnalyticsEnabled:YES];
     
     [self configUSharePlatforms];
 }

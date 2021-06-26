@@ -8,7 +8,7 @@
 
 #import "NYSMeViewController.h"
 #import "TableViewAnimationKit.h"
-#import "Model.h"
+#import "MeModel.h"
 #import <CoreMotion/CoreMotion.h>
 #import "NYSAboutViewController.h"
 
@@ -55,12 +55,13 @@ UITableViewDataSource
     self.tableView.contentInset = UIEdgeInsetsMake(-60, 0, 0, 0);
     [self.view addSubview:self.tableView];
     
+    self.imgView.center = CGPointMake(self.headerView.center.x, 90);
+    self.nameLabel.frame = CGRectMake(0, self.imgView.bottom + 10, self.view.width, 25);
+    self.segmentedControl.center = CGPointMake(self.headerView.center.x, self.nameLabel.center.y + 50);
+
     [self.headerView addSubview:self.imgView];
-    self.imgView.center = CGPointMake(self.headerView.center.x, self.headerView.center.y - 60);
     [self.headerView addSubview:self.nameLabel];
-    self.nameLabel.frame = CGRectMake(0, self.imgView.frame.size.height + self.imgView.frame.origin.y + 10, self.view.frame.size.width, 25);
     [self.headerView addSubview:self.segmentedControl];
-    self.segmentedControl.center = CGPointMake(self.headerView.center.x, self.nameLabel.center.y + 40);
     self.tableView.tableHeaderView = self.headerView;
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleDone target:self action:@selector(rightBarClicked:)];
@@ -101,13 +102,13 @@ UITableViewDataSource
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    Model *model = self.dataSource[section];
-    return model.titles.count;
+    MeModel *MeModel = self.dataSource[section];
+    return MeModel.titles.count;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    Model *model = self.dataSource[section];
-    return model.header;
+    MeModel *MeModel = self.dataSource[section];
+    return MeModel.header;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -118,7 +119,7 @@ UITableViewDataSource
     if (!vHeader) {
         vHeader = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:header];
     }
-    vHeader.tintColor = [UIColor blackColor];
+//    vHeader.tintColor = [UIColor blackColor];
     vHeader.textLabel.text = [self tableView:tableView titleForHeaderInSection:section];
 
     return vHeader;
@@ -131,13 +132,13 @@ UITableViewDataSource
     cell.backgroundColor = [UIColor clearColor];
     cell.imageView.image = [UIImage imageNamed:@"icon_me_item"];
     
-    Model *model = self.dataSource[indexPath.section];
-    NSString *str = [[model titles] count] > 0 ? [model titles][indexPath.row] : [[model header] stringByAppendingFormat:@" %zd", indexPath.row];
+    MeModel *MeModel = self.dataSource[indexPath.section];
+    NSString *str = [[MeModel titles] count] > 0 ? [MeModel titles][indexPath.row] : [[MeModel header] stringByAppendingFormat:@" %zd", indexPath.row];
     cell.textLabel.text = str;
     cell.textLabel.lee_theme.LeeAddTextColor(DAY, [UIColor grayColor]);
     cell.textLabel.lee_theme.LeeAddTextColor(NIGHT, [UIColor whiteColor]);
     
-    NSString *detailStr = [model detailTitles][indexPath.row];
+    NSString *detailStr = [MeModel detailTitles][indexPath.row];
     cell.detailTextLabel.text = detailStr;
     cell.detailTextLabel.lee_theme.LeeAddTextColor(DAY, [UIColor lightGrayColor]);
     cell.detailTextLabel.lee_theme.LeeAddTextColor(NIGHT, [UIColor colorWithWhite:1.0f alpha:0.5f]);
@@ -246,24 +247,33 @@ UITableViewDataSource
     }
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat sectionHeaderHeight = 40;
+    if (scrollView.contentOffset.y <= sectionHeaderHeight && scrollView.contentOffset.y >= 0) {
+        scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
+    } else if (scrollView.contentOffset.y >= sectionHeaderHeight) {
+        scrollView.contentInset = UIEdgeInsetsMake(-sectionHeaderHeight, 0, 0, 0);
+    }
+}
+
 #pragma mark - getter / setter
 - (NSArray *)dataSource {
     if (!_dataSource) {
-        Model *model_1 = [Model new];
+        MeModel *model_1 = [MeModel new];
         model_1.header = @"Profession Properties";
         model_1.titles = @[@"Sign In", @"Sport Message"];
         
-        Model *model_2 = [Model new];
+        MeModel *model_2 = [MeModel new];
         model_2.header = @"Business Demo";
-        model_2.titles = @[@"BD_1", @"BD_2", @"BD_3", @"BD_4"];
+        model_2.titles = @[@"Item_1", @"Item_2", @"Item_3", @"Item_4"];
         model_2.detailTitles = @[@"None", @"None", @"None", @"None"];
         
-        Model *model_3 = [Model new];
+        MeModel *model_3 = [MeModel new];
         model_3.header = @"App Config";
         model_3.titles = @[@"Setting", @"Share Panel", @"Clear Refuse"];
         model_3.detailTitles = @[@"system", @"third", @"memory"];
         
-        Model *model_4 = [Model new];
+        MeModel *model_4 = [MeModel new];
         model_4.header = @"App Info";
         model_4.titles = @[@"APIs", @"About Our"];
         model_4.detailTitles = @[@"api document", @""];
@@ -310,7 +320,7 @@ UITableViewDataSource
 
 - (UISegmentedControl *)segmentedControl {
     if (!_segmentedControl) {
-        _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Light Model", @"Dark Model"]];
+        _segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Light MeModel", @"Dark MeModel"]];
         _segmentedControl.tintColor = [UIColor lightGrayColor];
         _segmentedControl.selectedSegmentIndex = 0;
         [_segmentedControl addTarget:self action:@selector(didClicksegmentedControlAction:) forControlEvents:UIControlEventValueChanged];

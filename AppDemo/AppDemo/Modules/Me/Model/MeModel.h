@@ -1,5 +1,5 @@
 //
-//  Model.h
+//  MeModel.h
 //  NYSTKDemo
 //
 //  Created by 倪永胜 on 2020/9/4.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Model : NSObject
+@interface MeModel : NSObject
 @property (copy, nonatomic) NSString *header;
 @property (assign, nonatomic) NSInteger tintModel;
 @property (strong, nonatomic) NSArray *titles;

@@ -6,38 +6,68 @@ PODS:
   - AFNetworking/Reachability (4.0.1)
   - AFNetworking/Security (4.0.1)
   - AFNetworking/Serialization (4.0.1)
-  - FLAnimatedImage (1.0.12)
+  - ChameleonFramework (2.1.0):
+    - ChameleonFramework/Default (= 2.1.0)
+  - ChameleonFramework/Default (2.1.0)
+  - FLAnimatedImage (1.0.15)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
   - IQKeyboardManager (6.5.6)
-  - JCore (2.3.4)
-  - JPush (3.3.6):
+  - JCore (2.4.0)
+  - JPush (3.4.0):
     - JCore (< 3.0.0, >= 2.0.0)
-  - JXCategoryView (1.5.6)
-  - JXPagingView/Pager (2.0.12)
+  - JXCategoryView (1.5.8)
+  - JXPagingView/Pager (2.0.13)
   - Masonry (1.1.0)
   - MJRefresh (3.5.0)
   - NYSTK (0.0.6):
     - Masonry (>= 1.0.0)
     - ReactiveObjC (>= 1.0.1)
   - ReactiveObjC (3.1.1)
-  - RongCloudIM (4.0.2):
-    - RongCloudIM/IMKit (= 4.0.2)
-    - RongCloudIM/IMLib (= 4.0.2)
-    - RongCloudIM/RongSticker (= 4.0.2)
-    - RongCloudIM/Sight (= 4.0.2)
-  - RongCloudIM/IMKit (4.0.2):
+  - RongCloudIM (5.0.0):
+    - RongCloudIM/ChatRoom (= 5.0.0)
+    - RongCloudIM/CustomerService (= 5.0.0)
+    - RongCloudIM/Discussion (= 5.0.0)
+    - RongCloudIM/IMKit (= 5.0.0)
+    - RongCloudIM/IMLib (= 5.0.0)
+    - RongCloudIM/IMLibCore (= 5.0.0)
+    - RongCloudIM/Location (= 5.0.0)
+    - RongCloudIM/PublicService (= 5.0.0)
+    - RongCloudIM/RongSticker (= 5.0.0)
+    - RongCloudIM/Sight (= 5.0.0)
+  - RongCloudIM/ChatRoom (5.0.0):
+    - RongCloudIM/IMLibCore
+  - RongCloudIM/CustomerService (5.0.0):
+    - RongCloudIM/IMLibCore
+  - RongCloudIM/Discussion (5.0.0):
+    - RongCloudIM/IMLibCore
+  - RongCloudIM/IMKit (5.0.0):
     - RongCloudIM/IMLib
-  - RongCloudIM/IMLib (4.0.2)
-  - RongCloudIM/RongSticker (4.0.2):
+  - RongCloudIM/IMLib (5.0.0):
+    - RongCloudIM/ChatRoom
+    - RongCloudIM/CustomerService
+    - RongCloudIM/Discussion
+    - RongCloudIM/IMLibCore
+    - RongCloudIM/Location
+    - RongCloudIM/PublicService
+  - RongCloudIM/IMLibCore (5.0.0)
+  - RongCloudIM/Location (5.0.0):
+    - RongCloudIM/IMLibCore
+  - RongCloudIM/PublicService (5.0.0):
+    - RongCloudIM/IMLibCore
+  - RongCloudIM/RongSticker (5.0.0):
     - RongCloudIM/IMKit
-  - RongCloudIM/Sight (4.0.2):
+  - RongCloudIM/Sight (5.0.0):
     - RongCloudIM/IMKit
   - SDAutoLayout (2.2.1)
   - SVProgressHUD (2.2.5)
-  - UMCCommon (7.1.1)
+  - UMAPM (1.1.1)
+  - UMCCommon (7.2.5):
+    - UMAPM
+    - UMDevice
   - UMCCommonLog (2.0.0)
+  - UMDevice (1.1.0)
   - UMengUShare/Core (6.4.8.2):
     - UMengUShare/Network
   - UMengUShare/Network (6.4.8.2)
@@ -47,13 +77,14 @@ PODS:
     - UMengUShare/Core
   - XHLaunchAd (3.9.12):
     - FLAnimatedImage (~> 1.0.12)
-  - YTKNetwork (3.0.4):
+  - YTKNetwork (3.0.5):
     - AFNetworking/NSURLSession (~> 4.0)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
+  - ChameleonFramework
   - FMDB
   - IQKeyboardManager
   - JPush
@@ -77,6 +108,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
+    - ChameleonFramework
     - FLAnimatedImage
     - FMDB
     - IQKeyboardManager
@@ -91,8 +123,10 @@ SPEC REPOS:
     - RongCloudIM
     - SDAutoLayout
     - SVProgressHUD
+    - UMAPM
     - UMCCommon
     - UMCCommonLog
+    - UMDevice
     - UMengUShare
     - XHLaunchAd
     - YTKNetwork
@@ -100,27 +134,30 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
-  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  FLAnimatedImage: dd3db277b17e909ec3c7fd41adfce79b321d960e
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
-  JCore: 8aa29dc57ba3730dd9fe7544ce1a4e1cbe221135
-  JPush: a401b946dcc76b37335422487201bc1ecc8dd296
-  JXCategoryView: 603ccd8277a89b1a73e9cedb9d8ed4b294576008
-  JXPagingView: 8271bfc6b380ccaf7af8c3075ab162245e96a4c9
+  JCore: a29e4b0ee54e1301446dc02d8e1c350404108b34
+  JPush: defaa108c38806f6efdcfaf4c416854d25fca8e5
+  JXCategoryView: 778a620f76070d6598fd8d7239991b8da8326170
+  JXPagingView: 821ed274f09eaf2843a96c3a74e9d138e27d9730
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   NYSTK: f12ac9e3fea7ccf8db2efbb628d1f7b20f9a9565
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
-  RongCloudIM: 8a068b5c6bd6fb2e770a5f245fcd9d6832296515
+  RongCloudIM: e915e63a1ec35a6bbf4ddbfa8db3dff6b7ff19c6
   SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  UMCCommon: f455f92c125342e360d6ad9eafe484945351eeb5
+  UMAPM: d0623e0b3ca8b1a1df855e0bddb91b5c002d097d
+  UMCCommon: f7480d316381612f90cdde3a3c0f39a7e2c0a788
   UMCCommonLog: 9b7ddde5d14a52fc1986ba5ac3121b8b2f433638
+  UMDevice: 28d21a568c8e8322e5a03bbd53b138d0c098d3b3
   UMengUShare: 370d180101e13ee0227ae657ab119ba97243d2b3
   XHLaunchAd: 6320f9c68732667323072fc3a5f104e40fbe9cfe
-  YTKNetwork: a096f80c18c7e7cc0e623a0fbea0a1bfd3f5bcf2
+  YTKNetwork: a2337af4b444b5d0a658122fa3d8a425e2425716
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 671781b509dc830e3e6ab6b0c4321f9cc45fab32
+PODFILE CHECKSUM: c9d7cdbd82a93648e6c906087460fe9a91b5f373
 
 COCOAPODS: 1.10.0

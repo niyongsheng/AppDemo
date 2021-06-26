@@ -2,6 +2,7 @@ platform :ios, '10.0'
 use_frameworks!
 inhibit_all_warnings!
 source 'https://github.com/CocoaPods/Specs.git'
+
 target 'AppDemo' do
   # Core
   pod 'YYKit'
@@ -17,6 +18,7 @@ target 'AppDemo' do
   pod 'IQKeyboardManager'
   pod 'SVProgressHUD'
   pod 'IQKeyboardManager'
+  pod 'ChameleonFramework'
   pod 'XHLaunchAd'
   pod 'NYSTK','~>0.0.6'
   pod 'JXCategoryView'

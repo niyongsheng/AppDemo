@@ -106,7 +106,7 @@
 		C8E0D988250B09C1009CE1AB /* XRWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E0D987250B09C1009CE1AB /* XRWaterfallLayout.m */; };
 		C8E0D98B250B2271009CE1AB /* UIImage+NYS.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E0D98A250B2271009CE1AB /* UIImage+NYS.m */; };
 		C8E0D98F250B32EB009CE1AB /* NYSMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E0D98E250B32EB009CE1AB /* NYSMeViewController.m */; };
-		C8E0D994250B3368009CE1AB /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E0D992250B3368009CE1AB /* Model.m */; };
+		C8E0D994250B3368009CE1AB /* MeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E0D992250B3368009CE1AB /* MeModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -281,8 +281,8 @@
 		C8E0D98A250B2271009CE1AB /* UIImage+NYS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+NYS.m"; sourceTree = "<group>"; };
 		C8E0D98D250B32EB009CE1AB /* NYSMeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSMeViewController.h; sourceTree = "<group>"; };
 		C8E0D98E250B32EB009CE1AB /* NYSMeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSMeViewController.m; sourceTree = "<group>"; };
-		C8E0D992250B3368009CE1AB /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
-		C8E0D993250B3368009CE1AB /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		C8E0D992250B3368009CE1AB /* MeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeModel.m; sourceTree = "<group>"; };
+		C8E0D993250B3368009CE1AB /* MeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeModel.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -902,8 +902,8 @@
 		C8E0D991250B3356009CE1AB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C8E0D993250B3368009CE1AB /* Model.h */,
-				C8E0D992250B3368009CE1AB /* Model.m */,
+				C8E0D993250B3368009CE1AB /* MeModel.h */,
+				C8E0D992250B3368009CE1AB /* MeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1090,7 +1090,7 @@
 				C85F5D8A2512197300798999 /* NYSUserProtoclViewController.m in Sources */,
 				C8C431A024BC349C0041311C /* ThemeManager.m in Sources */,
 				C8C58D5B24B9B16B00CFB68F /* NYSCommunity.m in Sources */,
-				C8E0D994250B3368009CE1AB /* Model.m in Sources */,
+				C8E0D994250B3368009CE1AB /* MeModel.m in Sources */,
 				C8253D3E24B8782100BA4291 /* IMDataSource.m in Sources */,
 				C8E0D981250B0943009CE1AB /* NYSActivityCollectionViewCell.m in Sources */,
 				C891E85E24B8562C00AF0019 /* UMManager.m in Sources */,
