@@ -11,5 +11,5 @@
 #import "JXCategoryListContainerView.h"
 
 @interface NYSJXCategoryItemViewController : NYSBaseViewController <JXCategoryListContentViewDelegate>
-
+@property (nonatomic, assign) NSInteger index;
 @end

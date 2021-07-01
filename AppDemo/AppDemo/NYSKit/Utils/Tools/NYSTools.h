@@ -113,6 +113,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 获取当前时间戳（单位：秒）
 + (NSString *)getNowTimeTimestamp;
 
+/// 拼音转换
+/// @param str content
++ (NSString *)transformToPinyin:(NSString *)str;
+
 @end
 
 NS_ASSUME_NONNULL_END

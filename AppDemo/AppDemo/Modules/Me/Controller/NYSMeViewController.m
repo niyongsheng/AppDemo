@@ -10,7 +10,11 @@
 #import "TableViewAnimationKit.h"
 #import "MeModel.h"
 #import <CoreMotion/CoreMotion.h>
+#import "NYSScrollImageViewController.h"
+#import "NYSCPTableViewController.h"
 #import "NYSAboutViewController.h"
+#import "NYSVoiceAnimationViewController.h"
+#import "YSCRippleView.h"
 
 #define HEADER_HEIGHT RealValue(260)
 
@@ -19,6 +23,7 @@
 UITableViewDelegate,
 UITableViewDataSource
 >
+@property (nonatomic, strong) YSCRippleView *rippleView;
 @property (nonatomic, strong) CMPedometer *pedometer;
 @property (nonatomic, strong) UIView *headerView;
 @property (nonatomic, strong) UIImageView *imgView;
@@ -41,28 +46,45 @@ UITableViewDataSource
     [TableViewAnimationKit overTurnAnimationWithTableView:self.tableView];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.rippleView removeFromParentView];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+    });
+}
+
+static void setupTableUI(NYSMeViewController *object) {
+    object.tableView.mj_header = nil;
+    object.tableView.mj_footer = nil;
+    object.tableView.delegate = object;
+    object.tableView.dataSource = object;
+    object.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    object.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    object.tableView.showsVerticalScrollIndicator = NO;
+    object.tableView.contentInset = UIEdgeInsetsMake(-60, 0, 0, 0);
+    [object.view addSubview:object.tableView];
+    
+    object.rippleView = [[YSCRippleView alloc] initWithFrame:object.headerView.bounds];
+    object.rippleView.centerY = 110;
+    object.imgView.center = CGPointMake(object.headerView.center.x, 90);
+    object.nameLabel.frame = CGRectMake(0, object.imgView.bottom + 10, object.view.width, 25);
+    object.segmentedControl.center = CGPointMake(object.headerView.center.x, object.nameLabel.center.y + 50);
+    
+    [object.headerView addSubview:object.rippleView];
+    [object.headerView addSubview:object.imgView];
+    [object.headerView addSubview:object.nameLabel];
+    [object.headerView addSubview:object.segmentedControl];
+    object.tableView.tableHeaderView = object.headerView;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTitle:@"Me"];
     
-    self.tableView.mj_header = nil;
-    self.tableView.mj_footer = nil;
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.tableView.showsVerticalScrollIndicator = NO;
-    self.tableView.contentInset = UIEdgeInsetsMake(-60, 0, 0, 0);
-    [self.view addSubview:self.tableView];
-    
-    self.imgView.center = CGPointMake(self.headerView.center.x, 90);
-    self.nameLabel.frame = CGRectMake(0, self.imgView.bottom + 10, self.view.width, 25);
-    self.segmentedControl.center = CGPointMake(self.headerView.center.x, self.nameLabel.center.y + 50);
+    setupTableUI(self);
+    [self.rippleView showWithRippleType:YSCRippleTypeLine];
 
-    [self.headerView addSubview:self.imgView];
-    [self.headerView addSubview:self.nameLabel];
-    [self.headerView addSubview:self.segmentedControl];
-    self.tableView.tableHeaderView = self.headerView;
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleDone target:self action:@selector(rightBarClicked:)];
     self.navigationItem.rightBarButtonItem = rightItem;
@@ -166,7 +188,28 @@ UITableViewDataSource
                                          emitterType:NYSTKEmitterAnimationTypeColourbar
                                           themeModel:NYSTKThemeModelLight
                               infoButtonClickedBlock:^{
-                    
+                    self.pedometer = [[CMPedometer alloc] init];
+                    if ([CMPedometer isStepCountingAvailable]) {
+                        // 获取昨天的步数与距离数据
+                        [self->_pedometer queryPedometerDataFromDate:[self zeroOfDate] toDate:[NSDate dateWithTimeIntervalSinceNow:0] withHandler:^(CMPedometerData * _Nullable pedometerData, NSError * _Nullable error) {
+                            if (error) {
+                                [SVProgressHUD showErrorWithStatus:[error description]];
+                                [SVProgressHUD dismissWithDelay:2.0f];
+                            } else {
+                                NSString *message = [NSString stringWithFormat:@"Steps Num:%@, %.1fkm.", pedometerData.numberOfSteps, pedometerData.distance.floatValue/1000];
+                                dispatch_async(dispatch_get_main_queue(), ^{
+                                    [NYSTKAlert showColorfulToastWithMessage:message
+                                          type:NYSTKColorfulToastTypeBlueFlower
+                                     direction:NYSTKComeInDirectionDown
+                                        onView:NAppWindow
+                                    themeModel:NYSTKThemeModelLight];
+                                });
+                            }
+                        }];
+                    } else {
+                        [SVProgressHUD showErrorWithStatus:@"Pedometer not available!"];
+                        [SVProgressHUD dismissWithDelay:1.f];
+                    }
                 } closeButtonClickedBlock:^{
                     
                 }];
@@ -174,28 +217,7 @@ UITableViewDataSource
                 break;
                 
             case 1: {
-                self.pedometer = [[CMPedometer alloc] init];
-                if ([CMPedometer isStepCountingAvailable]) {
-                    // 获取昨天的步数与距离数据
-                    [_pedometer queryPedometerDataFromDate:[self zeroOfDate] toDate:[NSDate dateWithTimeIntervalSinceNow:0] withHandler:^(CMPedometerData * _Nullable pedometerData, NSError * _Nullable error) {
-                        if (error) {
-                            [SVProgressHUD showErrorWithStatus:[error description]];
-                            [SVProgressHUD dismissWithDelay:2.0f];
-                        } else {
-                            NSString *message = [NSString stringWithFormat:@"Steps Num:%@, %.1fkm.", pedometerData.numberOfSteps, pedometerData.distance.floatValue/1000];
-                            dispatch_async(dispatch_get_main_queue(), ^{
-                                [NYSTKAlert showColorfulToastWithMessage:message
-                                      type:NYSTKColorfulToastTypeBlueFlower
-                                 direction:NYSTKComeInDirectionDown
-                                    onView:NAppWindow
-                                themeModel:NYSTKThemeModelLight];
-                            });
-                        }
-                    }];
-                } else {
-                    [SVProgressHUD showErrorWithStatus:@"Pedometer not available!"];
-                    [SVProgressHUD dismissWithDelay:1.f];
-                }
+                [self.navigationController pushViewController:NYSScrollImageViewController.new animated:YES];
             }
                 break;
                 
@@ -203,7 +225,19 @@ UITableViewDataSource
                 break;
         }
     } else if (indexPath.section == 1) {
-        [NYSTKAlert showToastWithMessage:@"Undefined Item !" themeModel:NYSTKThemeModelLight];
+        switch (indexPath.row) {
+            case 0:
+                [self.navigationController pushViewController:NYSCPTableViewController.new animated:YES];
+                break;
+            case 1:
+                [self.navigationController pushViewController:NYSVoiceAnimationViewController.new animated:YES];
+                break;
+                
+            default:
+                [NYSTKAlert showToastWithMessage:@"Undefined Item !" themeModel:NYSTKThemeModelLight];
+                break;
+        }
+        
     } else if (indexPath.section == 2) {
         switch (indexPath.row) {
             case 0: {
@@ -261,12 +295,12 @@ UITableViewDataSource
     if (!_dataSource) {
         MeModel *model_1 = [MeModel new];
         model_1.header = @"Profession Properties";
-        model_1.titles = @[@"Sign In", @"Sport Message"];
+        model_1.titles = @[@"Sign In", @"Scroll image"];
         
         MeModel *model_2 = [MeModel new];
         model_2.header = @"Business Demo";
-        model_2.titles = @[@"Item_1", @"Item_2", @"Item_3", @"Item_4"];
-        model_2.detailTitles = @[@"None", @"None", @"None", @"None"];
+        model_2.titles = @[@"Dial Code", @"Voice Animation", @"Item_3", @"Item_4"];
+        model_2.detailTitles = @[@"International area code", @"None", @"None", @"None"];
         
         MeModel *model_3 = [MeModel new];
         model_3.header = @"App Config";

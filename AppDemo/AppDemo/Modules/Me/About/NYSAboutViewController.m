@@ -116,6 +116,8 @@
 /** 加载AppStore上详情页 */
 - (void)loadAppStoreControllerWithAppID:(NSString *)appID {
     [SVProgressHUD showWithStatus:@"正在加载"];
+    [SVProgressHUD dismissWithDelay:1.5f];
+    
     // 初始化控制器
     SKStoreProductViewController *storeProductViewContorller = [[SKStoreProductViewController alloc] init];
     

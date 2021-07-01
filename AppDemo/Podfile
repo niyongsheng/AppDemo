@@ -5,13 +5,13 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 target 'AppDemo' do
   # Core
-  pod 'YYKit'
   pod 'ReactiveObjC'
   pod 'Masonry'
+  pod 'YYKit'
   pod 'SDAutoLayout'
-#  pod 'AsyncDisplayKit', '2.2'
   pod 'YTKNetwork'
   pod 'FMDB'
+  #  pod 'AsyncDisplayKit', '2.2'
 
   # UI_Component
   pod 'MJRefresh'

@@ -7,6 +7,7 @@
 //
 
 #import "NYSActivityCollectionViewCell.h"
+#import "NYSIconTextLayer.h"
 #import "UIImage+NYS.h"
 #import "NYSHomeModel.h"
 
@@ -15,18 +16,19 @@
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *memberCount;
 @property (weak, nonatomic) IBOutlet UILabel *introduction;
-@property (weak, nonatomic) IBOutlet UILabel *community;
 @property (weak, nonatomic) IBOutlet UIButton *joinBtn;
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet UIButton *bgBtnView;
+@property (weak, nonatomic) IBOutlet UIView *bootmView;
+@property (strong, nonatomic) NYSIconTextLayer *localLayer;
 @end
 
 @implementation NYSActivityCollectionViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-
+    
     self.icon.contentMode = UIViewContentModeScaleAspectFill;
     self.icon.layer.cornerRadius = 30;
     self.icon.layer.masksToBounds = YES;
@@ -36,6 +38,11 @@
     
     self.joinBtn.layer.cornerRadius = 10;
     self.joinBtn.layer.masksToBounds = YES;
+}
+
+- (void)layoutSubviews {
+    self.localLayer.hidden = YES;
+    self.localLayer.frame = CGRectMake(15, _bootmView.centerY - 12, 20, 15);
 }
 
 - (UICollectionViewLayoutAttributes*)preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes*)layoutAttributes {
@@ -63,6 +70,13 @@
     self.topView.hidden = collectionModel.isRecommend ? NO : YES;
     self.memberCount.text = [NSString stringWithFormat:@"%ld", collectionModel.ID];
     self.introduction.text = collectionModel.desc;
+    
+    self.localLayer.icon = [UIImage imageNamed:@"location_8x10_"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.localLayer.hidden = NO;
+        self.localLayer.text = @"GitHub";
+    });
+    
 }
 
 - (IBAction)joinClicked:(UIButton *)sender {
@@ -70,6 +84,15 @@
     
     SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:self.collectionModel.url] entersReaderIfAvailable:YES];
     [self.fromViewController presentViewController:safariVC animated:YES completion:nil];
+}
+
+- (NYSIconTextLayer *)localLayer {
+    if (!_localLayer) {
+        _localLayer = [NYSIconTextLayer layer];
+        _localLayer.frame = CGRectZero;
+        [self.layer addSublayer:_localLayer];
+    }
+    return _localLayer;
 }
 
 @end

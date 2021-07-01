@@ -50,7 +50,7 @@
     self.categoryView.frame = CGRectMake(30, 20, NScreenWidth - 30*2, 60);
     self.myCategoryView.titles = self.titles;
     self.myCategoryView.titleColor = [UIColor whiteColor];
-    self.myCategoryView.titleSelectedColor = [UIColor redColor];
+    self.myCategoryView.titleSelectedColor = NAppThemeColor;
     self.myCategoryView.titleColorGradientEnabled = YES;
     self.myCategoryView.titleLabelZoomEnabled = YES;
 
@@ -165,6 +165,7 @@
 
 - (id<JXCategoryListContentViewDelegate>)listContainerView:(JXCategoryListContainerView *)listContainerView initListForIndex:(NSInteger)index {
     NYSJXCategoryItemViewController *list = [[NYSJXCategoryItemViewController alloc] init];
+    list.index = index;
     return list;
 }
 

@@ -305,4 +305,13 @@
     return timeSp;
 }
 
+/// 拼音转换
+/// @param str content
++ (NSString *)transformToPinyin:(NSString *)str {
+    NSMutableString *mutableString = [NSMutableString stringWithString:str];
+    CFStringTransform((CFMutableStringRef)mutableString, NULL, kCFStringTransformToLatin, false);
+    mutableString = (NSMutableString *)[mutableString stringByFoldingWithOptions:NSDiacriticInsensitiveSearch locale:[NSLocale currentLocale]];
+    return [mutableString stringByReplacingOccurrencesOfString:@"'" withString:@""];
+}
+
 @end

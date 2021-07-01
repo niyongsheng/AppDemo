@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,16 +20,13 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hVw-Im-Xhb">
                         <rect key="frame" x="0.0" y="0.0" width="160" height="190"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aN2-KY-kB7">
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aN2-KY-kB7">
                                 <rect key="frame" x="0.0" y="0.0" width="160" height="190"/>
                                 <state key="normal" backgroundImage="act_1"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0r7-Di-HvU">
                                 <rect key="frame" x="0.0" y="160" width="160" height="30"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location_8x10_" translatesAutoresizingMaskIntoConstraints="NO" id="ShE-pK-Trc">
-                                        <rect key="frame" x="10" y="10.5" width="8" height="9.5"/>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jl-PZ-xeo">
                                         <rect key="frame" x="110" y="5" width="40" height="20"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -38,37 +36,21 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <state key="normal" title="Info">
-                                            <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" systemColor="linkColor"/>
                                         </state>
                                         <connections>
                                             <action selector="joinClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="nvo-Tt-FlO"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GitHub" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxD-pe-fbF">
-                                        <rect key="frame" x="21" y="10" width="28" height="10"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                        <color key="textColor" red="0.96460121870000004" green="0.96476620440000005" blue="0.96459084750000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="0Jl-PZ-xeo" firstAttribute="centerY" secondItem="ShE-pK-Trc" secondAttribute="centerY" id="3Qa-rY-0vX"/>
-                                    <constraint firstItem="ShE-pK-Trc" firstAttribute="centerY" secondItem="0r7-Di-HvU" secondAttribute="centerY" id="8XG-Ux-zNa"/>
-                                    <constraint firstItem="0Jl-PZ-xeo" firstAttribute="centerY" secondItem="sxD-pe-fbF" secondAttribute="centerY" id="Dl3-B1-RFw"/>
-                                    <constraint firstItem="ShE-pK-Trc" firstAttribute="centerY" secondItem="0r7-Di-HvU" secondAttribute="centerY" id="EgJ-dN-Z48"/>
-                                    <constraint firstItem="0Jl-PZ-xeo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sxD-pe-fbF" secondAttribute="trailing" constant="20" id="GKh-dc-vN7"/>
-                                    <constraint firstItem="sxD-pe-fbF" firstAttribute="leading" secondItem="ShE-pK-Trc" secondAttribute="trailing" constant="3" id="JHt-Ut-yhA"/>
-                                    <constraint firstItem="sxD-pe-fbF" firstAttribute="centerY" secondItem="ShE-pK-Trc" secondAttribute="centerY" id="LB4-Yn-rWV"/>
+                                    <constraint firstItem="0Jl-PZ-xeo" firstAttribute="centerY" secondItem="0r7-Di-HvU" secondAttribute="centerY" id="LZ1-tZ-rph"/>
                                     <constraint firstAttribute="height" constant="30" id="MMD-uA-Pko"/>
-                                    <constraint firstItem="sxD-pe-fbF" firstAttribute="centerY" secondItem="ShE-pK-Trc" secondAttribute="centerY" id="Mrq-kW-CYl"/>
-                                    <constraint firstItem="ShE-pK-Trc" firstAttribute="centerY" secondItem="0r7-Di-HvU" secondAttribute="centerY" id="OiX-gS-4ed"/>
-                                    <constraint firstItem="ShE-pK-Trc" firstAttribute="leading" secondItem="0r7-Di-HvU" secondAttribute="leading" constant="10" id="UZe-kX-Ubz"/>
                                     <constraint firstAttribute="trailing" secondItem="0Jl-PZ-xeo" secondAttribute="trailing" constant="10" id="Zch-YZ-pVv"/>
-                                    <constraint firstItem="sxD-pe-fbF" firstAttribute="centerY" secondItem="0r7-Di-HvU" secondAttribute="centerY" id="oiu-8p-K1Y"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="custom_service_switch_to_admin.png" translatesAutoresizingMaskIntoConstraints="NO" id="NLW-5s-Ykc">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boat.png" translatesAutoresizingMaskIntoConstraints="NO" id="NLW-5s-Ykc">
                                 <rect key="frame" x="10" y="10" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="12L-Om-2ah"/>
@@ -167,7 +149,7 @@
             <connections>
                 <outlet property="bgBtnView" destination="aN2-KY-kB7" id="SNc-Mm-9ub"/>
                 <outlet property="bgView" destination="hVw-Im-Xhb" id="aCV-qQ-Rac"/>
-                <outlet property="community" destination="sxD-pe-fbF" id="ggt-HY-XIF"/>
+                <outlet property="bootmView" destination="0r7-Di-HvU" id="CeD-vV-Iob"/>
                 <outlet property="icon" destination="NLW-5s-Ykc" id="kru-Cb-lM9"/>
                 <outlet property="introduction" destination="Axr-Oa-ZAb" id="lDE-t8-T2u"/>
                 <outlet property="joinBtn" destination="0Jl-PZ-xeo" id="rwM-az-tUa"/>
@@ -181,9 +163,11 @@
     <resources>
         <image name="act_1" width="168" height="197.5"/>
         <image name="act_top" width="37" height="16"/>
-        <image name="custom_service_switch_to_admin.png" width="28" height="28"/>
-        <image name="location_8x10_" width="8" height="9.5"/>
+        <image name="boat.png" width="1708" height="1708"/>
         <image name="members_icon_9x8_" width="9" height="8.5"/>
         <image name="top_icon_9x10_" width="9" height="9.5"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
