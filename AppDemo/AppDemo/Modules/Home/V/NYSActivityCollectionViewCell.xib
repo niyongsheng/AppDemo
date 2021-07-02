@@ -22,7 +22,6 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aN2-KY-kB7">
                                 <rect key="frame" x="0.0" y="0.0" width="160" height="190"/>
-                                <state key="normal" backgroundImage="act_1"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0r7-Di-HvU">
                                 <rect key="frame" x="0.0" y="160" width="160" height="30"/>
@@ -161,7 +160,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="act_1" width="168" height="197.5"/>
         <image name="act_top" width="37" height="16"/>
         <image name="boat.png" width="1708" height="1708"/>
         <image name="members_icon_9x8_" width="9" height="8.5"/>

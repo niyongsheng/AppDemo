@@ -49,6 +49,8 @@
     [[AppManager sharedAppManager] showMemory];
 #endif
     
+//    [Chameleon setGlobalThemeUsingPrimaryColor:FlatMint withSecondaryColor:FlatBlue andContentStyle:UIContentStyleContrast];
+    
     return YES;
 }
 

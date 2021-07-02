@@ -54,6 +54,7 @@
 		C874E72E268C50AD00B20459 /* YSCNewVoiceWaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = C874E729268C50AC00B20459 /* YSCNewVoiceWaveView.m */; };
 		C874E731268C513000B20459 /* NYSVoiceAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C874E730268C513000B20459 /* NYSVoiceAnimationViewController.m */; };
 		C874E735268C529500B20459 /* YSCRippleView.m in Sources */ = {isa = PBXBuildFile; fileRef = C874E733268C529500B20459 /* YSCRippleView.m */; };
+		C874E8A4268EBB6300B20459 /* NYSScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C874E8A3268EBB6300B20459 /* NYSScrollViewController.m */; };
 		C884CAEF24C2B0CD008774A0 /* NYSSignHandleKeyChain.m in Sources */ = {isa = PBXBuildFile; fileRef = C884CAED24C2B0CD008774A0 /* NYSSignHandleKeyChain.m */; };
 		C884CAF324C2B11A008774A0 /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = C884CAF224C2B119008774A0 /* CMPopTipView.m */; };
 		C884CAF724C2CB88008774A0 /* NYSBasePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = C884CAF624C2CB88008774A0 /* NYSBasePresenter.m */; };
@@ -200,6 +201,8 @@
 		C874E730268C513000B20459 /* NYSVoiceAnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSVoiceAnimationViewController.m; sourceTree = "<group>"; };
 		C874E733268C529500B20459 /* YSCRippleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSCRippleView.m; sourceTree = "<group>"; };
 		C874E734268C529500B20459 /* YSCRippleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSCRippleView.h; sourceTree = "<group>"; };
+		C874E8A2268EBB6300B20459 /* NYSScrollViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSScrollViewController.h; sourceTree = "<group>"; };
+		C874E8A3268EBB6300B20459 /* NYSScrollViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSScrollViewController.m; sourceTree = "<group>"; };
 		C884CAED24C2B0CD008774A0 /* NYSSignHandleKeyChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSSignHandleKeyChain.m; sourceTree = "<group>"; };
 		C884CAEE24C2B0CD008774A0 /* NYSSignHandleKeyChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSSignHandleKeyChain.h; sourceTree = "<group>"; };
 		C884CAF124C2B119008774A0 /* CMPopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPopTipView.h; sourceTree = "<group>"; };
@@ -441,13 +444,13 @@
 			path = Autoscroll;
 			sourceTree = "<group>";
 		};
-		C874E701268AD8B600B20459 /* View */ = {
+		C874E701268AD8B600B20459 /* V */ = {
 			isa = PBXGroup;
 			children = (
 				C874E732268C529500B20459 /* Ripple */,
 				C874E6F4268AB6FC00B20459 /* Autoscroll */,
 			);
-			path = View;
+			path = V;
 			sourceTree = "<group>";
 		};
 		C874E705268C1F0E00B20459 /* CountryPhone */ = {
@@ -501,6 +504,15 @@
 				C874E733268C529500B20459 /* YSCRippleView.m */,
 			);
 			path = Ripple;
+			sourceTree = "<group>";
+		};
+		C874E8A1268EBB4500B20459 /* LayoutVC */ = {
+			isa = PBXGroup;
+			children = (
+				C874E8A2268EBB6300B20459 /* NYSScrollViewController.h */,
+				C874E8A3268EBB6300B20459 /* NYSScrollViewController.m */,
+			);
+			path = LayoutVC;
 			sourceTree = "<group>";
 		};
 		C87B220E24BC035400AB643F /* Utils */ = {
@@ -619,12 +631,9 @@
 		C891E7EB24B80D3800AF0019 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				C891E87324B8661E00AF0019 /* Model */,
-				C891E87224B8661400AF0019 /* View */,
-				C891E87124B8660500AF0019 /* Controller */,
-				C8C58D4224B9501800CFB68F /* IM */,
-				C8E0D96F250A4323009CE1AB /* JXCategoryView */,
-				C891E7EC24B80D7200AF0019 /* MVP */,
+				C891E87324B8661E00AF0019 /* M */,
+				C891E87224B8661400AF0019 /* V */,
+				C891E87124B8660500AF0019 /* C */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -816,16 +825,18 @@
 			path = NewFeature;
 			sourceTree = "<group>";
 		};
-		C891E87124B8660500AF0019 /* Controller */ = {
+		C891E87124B8660500AF0019 /* C */ = {
 			isa = PBXGroup;
 			children = (
+				C8C58D4224B9501800CFB68F /* IM */,
+				C8E0D96F250A4323009CE1AB /* JXCategoryView */,
 				C8E0D97B250B087D009CE1AB /* NYSHomeViewController.h */,
 				C8E0D97C250B087D009CE1AB /* NYSHomeViewController.m */,
 			);
-			path = Controller;
+			path = C;
 			sourceTree = "<group>";
 		};
-		C891E87224B8661400AF0019 /* View */ = {
+		C891E87224B8661400AF0019 /* V */ = {
 			isa = PBXGroup;
 			children = (
 				C8E0D986250B09C1009CE1AB /* XRWaterfallLayout.h */,
@@ -836,16 +847,16 @@
 				C874E702268AD9FD00B20459 /* NYSIconTextLayer.h */,
 				C874E703268AD9FD00B20459 /* NYSIconTextLayer.m */,
 			);
-			path = View;
+			path = V;
 			sourceTree = "<group>";
 		};
-		C891E87324B8661E00AF0019 /* Model */ = {
+		C891E87324B8661E00AF0019 /* M */ = {
 			isa = PBXGroup;
 			children = (
 				C8E0D984250B0957009CE1AB /* NYSHomeModel.h */,
 				C8E0D983250B0957009CE1AB /* NYSHomeModel.m */,
 			);
-			path = Model;
+			path = M;
 			sourceTree = "<group>";
 		};
 		C8A495B02685D8CF00CCECF5 /* Modules */ = {
@@ -970,6 +981,7 @@
 		C8C58D4724B9645600CFB68F /* GitHub */ = {
 			isa = PBXGroup;
 			children = (
+				C891E7EC24B80D7200AF0019 /* MVP */,
 				C8C58D4824B9647500CFB68F /* NYSNewViewController.h */,
 				C8C58D4924B9647500CFB68F /* NYSNewViewController.m */,
 			);
@@ -1012,19 +1024,20 @@
 		C8E0D98C250B3295009CE1AB /* Me */ = {
 			isa = PBXGroup;
 			children = (
-				C8E0D991250B3356009CE1AB /* Model */,
-				C874E701268AD8B600B20459 /* View */,
-				C8E0D990250B334B009CE1AB /* Controller */,
-				C874E717268C4FFB00B20459 /* VoiceAnimation */,
-				C874E705268C1F0E00B20459 /* CountryPhone */,
-				C85F5D812512197300798999 /* About */,
+				C8E0D991250B3356009CE1AB /* M */,
+				C874E701268AD8B600B20459 /* V */,
+				C8E0D990250B334B009CE1AB /* C */,
 			);
 			path = Me;
 			sourceTree = "<group>";
 		};
-		C8E0D990250B334B009CE1AB /* Controller */ = {
+		C8E0D990250B334B009CE1AB /* C */ = {
 			isa = PBXGroup;
 			children = (
+				C874E8A1268EBB4500B20459 /* LayoutVC */,
+				C874E717268C4FFB00B20459 /* VoiceAnimation */,
+				C874E705268C1F0E00B20459 /* CountryPhone */,
+				C85F5D812512197300798999 /* About */,
 				C8E0D98D250B32EB009CE1AB /* NYSMeViewController.h */,
 				C8E0D98E250B32EB009CE1AB /* NYSMeViewController.m */,
 				C874E6FC268AC1BB00B20459 /* NYSScrollImageViewController.h */,
@@ -1032,16 +1045,16 @@
 				C874E72F268C513000B20459 /* NYSVoiceAnimationViewController.h */,
 				C874E730268C513000B20459 /* NYSVoiceAnimationViewController.m */,
 			);
-			path = Controller;
+			path = C;
 			sourceTree = "<group>";
 		};
-		C8E0D991250B3356009CE1AB /* Model */ = {
+		C8E0D991250B3356009CE1AB /* M */ = {
 			isa = PBXGroup;
 			children = (
 				C8E0D993250B3368009CE1AB /* MeModel.h */,
 				C8E0D992250B3368009CE1AB /* MeModel.m */,
 			);
-			path = Model;
+			path = M;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1267,6 +1280,7 @@
 				C891E80224B8110400AF0019 /* NYSTabBarViewController.m in Sources */,
 				C8C58D5A24B9B16B00CFB68F /* NYSProfile.m in Sources */,
 				C891E7D324B8082000AF0019 /* AppDelegate.m in Sources */,
+				C874E8A4268EBB6300B20459 /* NYSScrollViewController.m in Sources */,
 				C829957B24C05B2600BEA200 /* ADManager.m in Sources */,
 				C891E7E424B8082000AF0019 /* main.m in Sources */,
 				C85F5D882512197300798999 /* NYSAboutViewController.m in Sources */,

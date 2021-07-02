@@ -36,8 +36,12 @@
     layer.borderColor = [[UIColor whiteColor] colorWithAlphaComponent:0.4f].CGColor;
     layer.borderWidth = 0.2f;
     
+    self.joinBtn.lee_theme.LeeConfigBackgroundColor(@"common_bg_color_3");
     self.joinBtn.layer.cornerRadius = 10;
     self.joinBtn.layer.masksToBounds = YES;
+    
+    self.bgBtnView.layer.cornerRadius = 10;
+    self.bgBtnView.layer.masksToBounds = YES;
 }
 
 - (void)layoutSubviews {
@@ -63,12 +67,13 @@
     NSString *bgimgName = [NSString stringWithFormat:@"act_%d", x];
     [self.bgBtnView setBackgroundImage:[UIImage imageNamed:bgimgName] forState:UIControlStateNormal];
     self.bgBtnView.userInteractionEnabled = NO;
+//    self.bgBtnView.backgroundColor = [UIColor colorWithGradientStyle:UIGradientStyleRadial withFrame:self.bgBtnView.bounds andColors:@[NAppThemeColor, [UIColor colorWithHexString:@"#90B7FD"]]];
     
     [self.icon setImage:[UIImage nameImageWithNameString:collectionModel.name imageSize:CGSizeMake(60, 60)]];
     self.title.textColor = collectionModel.isRecommend ? UIColorFromHex(0xFCC430) : [UIColor whiteColor];
     self.title.text = collectionModel.name;
     self.topView.hidden = collectionModel.isRecommend ? NO : YES;
-    self.memberCount.text = [NSString stringWithFormat:@"%ld", collectionModel.ID];
+    self.memberCount.text = [NSString stringWithFormat:@"%ld", (long)collectionModel.ID];
     self.introduction.text = collectionModel.desc;
     
     self.localLayer.icon = [UIImage imageNamed:@"location_8x10_"];

@@ -17,6 +17,7 @@
 #import <SDAutoLayout/SDAutoLayout.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 //#import <AsyncDisplayKit/AsyncDisplayKit.h>
+#import <ChameleonFramework/Chameleon.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import <SafariServices/SFSafariViewController.h>
 #import <NYSTK/NYSTK.h>

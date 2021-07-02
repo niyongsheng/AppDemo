@@ -9,12 +9,13 @@
 #import "NYSMeViewController.h"
 #import "TableViewAnimationKit.h"
 #import "MeModel.h"
+#import "YSCRippleView.h"
 #import <CoreMotion/CoreMotion.h>
 #import "NYSScrollImageViewController.h"
 #import "NYSCPTableViewController.h"
 #import "NYSAboutViewController.h"
 #import "NYSVoiceAnimationViewController.h"
-#import "YSCRippleView.h"
+#import "NYSScrollViewController.h"
 
 #define HEADER_HEIGHT RealValue(260)
 
@@ -232,6 +233,9 @@ static void setupTableUI(NYSMeViewController *object) {
             case 1:
                 [self.navigationController pushViewController:NYSVoiceAnimationViewController.new animated:YES];
                 break;
+            case 2:
+                [self.navigationController pushViewController:NYSScrollViewController.new animated:YES];
+                break;
                 
             default:
                 [NYSTKAlert showToastWithMessage:@"Undefined Item !" themeModel:NYSTKThemeModelLight];
@@ -254,7 +258,7 @@ static void setupTableUI(NYSMeViewController *object) {
                 break;
                 
             case 2: {
-                
+                [NYSTKAlert showToastWithMessage:@"Clear success." image:@"toast_success" themeModel:NYSTKThemeModelLight];
             }
                 break;
                 
@@ -299,8 +303,8 @@ static void setupTableUI(NYSMeViewController *object) {
         
         MeModel *model_2 = [MeModel new];
         model_2.header = @"Business Demo";
-        model_2.titles = @[@"Dial Code", @"Voice Animation", @"Item_3", @"Item_4"];
-        model_2.detailTitles = @[@"International area code", @"None", @"None", @"None"];
+        model_2.titles = @[@"Dial Code", @"Voice Animation", @"Scroll View", @"Item_4"];
+        model_2.detailTitles = @[@"International area code", @"None", @"Masonry", @"None"];
         
         MeModel *model_3 = [MeModel new];
         model_3.header = @"App Config";

@@ -17,7 +17,6 @@ target 'AppDemo' do
   pod 'MJRefresh'
   pod 'IQKeyboardManager'
   pod 'SVProgressHUD'
-  pod 'IQKeyboardManager'
   pod 'ChameleonFramework'
   pod 'XHLaunchAd'
   pod 'NYSTK','~>0.0.6'
