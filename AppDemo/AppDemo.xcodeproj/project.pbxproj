@@ -30,6 +30,13 @@
 		C85F5D8A2512197300798999 /* NYSUserProtoclViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C85F5D862512197300798999 /* NYSUserProtoclViewController.m */; };
 		C85F5D8B2512197300798999 /* UserPrivacyAgreement.pdf in Resources */ = {isa = PBXBuildFile; fileRef = C85F5D872512197300798999 /* UserPrivacyAgreement.pdf */; };
 		C86B741024BC3DE400EFACA7 /* NYSBaseWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = C86B740F24BC3DE400EFACA7 /* NYSBaseWindow.m */; };
+		C86D8A2E269552C4000F2AB0 /* UIView+JHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C86D8A26269552C4000F2AB0 /* UIView+JHUD.m */; };
+		C86D8A2F269552C4000F2AB0 /* JHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C86D8A27269552C4000F2AB0 /* JHUD.m */; };
+		C86D8A30269552C4000F2AB0 /* UIImage+JHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C86D8A2A269552C4000F2AB0 /* UIImage+JHUD.m */; };
+		C86D8A31269552C4000F2AB0 /* JHUDAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C86D8A2B269552C4000F2AB0 /* JHUDAnimationView.m */; };
+		C86D8A372695541A000F2AB0 /* NYSHUDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C86D8A362695541A000F2AB0 /* NYSHUDViewController.m */; };
+		C86D8A3A26955488000F2AB0 /* NYSHUDDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C86D8A3926955488000F2AB0 /* NYSHUDDetailViewController.m */; };
+		C86D8A3E26956045000F2AB0 /* loading_gif_plane.gif in Resources */ = {isa = PBXBuildFile; fileRef = C86D8A3D26956045000F2AB0 /* loading_gif_plane.gif */; };
 		C86F2D6424BD3561002F44FD /* new_feature_3.png in Resources */ = {isa = PBXBuildFile; fileRef = C86F2D6124BD3560002F44FD /* new_feature_3.png */; };
 		C86F2D6524BD3561002F44FD /* new_feature_1.png in Resources */ = {isa = PBXBuildFile; fileRef = C86F2D6224BD3561002F44FD /* new_feature_1.png */; };
 		C86F2D6624BD3561002F44FD /* new_feature_2.png in Resources */ = {isa = PBXBuildFile; fileRef = C86F2D6324BD3561002F44FD /* new_feature_2.png */; };
@@ -162,6 +169,19 @@
 		C85F5D872512197300798999 /* UserPrivacyAgreement.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = UserPrivacyAgreement.pdf; sourceTree = "<group>"; };
 		C86B740E24BC3DE400EFACA7 /* NYSBaseWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSBaseWindow.h; sourceTree = "<group>"; };
 		C86B740F24BC3DE400EFACA7 /* NYSBaseWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSBaseWindow.m; sourceTree = "<group>"; };
+		C86D8A26269552C4000F2AB0 /* UIView+JHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+JHUD.m"; sourceTree = "<group>"; };
+		C86D8A27269552C4000F2AB0 /* JHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHUD.m; sourceTree = "<group>"; };
+		C86D8A28269552C4000F2AB0 /* JHUDAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHUDAnimationView.h; sourceTree = "<group>"; };
+		C86D8A29269552C4000F2AB0 /* UIImage+JHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JHUD.h"; sourceTree = "<group>"; };
+		C86D8A2A269552C4000F2AB0 /* UIImage+JHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JHUD.m"; sourceTree = "<group>"; };
+		C86D8A2B269552C4000F2AB0 /* JHUDAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHUDAnimationView.m; sourceTree = "<group>"; };
+		C86D8A2C269552C4000F2AB0 /* UIView+JHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+JHUD.h"; sourceTree = "<group>"; };
+		C86D8A2D269552C4000F2AB0 /* JHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHUD.h; sourceTree = "<group>"; };
+		C86D8A352695541A000F2AB0 /* NYSHUDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSHUDViewController.h; sourceTree = "<group>"; };
+		C86D8A362695541A000F2AB0 /* NYSHUDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSHUDViewController.m; sourceTree = "<group>"; };
+		C86D8A3826955488000F2AB0 /* NYSHUDDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSHUDDetailViewController.h; sourceTree = "<group>"; };
+		C86D8A3926955488000F2AB0 /* NYSHUDDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSHUDDetailViewController.m; sourceTree = "<group>"; };
+		C86D8A3D26956045000F2AB0 /* loading_gif_plane.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading_gif_plane.gif; sourceTree = "<group>"; };
 		C86F2D6124BD3560002F44FD /* new_feature_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_feature_3.png; sourceTree = "<group>"; };
 		C86F2D6224BD3561002F44FD /* new_feature_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_feature_1.png; sourceTree = "<group>"; };
 		C86F2D6324BD3561002F44FD /* new_feature_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = new_feature_2.png; sourceTree = "<group>"; };
@@ -433,6 +453,50 @@
 			path = About;
 			sourceTree = "<group>";
 		};
+		C86D8A25269552C4000F2AB0 /* JHUD */ = {
+			isa = PBXGroup;
+			children = (
+				C86D8A2D269552C4000F2AB0 /* JHUD.h */,
+				C86D8A27269552C4000F2AB0 /* JHUD.m */,
+				C86D8A28269552C4000F2AB0 /* JHUDAnimationView.h */,
+				C86D8A2B269552C4000F2AB0 /* JHUDAnimationView.m */,
+				C86D8A29269552C4000F2AB0 /* UIImage+JHUD.h */,
+				C86D8A2A269552C4000F2AB0 /* UIImage+JHUD.m */,
+				C86D8A2C269552C4000F2AB0 /* UIView+JHUD.h */,
+				C86D8A26269552C4000F2AB0 /* UIView+JHUD.m */,
+			);
+			path = JHUD;
+			sourceTree = "<group>";
+		};
+		C86D8A322695537C000F2AB0 /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				C86D8A352695541A000F2AB0 /* NYSHUDViewController.h */,
+				C86D8A362695541A000F2AB0 /* NYSHUDViewController.m */,
+				C86D8A3826955488000F2AB0 /* NYSHUDDetailViewController.h */,
+				C86D8A3926955488000F2AB0 /* NYSHUDDetailViewController.m */,
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
+		C86D8A33269553D7000F2AB0 /* ScrollImages */ = {
+			isa = PBXGroup;
+			children = (
+				C874E6FC268AC1BB00B20459 /* NYSScrollImageViewController.h */,
+				C874E6FD268AC1BB00B20459 /* NYSScrollImageViewController.m */,
+			);
+			path = ScrollImages;
+			sourceTree = "<group>";
+		};
+		C86D8A34269553ED000F2AB0 /* VoiceAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				C874E72F268C513000B20459 /* NYSVoiceAnimationViewController.h */,
+				C874E730268C513000B20459 /* NYSVoiceAnimationViewController.m */,
+			);
+			path = VoiceAnimation;
+			sourceTree = "<group>";
+		};
 		C874E6F4268AB6FC00B20459 /* Autoscroll */ = {
 			isa = PBXGroup;
 			children = (
@@ -447,6 +511,7 @@
 		C874E701268AD8B600B20459 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				C874E717268C4FFB00B20459 /* VoiceAnimation */,
 				C874E732268C529500B20459 /* Ripple */,
 				C874E6F4268AB6FC00B20459 /* Autoscroll */,
 			);
@@ -520,6 +585,7 @@
 			children = (
 				C8C431E224BC397B0041311C /* LEEBubble */,
 				C8C431A924BC35BD0041311C /* LEETheme */,
+				C86D8A25269552C4000F2AB0 /* JHUD */,
 				C891E82D24B842E000AF0019 /* FPS */,
 				C87B220F24BC0BFF00AB643F /* Memory */,
 				C884CAF024C2B119008774A0 /* CMPopTipView */,
@@ -942,6 +1008,7 @@
 				C829958624C05EA600BEA200 /* day@3x.png */,
 				C829958524C05EA600BEA200 /* night@2x.png */,
 				C829958424C05EA600BEA200 /* night@3x.png */,
+				C86D8A3D26956045000F2AB0 /* loading_gif_plane.gif */,
 			);
 			path = Images;
 			sourceTree = "<group>";
@@ -1034,16 +1101,14 @@
 		C8E0D990250B334B009CE1AB /* C */ = {
 			isa = PBXGroup;
 			children = (
+				C86D8A34269553ED000F2AB0 /* VoiceAnimation */,
+				C86D8A33269553D7000F2AB0 /* ScrollImages */,
+				C86D8A322695537C000F2AB0 /* HUD */,
 				C874E8A1268EBB4500B20459 /* LayoutVC */,
-				C874E717268C4FFB00B20459 /* VoiceAnimation */,
 				C874E705268C1F0E00B20459 /* CountryPhone */,
 				C85F5D812512197300798999 /* About */,
 				C8E0D98D250B32EB009CE1AB /* NYSMeViewController.h */,
 				C8E0D98E250B32EB009CE1AB /* NYSMeViewController.m */,
-				C874E6FC268AC1BB00B20459 /* NYSScrollImageViewController.h */,
-				C874E6FD268AC1BB00B20459 /* NYSScrollImageViewController.m */,
-				C874E72F268C513000B20459 /* NYSVoiceAnimationViewController.h */,
-				C874E730268C513000B20459 /* NYSVoiceAnimationViewController.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -1125,6 +1190,7 @@
 				C829956524C0281300BEA200 /* back_icon_night@2x.png in Resources */,
 				C874E707268C1F6600B20459 /* country_phone_number.bundle in Resources */,
 				C829958824C05EA600BEA200 /* night@3x.png in Resources */,
+				C86D8A3E26956045000F2AB0 /* loading_gif_plane.gif in Resources */,
 				C85F5D892512197300798999 /* NYSAboutViewController.xib in Resources */,
 				C891E80724B8112200AF0019 /* NYSLoginViewController.xib in Resources */,
 				C86F2D6424BD3561002F44FD /* new_feature_3.png in Resources */,
@@ -1234,6 +1300,7 @@
 			files = (
 				C874E72D268C50AD00B20459 /* YSCVoiceWaveView.m in Sources */,
 				C884CAFD24C2CC85008774A0 /* NYSOpenPresenter.m in Sources */,
+				C86D8A30269552C4000F2AB0 /* UIImage+JHUD.m in Sources */,
 				C874E6FB268AB94C00B20459 /* NYSRepeatScrollView.m in Sources */,
 				C891E84224B842E000AF0019 /* NYSTools.m in Sources */,
 				C874E72C268C50AD00B20459 /* YSCVoiceLoadingCircleView.m in Sources */,
@@ -1253,6 +1320,7 @@
 				C85F5D8A2512197300798999 /* NYSUserProtoclViewController.m in Sources */,
 				C8C431A024BC349C0041311C /* ThemeManager.m in Sources */,
 				C8C58D5B24B9B16B00CFB68F /* NYSCommunity.m in Sources */,
+				C86D8A3A26955488000F2AB0 /* NYSHUDDetailViewController.m in Sources */,
 				C874E710268C20FC00B20459 /* NYSCPSearchTableViewController.m in Sources */,
 				C8E0D994250B3368009CE1AB /* MeModel.m in Sources */,
 				C8253D3E24B8782100BA4291 /* IMDataSource.m in Sources */,
@@ -1279,12 +1347,15 @@
 				C8C431AD24BC35BD0041311C /* LEETheme.m in Sources */,
 				C891E80224B8110400AF0019 /* NYSTabBarViewController.m in Sources */,
 				C8C58D5A24B9B16B00CFB68F /* NYSProfile.m in Sources */,
+				C86D8A372695541A000F2AB0 /* NYSHUDViewController.m in Sources */,
 				C891E7D324B8082000AF0019 /* AppDelegate.m in Sources */,
 				C874E8A4268EBB6300B20459 /* NYSScrollViewController.m in Sources */,
 				C829957B24C05B2600BEA200 /* ADManager.m in Sources */,
 				C891E7E424B8082000AF0019 /* main.m in Sources */,
 				C85F5D882512197300798999 /* NYSAboutViewController.m in Sources */,
+				C86D8A2F269552C4000F2AB0 /* JHUD.m in Sources */,
 				C891E86824B85C0900AF0019 /* NYSNewfeatureViewController.m in Sources */,
+				C86D8A2E269552C4000F2AB0 /* UIView+JHUD.m in Sources */,
 				C874E72E268C50AD00B20459 /* YSCNewVoiceWaveView.m in Sources */,
 				C8E0D985250B0957009CE1AB /* NYSHomeModel.m in Sources */,
 				C8C58D2B24B94A1200CFB68F /* NYSOpenViewController.m in Sources */,
@@ -1297,6 +1368,7 @@
 				C86F2D6924BD4E44002F44FD /* NYSBaseTabBarController.m in Sources */,
 				C891E84024B842E000AF0019 /* UITableView+XSAnimationKit.m in Sources */,
 				C8E0D961250A3CA8009CE1AB /* NYSJXCategoryItemViewController.m in Sources */,
+				C86D8A31269552C4000F2AB0 /* JHUDAnimationView.m in Sources */,
 				C874E704268AD9FD00B20459 /* NYSIconTextLayer.m in Sources */,
 				C8CCB0DE24C2E0A000437E0E /* DBManager.m in Sources */,
 				C891E85824B855B000AF0019 /* AppManager.m in Sources */,

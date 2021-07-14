@@ -16,6 +16,7 @@
 #import "NYSAboutViewController.h"
 #import "NYSVoiceAnimationViewController.h"
 #import "NYSScrollViewController.h"
+#import "NYSHUDViewController.h"
 
 #define HEADER_HEIGHT RealValue(260)
 
@@ -237,6 +238,10 @@ static void setupTableUI(NYSMeViewController *object) {
                 [self.navigationController pushViewController:NYSScrollViewController.new animated:YES];
                 break;
                 
+            case 3:
+                [self.navigationController pushViewController:NYSHUDViewController.new animated:YES];
+                break;
+                
             default:
                 [NYSTKAlert showToastWithMessage:@"Undefined Item !" themeModel:NYSTKThemeModelLight];
                 break;
@@ -303,8 +308,8 @@ static void setupTableUI(NYSMeViewController *object) {
         
         MeModel *model_2 = [MeModel new];
         model_2.header = @"Business Demo";
-        model_2.titles = @[@"Dial Code", @"Voice Animation", @"Scroll View", @"Item_4"];
-        model_2.detailTitles = @[@"International area code", @"None", @"Masonry", @"None"];
+        model_2.titles = @[@"Dial Code", @"Voice Animation", @"Scroll View", @"HUD", @"Item_4"];
+        model_2.detailTitles = @[@"International area code", @"None", @"Masonry", @"None", @"None"];
         
         MeModel *model_3 = [MeModel new];
         model_3.header = @"App Config";

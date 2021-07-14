@@ -146,7 +146,7 @@ static NSRunLoop *_voiceWaveRunLoop;
         return;
     }
     
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [UIColor clearColor];
     self.frame = CGRectMake(0, parentView.bounds.size.height * 0.25, parentView.bounds.size.width, parentView.bounds.size.height * 0.5);
     [self setup];
     

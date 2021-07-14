@@ -16,7 +16,6 @@ typedef void (^YSCShowLoadingCircleCallback)(void);
  *  添加并初始化波纹视图
  *
  *  @param parentView                 父视图
- *  @param voiceWaveDisappearCallback 波纹消失时回调
  */
 - (void)showInParentView:(UIView *)parentView;
 
@@ -28,7 +27,7 @@ typedef void (^YSCShowLoadingCircleCallback)(void);
 /**
  *  改变音量来改变声波振动幅度
  *
- *  @param stopVoiceWave 音量大小 大小为0~1
+ *  @param volume 音量大小 大小为0~1
  */
 - (void)changeVolume:(CGFloat)volume;
 

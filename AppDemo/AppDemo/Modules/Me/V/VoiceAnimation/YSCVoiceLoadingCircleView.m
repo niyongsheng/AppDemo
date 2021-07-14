@@ -283,8 +283,8 @@
 {
     if (!_whiteBackgroundLayer) {
         self.whiteBackgroundLayer = [CAShapeLayer layer];
-        _whiteBackgroundLayer.strokeColor = [UIColor whiteColor].CGColor;
-        _whiteBackgroundLayer.fillColor = [[UIColor whiteColor] CGColor];
+        _whiteBackgroundLayer.strokeColor = [UIColor clearColor].CGColor;
+        _whiteBackgroundLayer.fillColor = [[UIColor clearColor] CGColor];
         _whiteBackgroundLayer.lineWidth = 2;
         _whiteBackgroundLayer.backgroundColor = [UIColor clearColor].CGColor;
         _whiteBackgroundLayer.position = CGPointMake(CGRectGetWidth(self.bounds) / 2.0, CGRectGetHeight(self.bounds) / 2.0);
