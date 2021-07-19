@@ -28,7 +28,7 @@
     self.layer.cornerRadius = 5;
     self.clipsToBounds = YES;
     self.textAlignment = NSTextAlignmentCenter;
-    self.userInteractionEnabled = NO;
+    self.userInteractionEnabled = YES;
     self.backgroundColor = [UIColor colorWithWhite:0.000 alpha:0.700];
     
     _font = [UIFont fontWithName:@"Menlo" size:14];
@@ -38,6 +38,9 @@
         _font = [UIFont fontWithName:@"Courier" size:14];
         _subFont = [UIFont fontWithName:@"Courier" size:12];
     }
+    
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(changePostion:)];
+    [self addGestureRecognizer:pan];
     
     _link = [CADisplayLink displayLinkWithTarget:[YYWeakProxy proxyWithTarget:self] selector:@selector(tick:)];
     [_link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
@@ -99,6 +102,68 @@
     }
     
     return taskInfo.resident_size / 1024.0 / 1024.0;
+}
+
+- (void)changePostion:(UIPanGestureRecognizer *)pan {
+    CGPoint point = [pan translationInView:self];
+    
+    CGRect originalFrame = self.frame;
+    
+    originalFrame = [self changeXWithFrame:originalFrame point:point];
+    originalFrame = [self changeYWithFrame:originalFrame point:point];
+    
+    self.frame = originalFrame;
+    
+    [pan setTranslation:CGPointZero inView:self];
+    
+    UIButton *button = (UIButton *)pan.view;
+    if (pan.state == UIGestureRecognizerStateBegan) {
+        button.enabled = NO;
+    } else if (pan.state == UIGestureRecognizerStateChanged) {
+    } else {
+        
+        CGRect frame = self.frame;
+        
+        if (self.center.x <= NScreenWidth / 2.0){
+            frame.origin.x = 0;
+        }else
+        {
+            frame.origin.x = NScreenWidth - frame.size.width;
+        }
+        
+        if (frame.origin.y < 20) {
+            frame.origin.y = 20;
+        } else if (frame.origin.y + frame.size.height > NScreenHeight) {
+            frame.origin.y = NScreenHeight - frame.size.height;
+        }
+        
+        [UIView animateWithDuration:0.3 animations:^{
+            self.frame = frame;
+        }];
+        
+        button.enabled = YES;
+        
+    }
+}
+
+- (CGRect)changeXWithFrame:(CGRect)originalFrame point:(CGPoint)point {
+    BOOL q1 = originalFrame.origin.x >= 0;
+    BOOL q2 = originalFrame.origin.x + originalFrame.size.width <= NScreenWidth;
+    
+    if (q1 && q2) {
+        originalFrame.origin.x += point.x;
+    }
+    return originalFrame;
+}
+
+- (CGRect)changeYWithFrame:(CGRect)originalFrame point:(CGPoint)point {
+    
+    BOOL q1 = originalFrame.origin.y >= 20;
+    BOOL q2 = originalFrame.origin.y + originalFrame.size.height <= NScreenHeight;
+    if (q1 && q2) {
+        originalFrame.origin.y += point.y;
+    }
+    return originalFrame;
 }
 
 @end

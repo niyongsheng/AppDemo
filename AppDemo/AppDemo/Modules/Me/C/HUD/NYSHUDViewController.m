@@ -24,13 +24,14 @@ UITableViewDataSource
     [super viewDidLoad];
     
     self.title = @"HUD";
-    self.dataSource = @[@"circleAnimation",
-                        @"circleJoinAnimation",
-                        @"dotAnimation",
-                        @"customAnimation",
-                        @"gifAnimations",
-                        @"failure",
+    self.dataSource = @[@"circle",
+                        @"whirl",
+                        @"dot",
+                        @"gif",
+                        @"nonetwork",
+                        @"failure1",
                         @"failure2",
+                        @"failure3",
                         @"classMethod",
     ];
     

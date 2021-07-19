@@ -8,8 +8,6 @@
 
 #import "NYSHUDDetailViewController.h"
 
-#define JHUDRGBA(r,g,b,a)     [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
-
 @interface NYSHUDDetailViewController ()
 
 @property (nonatomic,strong) UIButton *rightButton;
@@ -32,7 +30,11 @@
     __weak typeof(self)  _self = self;
     [self.hudView setJHUDReloadButtonClickedBlock:^() {
         NSLog(@"refreshButton");
-        [_self customAnimation];
+        if (random()%2 == 1) {
+            [_self custom1];
+        } else {
+            [_self nonetwork];
+        }
     }];
     
     SEL sel = NSSelectorFromString(self.title);
@@ -44,7 +46,7 @@
 
 - (void)rightButtonClick:(UIButton *)button {
     button.selected = !button.selected;
-    button.selected ? [self hide] : [self failure];
+    button.selected ? [self hide] : [self failure1];
 }
 
 - (UIButton *)rightButton {
@@ -62,34 +64,26 @@
     return self.rightButton;
 }
 
-- (void)circleAnimation {
+- (void)whirl {
     self.hudView.messageLabel.text = @"Hello ,this is a circle animation";
     self.hudView.indicatorForegroundColor = [UIColor lightGrayColor];
     self.hudView.indicatorBackGroundColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.1];
     [self.hudView showAtView:self.view hudType:JHUDLoadingTypeCircle];
 }
 
-- (void)circleJoinAnimation {
+- (void)circle {
     self.hudView.messageLabel.text = @"Hello ,this is a circleJoin animation";
     self.hudView.indicatorForegroundColor = NAppThemeColor;
-    self.hudView.indicatorBackGroundColor = JHUDRGBA(185, 186, 200, 0.3);
+    self.hudView.indicatorBackGroundColor = RGBAColor(185, 186, 200, 0.3);
     [self.hudView showAtView:self.view hudType:JHUDLoadingTypeCircleJoin];
 }
 
-- (void)dotAnimation {
-    self.hudView.messageLabel.text = @"Hello ,this is a dot animation";
-    self.hudView.indicatorForegroundColor = NAppThemeColor;
-    self.hudView.indicatorBackGroundColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.1];
-    [self.hudView showAtView:self.view hudType:JHUDLoadingTypeDot];
-}
-
-
-- (void)customAnimation {
+- (void)custom1 {
     NSMutableArray *images = [NSMutableArray array];
     CGFloat wh = 100;
     for (int i = 1; i <= 7; i++) {
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"an_%03d", i]];
-        [images addObject:[image imageByResizeToSize:CGSizeMake(RealValue(30), RealValue(30))]];
+        [images addObject:image];
         wh = image.size.width;
     }
 
@@ -99,18 +93,39 @@
     [self.hudView showAtView:self.view hudType:JHUDLoadingTypeCustomAnimations];
 }
 
-- (void)gifAnimations {
+- (void)nonetwork {
+    NSMutableArray *images = [NSMutableArray array];
+    CGFloat wh = RealValue(150);
+    for (int i = 1; i <= 14; i++) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"no_network%d", i]];
+        [images addObject:image];
+    }
+
+    self.hudView.indicatorViewSize = CGSizeMake(wh, wh);
+    self.hudView.customAnimationImages = images;
+    self.hudView.messageLabel.text = @"Loading ...";
+    [self.hudView showAtView:self.view hudType:JHUDLoadingTypeCustomAnimations];
+}
+
+- (void)dot {
+    self.hudView.messageLabel.text = @"Hello ,this is a dot animation";
+    self.hudView.indicatorForegroundColor = NAppThemeColor;
+    self.hudView.indicatorBackGroundColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.3];
+    [self.hudView showAtView:self.view hudType:JHUDLoadingTypeDot];
+}
+
+- (void)gif {
     NSString *path = [[NSBundle mainBundle] pathForResource:@"loading_gif_plane" ofType:@"gif"];
     NSData *data = [NSData dataWithContentsOfFile:path];
-
+    
     self.hudView.gifImageData = data;
     self.hudView.indicatorViewSize = CGSizeMake(110, 110); // Maybe you can try to use (100,250);😂
     self.hudView.messageLabel.text = @"Hello ,this is a gif animation";
     [self.hudView showAtView:self.view hudType:JHUDLoadingTypeGifImage];
 }
 
-- (void)failure {
-    self.hudView.indicatorViewSize = CGSizeMake(100, 100);
+- (void)failure1 {
+    self.hudView.indicatorViewSize = CGSizeMake(150, 150);
     self.hudView.messageLabel.text = @"Can't get data, please make sure the interface is correct !";
     [self.hudView.refreshButton setTitle:@"Refresh" forState:UIControlStateNormal];
     self.hudView.customImage = [UIImage imageNamed:@"webloaderrorview.png"];
@@ -120,13 +135,21 @@
 }
 
 - (void)failure2 {
-    self.hudView.indicatorViewSize = CGSizeMake(150, 150);
+    self.hudView.indicatorViewSize = CGSizeMake(110, 110);
     self.hudView.messageLabel.text = @"Failed to get data, please try again later";
     [self.hudView.refreshButton setTitle:@"Refresh ?" forState:UIControlStateNormal];
     self.hudView.customImage = [UIImage imageNamed:@"nullData"];
 
     [self.hudView showAtView:self.view hudType:JHUDLoadingTypeFailure];
+}
 
+- (void)failure3 {
+    self.hudView.indicatorViewSize = CGSizeMake(150, 150);
+    self.hudView.messageLabel.text = @"Failed to get data, please try again later";
+    [self.hudView.refreshButton setTitle:@"Refresh ?" forState:UIControlStateNormal];
+    self.hudView.customImage = [UIImage imageNamed:@"hud_null"];
+
+    [self.hudView showAtView:self.view hudType:JHUDLoadingTypeFailure];
 }
 
 - (void)classMethod {

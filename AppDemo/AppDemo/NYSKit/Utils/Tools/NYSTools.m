@@ -314,4 +314,17 @@
     return [mutableString stringByReplacingOccurrencesOfString:@"'" withString:@""];
 }
 
+/// Toast
+/// @param str 内容
++ (void)showToast:(NSString *)str {
+    [SVProgressHUD setHapticsEnabled:YES];
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
+    [SVProgressHUD setBackgroundColor:NAppThemeColor];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD setDefaultAnimationType:(SVProgressHUDAnimationTypeFlat)];
+    [SVProgressHUD setOffsetFromCenter:UIOffsetMake(0, NScreenHeight * 0.4)];
+    [SVProgressHUD showImage:[UIImage imageNamed:@"xxx"] status:str];
+    [SVProgressHUD dismissWithDelay:1.5];
+}
+
 @end

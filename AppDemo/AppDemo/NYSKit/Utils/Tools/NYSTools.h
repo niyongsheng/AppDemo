@@ -117,6 +117,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param str content
 + (NSString *)transformToPinyin:(NSString *)str;
 
+/// Toast
+/// @param str 内容
++ (void)showToast:(NSString *)str;
+
 @end
 
 NS_ASSUME_NONNULL_END

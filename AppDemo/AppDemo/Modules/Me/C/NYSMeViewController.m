@@ -258,7 +258,7 @@ static void setupTableUI(NYSMeViewController *object) {
                 break;
                 
             case 1: {
-                [UMManager sharedUMManager];
+                [[UMManager sharedUMManager] showShareView];
             }
                 break;
                 

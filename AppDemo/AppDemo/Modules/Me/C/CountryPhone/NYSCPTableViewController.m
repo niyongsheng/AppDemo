@@ -40,9 +40,7 @@ UISearchBarDelegate
     self.tableView.tableHeaderView = self.searchController.searchBar;
     [self.view addSubview:self.tableView];
     
-    if (CurrentSystemVersion < 13.0) {
-        self.view.lee_theme.LeeConfigBackgroundColor(@"common_bg_color_1");
-    }
+    self.view.lee_theme.LeeConfigBackgroundColor(@"common_bg_color_1");
 }
 
 - (void)viewDidLayoutSubviews {

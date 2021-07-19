@@ -73,6 +73,8 @@ UISearchBarDelegate
                 make.leading.trailing.mas_equalTo(0);
                 make.top.mas_equalTo(0);
             }];
+            
+            [NYSTools showToast:@"hahahahahahaha"];
         }
             break;
             

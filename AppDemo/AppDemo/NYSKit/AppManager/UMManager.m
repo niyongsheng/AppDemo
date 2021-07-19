@@ -13,6 +13,10 @@
 SINGLETON_FOR_CLASS(UMManager);
 
 - (void)showShareView {
+    [UMSocialShareUIConfig shareInstance].shareContainerConfig.shareContainerBackgroundColor.lee_theme.LeeCustomConfig(@"common_bg_color_1" , ^(id item , id value){
+          item = value;
+    });
+    [UMSocialShareUIConfig shareInstance].shareContainerConfig.shareContainerCornerRadius = 10.0f;
     [UMSocialShareUIConfig shareInstance].sharePageGroupViewConfig.sharePageGroupViewPostionType = UMSocialSharePageGroupViewPositionType_Bottom;
     [UMSocialShareUIConfig shareInstance].sharePageScrollViewConfig.shareScrollViewPageItemStyleType = UMSocialPlatformItemViewBackgroudType_IconAndBGRadius;
     // 显示分享面板

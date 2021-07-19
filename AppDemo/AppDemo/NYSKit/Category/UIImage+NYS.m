@@ -10,6 +10,24 @@
 
 @implementation UIImage (NYS)
 
+- (UIImage*)imageChangeColor:(UIColor*)color {
+    // 获取画布
+    UIGraphicsBeginImageContextWithOptions(self.size, NO, 0.0f);
+    // 画笔沾取颜色
+    [color setFill];
+    
+    CGRect bounds = CGRectMake(0, 0, self.size.width, self.size.height);
+    UIRectFill(bounds);
+    // 绘制一次
+    [self drawInRect:bounds blendMode:kCGBlendModeOverlay alpha:1.0f];
+    // 再绘制一次
+    [self drawInRect:bounds blendMode:kCGBlendModeDestinationIn alpha:1.0f];
+    // 获取图片
+    UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return img;
+}
+
 + (UIImage *)nameImageWithNameString:(NSString *)string imageSize:(CGSize)size {
     return [self createNikeNameImageName:string imageSize:size];
 }
@@ -89,7 +107,7 @@
     return NO;
 }
 // 根据nikeName绘制图片
-+ (UIImage *)createNikeNameImageName:(NSString *)name imageSize:(CGSize)size{
++ (UIImage *)createNikeNameImageName:(NSString *)name imageSize:(CGSize)size {
     NSArray *colorArr = @[@"17c295",@"b38979",@"f2725e",@"f7b55e",@"4da9eb",@"5f70a7",@"568aad"];
     UIImage *image = [UIImage imageColor:[UIImage colorWithHexString:colorArr[ABS(name.hash % colorArr.count)] alpha:1.0] size:size cornerRadius:size.width / 2];
     
