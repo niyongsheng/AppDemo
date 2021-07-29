@@ -16,9 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) CGSize imageSize;
 @property (nonatomic, assign) CGFloat maxWidth;
 /// Default [UIFont systemFontOfSize:12]
-@property (nonatomic, strong, nonnull) UIFont   *font;
 @property (nonatomic, strong, nullable) UIImage *icon;
-@property (nonatomic, copy, nullable) NSString  *text;
+/// Before ‘text’ setter please
+@property (nonatomic, strong, nullable) UIColor *textColor;
+@property (nonatomic, copy, nullable) NSString *text;
+@property (nonatomic, strong, nonnull) UIFont *font;
 @end
 
 NS_ASSUME_NONNULL_END

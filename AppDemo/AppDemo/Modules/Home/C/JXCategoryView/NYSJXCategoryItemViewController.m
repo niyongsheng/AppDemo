@@ -14,6 +14,9 @@
 <
 UISearchBarDelegate
 >
+{
+    UIColor *_randomColor;
+}
 @property (nonatomic, strong) UISearchBar *searchBar;
 @property (nonatomic, strong) NYSIconTextLayer *iconTextLayer;
 @end
@@ -41,9 +44,11 @@ UISearchBarDelegate
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    _randomColor = NRandomColor;
     
     self.iconTextLayer.icon = [UIImage imageNamed:@"location_8x10_"];
-    self.iconTextLayer.text = @"Gitxxxxx";
+    self.iconTextLayer.textColor = _randomColor;
+    self.iconTextLayer.text = @"Je pense, donc je suis";
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -57,7 +62,7 @@ UISearchBarDelegate
 
 #pragma mark - JXCategoryListContentViewDelegate
 - (UIView *)listView {
-    self.view.backgroundColor = NRandomColor;
+    self.view.backgroundColor = _randomColor;
     switch (_index) {
         case 0: {
             if (_searchBar) {
@@ -101,7 +106,9 @@ UISearchBarDelegate
 - (NYSIconTextLayer *)iconTextLayer {
     if (!_iconTextLayer) {
         _iconTextLayer = [NYSIconTextLayer layer];
-        _iconTextLayer.frame = CGRectMake(100, 150, 100, 24);
+        CGFloat w = 300;
+        _iconTextLayer.maxWidth = w;
+        _iconTextLayer.frame = CGRectMake(NScreenWidth/2 - w/2, 150, w, 24);
     }
     return _iconTextLayer;
 }

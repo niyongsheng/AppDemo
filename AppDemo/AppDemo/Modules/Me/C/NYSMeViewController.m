@@ -223,6 +223,12 @@ static void setupTableUI(NYSMeViewController *object) {
             }
                 break;
                 
+            case 2: {
+                
+                [self.navigationController pushViewController:NYSScrollImageViewController.new animated:YES];
+            }
+                break;
+                
             default:
                 break;
         }
@@ -243,7 +249,7 @@ static void setupTableUI(NYSMeViewController *object) {
                 break;
                 
             default:
-                [NYSTKAlert showToastWithMessage:@"Undefined Item !" themeModel:NYSTKThemeModelLight];
+                [NYSTKAlert showToastWithMessage:@"Undefined Item!" themeModel:NYSTKThemeModelLight];
                 break;
         }
         
@@ -304,7 +310,7 @@ static void setupTableUI(NYSMeViewController *object) {
     if (!_dataSource) {
         MeModel *model_1 = [MeModel new];
         model_1.header = @"Profession Properties";
-        model_1.titles = @[@"Sign In", @"Scroll image"];
+        model_1.titles = @[@"Sign In", @"Scroll image", @"Animated tabbar"];
         
         MeModel *model_2 = [MeModel new];
         model_2.header = @"Business Demo";
@@ -337,7 +343,7 @@ static void setupTableUI(NYSMeViewController *object) {
 - (UIImageView *)imgView {
     if (_imgView == nil) {
         _imgView = [[UIImageView alloc] init];
-        [_imgView setImageURL:[NSURL URLWithString:NUpdateUserInfo.profile.headPhoto]];
+        [_imgView setImageWithURL:[NSURL URLWithString:NUpdateUserInfo.profile.headPhoto] placeholder:[UIImage imageNamed:@"logo"]];
         _imgView.userInteractionEnabled = YES;
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(iconViewOnclicked:)];
         [_imgView addGestureRecognizer:tap];

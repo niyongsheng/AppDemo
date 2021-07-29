@@ -96,6 +96,9 @@
 		C8A84B3D25121B2D009A1EF5 /* NYSForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8A84B3725121B2C009A1EF5 /* NYSForgetPasswordViewController.xib */; };
 		C8A84B3E25121B2D009A1EF5 /* NYSRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A84B3925121B2D009A1EF5 /* NYSRegisterViewController.m */; };
 		C8A84B3F25121B2D009A1EF5 /* NYSForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A84B3A25121B2D009A1EF5 /* NYSForgetPasswordViewController.m */; };
+		C8A925E726B24EDC00A7DC5D /* TabbarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A925E626B24EDC00A7DC5D /* TabbarButton.swift */; };
+		C8A925E926B24EFC00A7DC5D /* TabbarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A925E826B24EFC00A7DC5D /* TabbarShape.swift */; };
+		C8A925EB26B24F0900A7DC5D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A925EA26B24F0900A7DC5D /* ContentView.swift */; };
 		C8C4319924BC0CD10041311C /* NYSMemoryLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C4319824BC0CD10041311C /* NYSMemoryLabel.m */; };
 		C8C431A024BC349C0041311C /* ThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C4319F24BC349C0041311C /* ThemeManager.m */; };
 		C8C431A724BC351E0041311C /* themejson_night.json in Resources */ = {isa = PBXBuildFile; fileRef = C8C431A424BC351E0041311C /* themejson_night.json */; };
@@ -292,6 +295,9 @@
 		C8A84B3925121B2D009A1EF5 /* NYSRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSRegisterViewController.m; sourceTree = "<group>"; };
 		C8A84B3A25121B2D009A1EF5 /* NYSForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSForgetPasswordViewController.m; sourceTree = "<group>"; };
 		C8A84B3B25121B2D009A1EF5 /* NYSForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSForgetPasswordViewController.h; sourceTree = "<group>"; };
+		C8A925E626B24EDC00A7DC5D /* TabbarButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarButton.swift; sourceTree = "<group>"; };
+		C8A925E826B24EFC00A7DC5D /* TabbarShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarShape.swift; sourceTree = "<group>"; };
+		C8A925EA26B24F0900A7DC5D /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C8C4319724BC0CD10041311C /* NYSMemoryLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSMemoryLabel.h; sourceTree = "<group>"; };
 		C8C4319824BC0CD10041311C /* NYSMemoryLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSMemoryLabel.m; sourceTree = "<group>"; };
 		C8C4319E24BC349C0041311C /* ThemeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeManager.h; sourceTree = "<group>"; };
@@ -511,6 +517,7 @@
 		C874E701268AD8B600B20459 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				C8A925E526B24E8C00A7DC5D /* AnimatedTabbar */,
 				C874E717268C4FFB00B20459 /* VoiceAnimation */,
 				C874E732268C529500B20459 /* Ripple */,
 				C874E6F4268AB6FC00B20459 /* Autoscroll */,
@@ -937,6 +944,16 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
+		C8A925E526B24E8C00A7DC5D /* AnimatedTabbar */ = {
+			isa = PBXGroup;
+			children = (
+				C8A925E626B24EDC00A7DC5D /* TabbarButton.swift */,
+				C8A925E826B24EFC00A7DC5D /* TabbarShape.swift */,
+				C8A925EA26B24F0900A7DC5D /* ContentView.swift */,
+			);
+			path = AnimatedTabbar;
+			sourceTree = "<group>";
+		};
 		C8C431A124BC34B70041311C /* UserManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1299,6 +1316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C874E72D268C50AD00B20459 /* YSCVoiceWaveView.m in Sources */,
+				C8A925E926B24EFC00A7DC5D /* TabbarShape.swift in Sources */,
 				C884CAFD24C2CC85008774A0 /* NYSOpenPresenter.m in Sources */,
 				C86D8A30269552C4000F2AB0 /* UIImage+JHUD.m in Sources */,
 				C874E6FB268AB94C00B20459 /* NYSRepeatScrollView.m in Sources */,
@@ -1338,6 +1356,7 @@
 				C8C58D4A24B9647500CFB68F /* NYSNewViewController.m in Sources */,
 				C8C58D5924B9B16B00CFB68F /* NYSUserInfo.m in Sources */,
 				C8E0D98B250B2271009CE1AB /* UIImage+NYS.m in Sources */,
+				C8A925EB26B24F0900A7DC5D /* ContentView.swift in Sources */,
 				C8A84B3E25121B2D009A1EF5 /* NYSRegisterViewController.m in Sources */,
 				C891E84124B842E000AF0019 /* YYFPSLabel.m in Sources */,
 				C891E86024B8567600AF0019 /* NullSafe.m in Sources */,
@@ -1371,6 +1390,7 @@
 				C86D8A31269552C4000F2AB0 /* JHUDAnimationView.m in Sources */,
 				C874E704268AD9FD00B20459 /* NYSIconTextLayer.m in Sources */,
 				C8CCB0DE24C2E0A000437E0E /* DBManager.m in Sources */,
+				C8A925E726B24EDC00A7DC5D /* TabbarButton.swift in Sources */,
 				C891E85824B855B000AF0019 /* AppManager.m in Sources */,
 				C8A84B3F25121B2D009A1EF5 /* NYSForgetPasswordViewController.m in Sources */,
 				C8C58D3E24B94BF200CFB68F /* NYSWebViewController.m in Sources */,
