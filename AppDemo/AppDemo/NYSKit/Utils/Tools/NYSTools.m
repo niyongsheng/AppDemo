@@ -319,12 +319,16 @@
 + (void)showToast:(NSString *)str {
     [SVProgressHUD setHapticsEnabled:YES];
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
+    
+    [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
     [SVProgressHUD setBackgroundColor:NAppThemeColor];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
     [SVProgressHUD setDefaultAnimationType:(SVProgressHUDAnimationTypeFlat)];
     [SVProgressHUD setOffsetFromCenter:UIOffsetMake(0, NScreenHeight * 0.4)];
-    [SVProgressHUD showImage:[UIImage imageNamed:@"xxx"] status:str];
-    [SVProgressHUD dismissWithDelay:1.5];
+    [SVProgressHUD showImage:[UIImage imageNamed:@"_xxx_"] status:str];
+    [SVProgressHUD dismissWithDelay:1.5 completion:^{
+        [SVProgressHUD resetOffsetFromCenter];
+    }];
 }
 
 @end

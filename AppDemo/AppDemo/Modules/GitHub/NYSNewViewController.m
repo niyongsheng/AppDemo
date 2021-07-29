@@ -14,6 +14,12 @@
 
 @implementation NYSNewViewController
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [NYSTools showToast:@"Stay hungry，Stay foolish."];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setTitle:@"GitHub"];

@@ -35,6 +35,9 @@ UISearchBarDelegate
     [super viewDidLoad];
     
     UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
+    if ([[LEETheme currentThemeTag] isEqualToString:NIGHT]) {
+        blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+    }
     UIVisualEffectView *visualView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
     visualView.frame = self.view.frame;
     [self.view addSubview:visualView];
@@ -69,7 +72,7 @@ UISearchBarDelegate
                 [_searchBar removeFromSuperview];
             }
             _searchBar = [UISearchBar new];
-            _searchBar.tintColor = NAppThemeColor;
+            _searchBar.tintColor = _randomColor;
             _searchBar.barTintColor = [UIColor colorWithWhite:1 alpha:0.75];
             _searchBar.delegate = self;
             [self.view addSubview:_searchBar];
@@ -78,8 +81,6 @@ UISearchBarDelegate
                 make.leading.trailing.mas_equalTo(0);
                 make.top.mas_equalTo(0);
             }];
-            
-            [NYSTools showToast:@"hahahahahahaha"];
         }
             break;
             
