@@ -63,7 +63,7 @@
         _text = @"";
     }
     NSDictionary *attributes = @{
-                                 NSForegroundColorAttributeName: [UIColor whiteColor],
+                                 NSForegroundColorAttributeName: self.textColor,
                                  NSFontAttributeName:self.font
                                  };
     NSAttributedString *attributedStr = [[NSAttributedString alloc] initWithString:text attributes:attributes];
@@ -108,6 +108,13 @@
         _iconLayer.frame = CGRectMake(4, 4, 14, 14);
     }
     return _iconLayer;
+}
+
+- (UIColor *)textColor {
+    if (!_textColor) {
+        _textColor = [UIColor whiteColor];
+    }
+    return _textColor;
 }
 
 @end
