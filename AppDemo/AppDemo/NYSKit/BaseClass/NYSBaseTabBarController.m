@@ -8,7 +8,7 @@
 
 #import "NYSBaseTabBarController.h"
 
-@interface NYSBaseTabBarController ()
+@interface NYSBaseTabBarController () <UITabBarControllerDelegate>
 
 @end
 
@@ -18,6 +18,7 @@
     [super viewDidLoad];
  
     [self configTheme];
+//    [self setDelegate:self];
 }
 
 - (void)setVCArray:(NSArray<NSDictionary *> *)VCArray {
@@ -47,6 +48,36 @@
         .LeeAddBarTintColor(NIGHT, [UIColor colorWithRed:0.07 green:0.07 blue:0.07 alpha:0.85]);
         //    .LeeConfigBarTintColor(@"common_bg_color_2");
     }
+}
+
+#pragma mark - UITabBarControllerDelegate
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    if (tabBarController.selectedIndex == 0) {
+        [self popTabAnimation:tabBarController.tabBar.items[0]];
+    } else {
+        [self dismissTabAnimation:tabBarController.tabBar.items[0]];
+    }
+}
+
+- (void)popTabAnimation:(UITabBarItem *)tabBarItem {
+    tabBarItem.badgeValue = @"1000";
+        [tabBarItem setSelectedImage:[UIImage imageNamed:@"tabbar_home_launch"]];
+        CATransition *animation = [CATransition animation];
+        animation.type = kCATransitionPush;//设置动画的类型
+        animation.subtype = kCATransitionFromTop; //设置动画的方向
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        animation.duration = 0.25f;
+//        [tabBarItem. addAnimation:animation forKey:@"pushAnimation"];
+}
+
+- (void)dismissTabAnimation:(UITabBarItem *)tabBarItem {
+    tabBarItem.badgeValue = nil;
+        [self.tabBarItem setSelectedImage:[UIImage imageNamed:@"tabbar_home_selecetedLogo"]];
+        CATransition *animation = [CATransition animation];
+        animation.type = kCATransitionPush;//设置动画的类型
+        animation.subtype = kCATransitionFromBottom; //设置动画的方向
+        animation.duration = 0.25f;
+//        [self.homeTabAnimateImageView.layer addAnimation:animation forKey:@"pushAnimation"];
 }
 
 #pragma mark - auto rotate

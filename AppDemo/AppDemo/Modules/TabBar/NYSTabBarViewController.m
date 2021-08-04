@@ -9,8 +9,8 @@
 #import "NYSTabBarViewController.h"
 #import "NYSBlugeTabBar.h"
 
-@interface NYSTabBarViewController ()
-
+@interface NYSTabBarViewController () <UITabBarDelegate>
+@property (nonatomic, strong) NYSBlugeTabBar *blugeTabBar;
 @end
 
 @implementation NYSTabBarViewController
@@ -41,11 +41,7 @@
     [super viewDidLoad];
     
     // KVC替换tabbar
-    NYSBlugeTabBar *myTabBar = [[NYSBlugeTabBar alloc] initWithStandOutHeight:StandOutHeight radius:27.0f strokelineWidth:0.45f];
-    myTabBar.tabBarItemY = RealValue(15.0);
-    myTabBar.centerTabBarItemY = isIphonex ? RealValue(-10) : -1;
-    myTabBar.alpha = 0.95;
-    [self setValue:myTabBar forKey:@"tabBar"];
+    [self setValue:self.blugeTabBar forKey:@"tabBar"];
     
     self.VCArray = @[
         @{@"vc" : @"NYSHomeViewController",
@@ -61,6 +57,44 @@
           @"selectImg" : @"Me_selected",
           @"itemTitle" : @"Me"}
     ];
+}
+
+#pragma mark - UITabBarDelegate
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+    NSMutableArray *tabBarBtnArray = [NSMutableArray array];
+    int index = [NSNumber numberWithUnsignedInteger:[tabBar.items indexOfObject:item]].intValue;
+    // get UITabBarButton
+    for (int i = 0 ;i < tabBar.subviews.count; i++ ) {
+        UIView * tabBarButton = tabBar.subviews[i];
+        if ([tabBarButton isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+            [tabBarBtnArray addObject:tabBarButton];
+        }
+    }
+    // add scale animation
+    UIView *TabBarButton = tabBarBtnArray[index];
+    for (UIView *imageV in TabBarButton.subviews) {
+        if ([imageV isKindOfClass:NSClassFromString(@"UITabBarSwappableImageView")]) {
+            CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+            animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            animation.duration  = 0.35f;
+            animation.fromValue = [NSNumber numberWithFloat:0.5f];
+            animation.byValue = [NSNumber numberWithFloat:1.5f];
+            animation.toValue   = [NSNumber numberWithFloat:1.f];
+            [imageV.layer addAnimation:animation forKey:nil];
+        }
+    }
+}
+
+- (NYSBlugeTabBar *)blugeTabBar {
+    if (!_blugeTabBar) {
+        _blugeTabBar = [[NYSBlugeTabBar alloc] initWithStandOutHeight:StandOutHeight radius:27.0f strokelineWidth:0.45f];
+        _blugeTabBar.delegate = self;
+        _blugeTabBar.tabBarItemY = RealValue(15.0);
+        _blugeTabBar.centerTabBarItemY = isIphonex ? RealValue(-10) : -1;
+        _blugeTabBar.alpha = 0.95;
+    }
+    
+    return _blugeTabBar;
 }
 
 @end

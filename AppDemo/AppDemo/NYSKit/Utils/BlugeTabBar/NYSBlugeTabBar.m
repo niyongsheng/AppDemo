@@ -27,8 +27,8 @@
 
 - (instancetype)initWithStandOutHeight:(CGFloat)standOutHeight radius:(CGFloat)radius strokelineWidth:(CGFloat)strokelineWidth {
     if (self = [super init]) {
-        self.standOutHeight = standOutHeight;
         self.radius = radius;
+        self.standOutHeight = standOutHeight;
         self.strokelineWidth = strokelineWidth;
     }
     return self;
