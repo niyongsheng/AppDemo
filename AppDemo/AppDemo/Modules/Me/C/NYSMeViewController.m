@@ -17,6 +17,7 @@
 #import "NYSVoiceAnimationViewController.h"
 #import "NYSScrollViewController.h"
 #import "NYSHUDViewController.h"
+#import "NYSConstraintsViewController.h"
 
 #define HEADER_HEIGHT RealValue(260)
 
@@ -85,7 +86,13 @@ static void setupTableUI(NYSMeViewController *object) {
     [self setTitle:@"Me"];
     
     setupTableUI(self);
+    /* 水波纹 */
     [self.rippleView showWithRippleType:YSCRippleTypeLine];
+    WS(weakSelf)
+    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0f * NSEC_PER_SEC));
+    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+        [weakSelf.rippleView removeFromParentView];
+    });
 
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleDone target:self action:@selector(rightBarClicked:)];
@@ -224,8 +231,7 @@ static void setupTableUI(NYSMeViewController *object) {
                 break;
                 
             case 2: {
-                
-                [self.navigationController pushViewController:NYSScrollImageViewController.new animated:YES];
+                [self.navigationController pushViewController:NYSConstraintsViewController.new animated:YES];
             }
                 break;
                 
@@ -310,7 +316,7 @@ static void setupTableUI(NYSMeViewController *object) {
     if (!_dataSource) {
         MeModel *model_1 = [MeModel new];
         model_1.header = @"Profession Properties";
-        model_1.titles = @[@"Sign In", @"Scroll image", @"Animated tabbar"];
+        model_1.titles = @[@"Sign In", @"Scroll image", @"Pop animated"];
         
         MeModel *model_2 = [MeModel new];
         model_2.header = @"Business Demo";

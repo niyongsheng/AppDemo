@@ -54,15 +54,6 @@ UISearchBarDelegate
     self.iconTextLayer.text = @"Je pense, donc je suis";
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    if (@available(iOS 10.0, *)) {
-        UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
-        [feedBackGenertor impactOccurred];
-    } else {
-        // Fallback on earlier versions
-    }
-}
-
 #pragma mark - JXCategoryListContentViewDelegate
 - (UIView *)listView {
     self.view.backgroundColor = _randomColor;

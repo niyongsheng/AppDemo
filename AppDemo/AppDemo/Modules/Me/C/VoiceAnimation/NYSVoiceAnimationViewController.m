@@ -40,6 +40,10 @@
     self.title = @"Voice Animation";
     
     self.view.lee_theme.LeeConfigBackgroundColor(@"common_bg_color_1");
+    if (@available(iOS 11.0, *)) {
+        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeNever;
+    }
+    
     [self setupRecorder];
     
     [self.view insertSubview:self.voiceWaveParentView atIndex:0];

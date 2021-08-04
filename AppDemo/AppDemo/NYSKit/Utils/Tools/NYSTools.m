@@ -41,6 +41,13 @@
     
     animation.values = values;
     [button.layer addAnimation:animation forKey:nil];
+    
+    UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
+    if (@available(iOS 13.0, *)) {
+        [feedBackGenertor impactOccurredWithIntensity:0.75];
+    } else {
+        [feedBackGenertor impactOccurred];
+    }
 }
 
 /**
@@ -80,6 +87,13 @@
             } completion:NULL];
         }
     }];
+    
+    UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleHeavy];
+    if (@available(iOS 13.0, *)) {
+        [feedBackGenertor impactOccurredWithIntensity:0.75];
+    } else {
+        [feedBackGenertor impactOccurred];
+    }
 }
 
 /**

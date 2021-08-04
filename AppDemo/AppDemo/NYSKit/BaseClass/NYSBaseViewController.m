@@ -307,6 +307,15 @@
     [[YYWebImageManager sharedManager].cache.memoryCache removeAllObjects];
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (@available(iOS 10.0, *)) {
+        UIImpactFeedbackGenerator *feedBackGenertor = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
+        [feedBackGenertor impactOccurred];
+    } else {
+        // Fallback on earlier versions
+    }
+}
+
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }

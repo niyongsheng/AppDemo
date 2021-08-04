@@ -11,6 +11,7 @@ target 'AppDemo' do
   pod 'SDAutoLayout'
   pod 'YTKNetwork'
   pod 'FMDB'
+  pod 'pop'
   #  pod 'AsyncDisplayKit', '2.2'
 
   # UI_Component

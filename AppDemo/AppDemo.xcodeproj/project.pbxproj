@@ -25,6 +25,8 @@
 		C829958924C05EA600BEA200 /* night@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C829958524C05EA600BEA200 /* night@2x.png */; };
 		C829958A24C05EA600BEA200 /* day@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C829958624C05EA600BEA200 /* day@3x.png */; };
 		C829958B24C05EA600BEA200 /* day@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C829958724C05EA600BEA200 /* day@2x.png */; };
+		C859A16E26BA19A900F837F7 /* PaperButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C859A16C26BA19A900F837F7 /* PaperButton.m */; };
+		C859A17226BA1A4F00F837F7 /* NYSConstraintsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C859A17126BA1A4F00F837F7 /* NYSConstraintsViewController.m */; };
 		C85F5D882512197300798999 /* NYSAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C85F5D832512197300798999 /* NYSAboutViewController.m */; };
 		C85F5D892512197300798999 /* NYSAboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C85F5D842512197300798999 /* NYSAboutViewController.xib */; };
 		C85F5D8A2512197300798999 /* NYSUserProtoclViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C85F5D862512197300798999 /* NYSUserProtoclViewController.m */; };
@@ -178,6 +180,10 @@
 		C829958524C05EA600BEA200 /* night@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "night@2x.png"; sourceTree = "<group>"; };
 		C829958624C05EA600BEA200 /* day@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "day@3x.png"; sourceTree = "<group>"; };
 		C829958724C05EA600BEA200 /* day@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "day@2x.png"; sourceTree = "<group>"; };
+		C859A16C26BA19A900F837F7 /* PaperButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaperButton.m; sourceTree = "<group>"; };
+		C859A16D26BA19A900F837F7 /* PaperButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaperButton.h; sourceTree = "<group>"; };
+		C859A17026BA1A4F00F837F7 /* NYSConstraintsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NYSConstraintsViewController.h; sourceTree = "<group>"; };
+		C859A17126BA1A4F00F837F7 /* NYSConstraintsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSConstraintsViewController.m; sourceTree = "<group>"; };
 		C85F5D822512197300798999 /* NYSAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NYSAboutViewController.h; sourceTree = "<group>"; };
 		C85F5D832512197300798999 /* NYSAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NYSAboutViewController.m; sourceTree = "<group>"; };
 		C85F5D842512197300798999 /* NYSAboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NYSAboutViewController.xib; sourceTree = "<group>"; };
@@ -465,6 +471,24 @@
 			path = Refresh;
 			sourceTree = "<group>";
 		};
+		C859A16B26BA198A00F837F7 /* PaperButton */ = {
+			isa = PBXGroup;
+			children = (
+				C859A16D26BA19A900F837F7 /* PaperButton.h */,
+				C859A16C26BA19A900F837F7 /* PaperButton.m */,
+			);
+			path = PaperButton;
+			sourceTree = "<group>";
+		};
+		C859A16F26BA1A0A00F837F7 /* Pop */ = {
+			isa = PBXGroup;
+			children = (
+				C859A17026BA1A4F00F837F7 /* NYSConstraintsViewController.h */,
+				C859A17126BA1A4F00F837F7 /* NYSConstraintsViewController.m */,
+			);
+			path = Pop;
+			sourceTree = "<group>";
+		};
 		C85F5D7625120F7B00798999 /* BlugeTabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -545,6 +569,7 @@
 		C874E701268AD8B600B20459 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				C859A16B26BA198A00F837F7 /* PaperButton */,
 				C8A925E526B24E8C00A7DC5D /* AnimatedTabbar */,
 				C874E717268C4FFB00B20459 /* VoiceAnimation */,
 				C874E732268C529500B20459 /* Ripple */,
@@ -1147,6 +1172,7 @@
 		C8E0D990250B334B009CE1AB /* C */ = {
 			isa = PBXGroup;
 			children = (
+				C859A16F26BA1A0A00F837F7 /* Pop */,
 				C86D8A34269553ED000F2AB0 /* VoiceAnimation */,
 				C86D8A33269553D7000F2AB0 /* ScrollImages */,
 				C86D8A322695537C000F2AB0 /* HUD */,
@@ -1397,8 +1423,10 @@
 				C8E0D97D250B087D009CE1AB /* NYSHomeViewController.m in Sources */,
 				C891E85B24B8560F00AF0019 /* IMManager.m in Sources */,
 				C8E0D95B250A1216009CE1AB /* NYSBlugeTabBar.m in Sources */,
+				C859A16E26BA19A900F837F7 /* PaperButton.m in Sources */,
 				C891E81A24B821E300AF0019 /* NYSBaseNavigationController.m in Sources */,
 				C884CAEF24C2B0CD008774A0 /* NYSSignHandleKeyChain.m in Sources */,
+				C859A17226BA1A4F00F837F7 /* NYSConstraintsViewController.m in Sources */,
 				C85F5D8A2512197300798999 /* NYSUserProtoclViewController.m in Sources */,
 				C8C431A024BC349C0041311C /* ThemeManager.m in Sources */,
 				C8C58D5B24B9B16B00CFB68F /* NYSCommunity.m in Sources */,
