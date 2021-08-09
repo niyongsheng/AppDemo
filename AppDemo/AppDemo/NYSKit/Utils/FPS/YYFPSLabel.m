@@ -103,10 +103,10 @@
         CGRect frame = self.frame;
         
         if (self.center.x <= NScreenWidth / 2.0){
-            frame.origin.x = 0;
+            frame.origin.x = 10;
         }else
         {
-            frame.origin.x = NScreenWidth - frame.size.width;
+            frame.origin.x = NScreenWidth - frame.size.width - 10;
         }
         
         if (frame.origin.y < 20) {

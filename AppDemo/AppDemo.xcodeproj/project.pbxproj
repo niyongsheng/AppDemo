@@ -140,6 +140,7 @@
 		C8E0D98B250B2271009CE1AB /* UIImage+NYS.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E0D98A250B2271009CE1AB /* UIImage+NYS.m */; };
 		C8E0D98F250B32EB009CE1AB /* NYSMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E0D98E250B32EB009CE1AB /* NYSMeViewController.m */; };
 		C8E0D994250B3368009CE1AB /* MeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E0D992250B3368009CE1AB /* MeModel.m */; };
+		C8ECE9D526BB6F51008F4FB6 /* WSScrollLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ECE9D326BB6F51008F4FB6 /* WSScrollLabel.m */; };
 		C8F5B0D926A4E500001921B8 /* no_network13.png in Resources */ = {isa = PBXBuildFile; fileRef = C8F5B0CB26A4E4FC001921B8 /* no_network13.png */; };
 		C8F5B0DA26A4E500001921B8 /* no_network10.png in Resources */ = {isa = PBXBuildFile; fileRef = C8F5B0CC26A4E4FD001921B8 /* no_network10.png */; };
 		C8F5B0DB26A4E500001921B8 /* no_network2.png in Resources */ = {isa = PBXBuildFile; fileRef = C8F5B0CD26A4E4FD001921B8 /* no_network2.png */; };
@@ -386,6 +387,8 @@
 		C8E0D98E250B32EB009CE1AB /* NYSMeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NYSMeViewController.m; sourceTree = "<group>"; };
 		C8E0D992250B3368009CE1AB /* MeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeModel.m; sourceTree = "<group>"; };
 		C8E0D993250B3368009CE1AB /* MeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeModel.h; sourceTree = "<group>"; };
+		C8ECE9D326BB6F51008F4FB6 /* WSScrollLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSScrollLabel.m; sourceTree = "<group>"; };
+		C8ECE9D426BB6F51008F4FB6 /* WSScrollLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSScrollLabel.h; sourceTree = "<group>"; };
 		C8F5B0CB26A4E4FC001921B8 /* no_network13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_network13.png; sourceTree = "<group>"; };
 		C8F5B0CC26A4E4FD001921B8 /* no_network10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_network10.png; sourceTree = "<group>"; };
 		C8F5B0CD26A4E4FD001921B8 /* no_network2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_network2.png; sourceTree = "<group>"; };
@@ -649,6 +652,7 @@
 				C891E82D24B842E000AF0019 /* FPS */,
 				C87B220F24BC0BFF00AB643F /* Memory */,
 				C884CAF024C2B119008774A0 /* CMPopTipView */,
+				C8ECE9D226BB6F33008F4FB6 /* ScrollLabel */,
 				C85F5D7625120F7B00798999 /* BlugeTabBar */,
 				C891E82624B842DF00AF0019 /* TableViewAnimationKit */,
 				C8C431DA24BC39090041311C /* FDFullscreenPopGesture */,
@@ -1194,6 +1198,15 @@
 			path = M;
 			sourceTree = "<group>";
 		};
+		C8ECE9D226BB6F33008F4FB6 /* ScrollLabel */ = {
+			isa = PBXGroup;
+			children = (
+				C8ECE9D426BB6F51008F4FB6 /* WSScrollLabel.h */,
+				C8ECE9D326BB6F51008F4FB6 /* WSScrollLabel.m */,
+			);
+			path = ScrollLabel;
+			sourceTree = "<group>";
+		};
 		C8F5B0CA26A4E4CD001921B8 /* NoNetwork */ = {
 			isa = PBXGroup;
 			children = (
@@ -1432,6 +1445,7 @@
 				C8C58D5B24B9B16B00CFB68F /* NYSCommunity.m in Sources */,
 				C86D8A3A26955488000F2AB0 /* NYSHUDDetailViewController.m in Sources */,
 				C874E710268C20FC00B20459 /* NYSCPSearchTableViewController.m in Sources */,
+				C8ECE9D526BB6F51008F4FB6 /* WSScrollLabel.m in Sources */,
 				C8E0D994250B3368009CE1AB /* MeModel.m in Sources */,
 				C8253D3E24B8782100BA4291 /* IMDataSource.m in Sources */,
 				C8E0D981250B0943009CE1AB /* NYSActivityCollectionViewCell.m in Sources */,

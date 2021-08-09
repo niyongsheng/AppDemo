@@ -44,11 +44,6 @@
     // 启动广告
     [[ADManager sharedADManager] showAD];
     
-#if defined(DEBUG)
-    [[AppManager sharedAppManager] showFPS];
-    [[AppManager sharedAppManager] showMemory];
-#endif
-    
 //    [Chameleon setGlobalThemeUsingPrimaryColor:FlatMint withSecondaryColor:FlatBlue andContentStyle:UIContentStyleContrast];
     
     return YES;

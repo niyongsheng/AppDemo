@@ -14,6 +14,15 @@
 
 @implementation NYSBaseTabBarController
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+#if defined(DEBUG)
+    [[AppManager sharedAppManager] showFPS];
+    [[AppManager sharedAppManager] showMemory];
+#endif
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
  
