@@ -21,7 +21,6 @@
     if (@available(iOS 11.0, *)) {
         self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeNever;
     }
-    [NYSTKAlert showColorfulToastWithMessage:@"NYSKit Welcome !" type:NYSTKColorfulToastTypeYellowCat direction:NYSTKComeInDirectionUp onView:self.conversationListTableView themeModel:NYSTKThemeModelLight];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

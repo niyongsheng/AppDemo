@@ -6,6 +6,18 @@ PODS:
   - AFNetworking/Reachability (4.0.1)
   - AFNetworking/Security (4.0.1)
   - AFNetworking/Serialization (4.0.1)
+  - BRPickerView (2.7.3):
+    - BRPickerView/AddressPickerView (= 2.7.3)
+    - BRPickerView/Base (= 2.7.3)
+    - BRPickerView/DatePickerView (= 2.7.3)
+    - BRPickerView/StringPickerView (= 2.7.3)
+  - BRPickerView/AddressPickerView (2.7.3):
+    - BRPickerView/Base
+  - BRPickerView/Base (2.7.3)
+  - BRPickerView/DatePickerView (2.7.3):
+    - BRPickerView/Base
+  - BRPickerView/StringPickerView (2.7.3):
+    - BRPickerView/Base
   - ChameleonFramework (2.1.0):
     - ChameleonFramework/Default (= 2.1.0)
   - ChameleonFramework/Default (2.1.0)
@@ -21,9 +33,8 @@ PODS:
   - JXPagingView/Pager (2.0.13)
   - Masonry (1.1.0)
   - MJRefresh (3.5.0)
-  - NYSTK (0.0.6):
+  - NYSTK (0.0.8):
     - Masonry (>= 1.0.0)
-    - ReactiveObjC (>= 1.0.1)
   - pop (1.0.12)
   - ReactiveObjC (3.1.1)
   - RongCloudIM (5.0.0):
@@ -85,6 +96,7 @@ PODS:
   - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
+  - BRPickerView
   - ChameleonFramework
   - FMDB
   - IQKeyboardManager
@@ -93,7 +105,7 @@ DEPENDENCIES:
   - JXPagingView/Pager
   - Masonry
   - MJRefresh
-  - NYSTK (~> 0.0.6)
+  - NYSTK (= 0.0.8)
   - pop
   - ReactiveObjC
   - RongCloudIM
@@ -110,6 +122,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
+    - BRPickerView
     - ChameleonFramework
     - FLAnimatedImage
     - FMDB
@@ -137,6 +150,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  BRPickerView: 9cc11880ac79c4872d081ccb88f306224c1501d7
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   FLAnimatedImage: dd3db277b17e909ec3c7fd41adfce79b321d960e
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
@@ -147,7 +161,7 @@ SPEC CHECKSUMS:
   JXPagingView: 821ed274f09eaf2843a96c3a74e9d138e27d9730
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
-  NYSTK: f12ac9e3fea7ccf8db2efbb628d1f7b20f9a9565
+  NYSTK: 2a3ed92c57614cce6fc20ed21cf82db2d9146217
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   RongCloudIM: e915e63a1ec35a6bbf4ddbfa8db3dff6b7ff19c6
@@ -162,6 +176,6 @@ SPEC CHECKSUMS:
   YTKNetwork: a2337af4b444b5d0a658122fa3d8a425e2425716
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 49f09c1e2af5bc01b3e95c47f3d276a945369079
+PODFILE CHECKSUM: 0b0d935652fcf41099c50bc21ec0bb9fccb42062
 
 COCOAPODS: 1.10.0

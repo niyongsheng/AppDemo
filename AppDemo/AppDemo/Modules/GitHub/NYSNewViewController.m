@@ -17,7 +17,9 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [NYSTools showToast:@"Stay hungry，Stay foolish."];
+    [[NYSTKConfig defaultConfig] clearDefaultValue];
+    [NYSTKConfig defaultConfig].offsetFromCenter = UIOffsetMake(0, NYSTK_RealValue(280));
+    [NYSTKAlert showToastWithMessage:@"Stay hungry，Stay foolish."];
 }
 
 - (void)viewDidLoad {

@@ -22,28 +22,29 @@ SINGLETON_FOR_CLASS(IMManager);
 - (void)initRongCloudIM {
     
     [[RCIM sharedRCIM] initWithAppKey:RCAPPKEY_DEV];
-    [RCIM sharedRCIM].globalNavigationBarTintColor = [UIColor whiteColor];
-    // 信息提供者
-    [RCIM sharedRCIM].userInfoDataSource = [IMDataSource sharedIMDataSource];
-    [RCIM sharedRCIM].groupInfoDataSource = [IMDataSource sharedIMDataSource];
-    [RCIM sharedRCIM].groupMemberDataSource = [IMDataSource sharedIMDataSource];
-    // 开启多端同步未读状态
-    [RCIM sharedRCIM].enableSyncReadStatus = YES;
     // 设置优先使用WebView打开URL
     [RCIM sharedRCIM].embeddedWebViewPreferred = YES;
     // 开启用户信息和群组信息的持久化
     [RCIM sharedRCIM].enablePersistentUserInfoCache = YES;
+    // 信息提供者
+    [RCIM sharedRCIM].userInfoDataSource = [IMDataSource sharedIMDataSource];
+    [RCIM sharedRCIM].groupInfoDataSource = [IMDataSource sharedIMDataSource];
+    [RCIM sharedRCIM].groupMemberDataSource = [IMDataSource sharedIMDataSource];
+    RCKitConfigCenter.ui.enableDarkMode = YES; // 暗黑模式
+    RCKitConfigCenter.ui.globalNavigationBarTintColor = NAppThemeColor;
+    // 开启多端同步未读状态
+    RCKitConfigCenter.message.enableSyncReadStatus = YES;
     // 开启输入状态提醒
-    [RCIM sharedRCIM].enableTypingStatus = YES;
+    RCKitConfigCenter.message.enableTypingStatus = YES;
     // 开启消息撤回功能
-    [RCIM sharedRCIM].enableMessageRecall = YES;
+    RCKitConfigCenter.message.enableMessageRecall = YES;
     // 选择媒体资源时，包含视频文件
-    [RCIM sharedRCIM].isMediaSelectorContainVideo = YES;
+    RCKitConfigCenter.message.isMediaSelectorContainVideo = YES;
     // 开启@功能
-    [RCIM sharedRCIM].enableMessageMentioned = YES;
+    RCKitConfigCenter.message.enableMessageMentioned = YES;
     // 设置头像为圆形
-    [RCIM sharedRCIM].globalMessageAvatarStyle = RC_USER_AVATAR_CYCLE;
-    [RCIM sharedRCIM].globalConversationAvatarStyle = RC_USER_AVATAR_CYCLE;
+    RCKitConfigCenter.ui.globalMessageAvatarStyle = RC_USER_AVATAR_CYCLE;
+    RCKitConfigCenter.ui.globalConversationAvatarStyle = RC_USER_AVATAR_CYCLE;
     // 离线历史消息（30天）
     [[RCIMClient sharedRCIMClient] setOfflineMessageDuration:30 success:^{
         

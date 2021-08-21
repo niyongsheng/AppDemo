@@ -20,7 +20,7 @@ target 'AppDemo' do
   pod 'SVProgressHUD'
   pod 'ChameleonFramework'
   pod 'XHLaunchAd'
-  pod 'NYSTK','~>0.0.6'
+  pod 'NYSTK', '0.0.8'
   pod 'BRPickerView'
   pod 'JXCategoryView'
   pod 'JXPagingView/Pager'

@@ -44,6 +44,7 @@
     // 启动广告
     [[ADManager sharedADManager] showAD];
     
+    // 色彩主题
 //    [Chameleon setGlobalThemeUsingPrimaryColor:FlatMint withSecondaryColor:FlatBlue andContentStyle:UIContentStyleContrast];
     
     return YES;

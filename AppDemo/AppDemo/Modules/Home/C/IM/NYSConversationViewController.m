@@ -46,7 +46,7 @@ RCIMSendMessageDelegate
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self configTheme];
+//    [self configTheme];
     
     // 为保持app统一样式覆盖返回按钮样式
     [self addNavigationItemWithImageNames:@[@"back_icon"] isLeft:YES target:self action:@selector(backBtnClicked) tags:@[@"1"]];

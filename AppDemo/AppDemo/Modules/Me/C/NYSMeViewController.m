@@ -190,13 +190,16 @@ static void setupTableUI(NYSMeViewController *object) {
                 NSString *amount = [NSString stringWithFormat:@"%d", 100];
                 NSString *str = [NSString stringWithFormat:@"恭喜您^^\n获得%@积分", amount];
                 NSMutableAttributedString *attrStr = [[NSMutableAttributedString alloc] initWithString:str];
+                [attrStr setAttributes:@{NSForegroundColorAttributeName:[UIColor darkGrayColor]} range:[str rangeOfString:str]];
                 [attrStr setAttributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]} range:[str rangeOfString:amount]];
-                [NYSTKAlert showSignAlertWithMessage:attrStr
-                                              onView:NAppWindow
-                                            signType:NYSTKSignTypeYellow
-                                         emitterType:NYSTKEmitterAnimationTypeColourbar
-                                          themeModel:NYSTKThemeModelLight
-                              infoButtonClickedBlock:^{
+                
+                [[NYSTKConfig defaultConfig] clearDefaultValue];
+                [NYSTKConfig defaultConfig].offsetForLabel = UIOffsetMake(0, -25);
+                [NYSTKConfig defaultConfig].offsetForCloseBtn = UIOffsetMake(-70, 100);
+                [NYSTKConfig defaultConfig].offsetForInfoBtn = UIOffsetMake(0, 10);
+                [NYSTKConfig defaultConfig].tintColor = [UIColor colorWithRed:1.00 green:0.76 blue:0.05 alpha:1.00];
+                [NYSTKAlert showImageAlertWithMessage:attrStr
+                               infoButtonClickedBlock:^{
                     self.pedometer = [[CMPedometer alloc] init];
                     if ([CMPedometer isStepCountingAvailable]) {
                         // 获取昨天的步数与距离数据
@@ -207,11 +210,18 @@ static void setupTableUI(NYSMeViewController *object) {
                             } else {
                                 NSString *message = [NSString stringWithFormat:@"Steps Num:%@, %.1fkm.", pedometerData.numberOfSteps, pedometerData.distance.floatValue/1000];
                                 dispatch_async(dispatch_get_main_queue(), ^{
-                                    [NYSTKAlert showColorfulToastWithMessage:message
-                                          type:NYSTKColorfulToastTypeBlueFlower
-                                     direction:NYSTKComeInDirectionDown
-                                        onView:NAppWindow
-                                    themeModel:NYSTKThemeModelLight];
+                                    [[NYSTKConfig defaultConfig] clearDefaultValue];
+                                    [NYSTKConfig defaultConfig].offsetFromCenter = UIOffsetMake(0, -NTabBarHeight);
+                                    [NYSTKAlert showImageBarWithMessage:message
+                                                      attributedMessage:nil
+                                                                  image:nil
+                                                                   type:NYSTKColorfulToastTypeGreenStar
+                                                              direction:NYSTKComeInDirectionDown
+                                                                 onView:NYSTK_AppWindow
+                                                            emitterType:NYSTKEmitterAnimationTypeNone
+                                                             themeModel:NYSTKThemeModelLight
+                                                 infoButtonClickedBlock:nil
+                                                closeButtonClickedBlock:nil];
                                 });
                             }
                         }];
@@ -219,8 +229,6 @@ static void setupTableUI(NYSMeViewController *object) {
                         [SVProgressHUD showErrorWithStatus:@"Pedometer not available!"];
                         [SVProgressHUD dismissWithDelay:1.f];
                     }
-                } closeButtonClickedBlock:^{
-                    
                 }];
             }
                 break;
@@ -255,6 +263,7 @@ static void setupTableUI(NYSMeViewController *object) {
                 break;
                 
             default:
+                [NYSTKAlert clearDefaultValue];
                 [NYSTKAlert showToastWithMessage:@"Undefined Item!" themeModel:NYSTKThemeModelLight];
                 break;
         }
@@ -275,7 +284,8 @@ static void setupTableUI(NYSMeViewController *object) {
                 break;
                 
             case 2: {
-                [NYSTKAlert showToastWithMessage:@"Clear success." image:@"toast_success" themeModel:NYSTKThemeModelLight];
+                [NYSTKAlert clearDefaultValue];
+                [NYSTKAlert showToastWithMessage:@"Clear success." messageType:NYSTKMessageTypeSuccess themeModel:NYSTKThemeModelAuto];
             }
                 break;
                 
