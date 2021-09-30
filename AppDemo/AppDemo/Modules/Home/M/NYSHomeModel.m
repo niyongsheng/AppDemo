@@ -9,8 +9,23 @@
 #import "NYSHomeModel.h"
 
 @implementation NYSHomeModel
-+ (NSDictionary *)modelCustomPropertyMapper {
-    // value should be Class or Class name.
-    return @{ @"ID" : @"id" };
-}
 @end
+
+@implementation NYSBannerModel
+@end
+
+@implementation NYSBillboardModel
+@end
+
+@implementation NYSBusinessModel
+@end
+
+@implementation NYSVoteModel
+@end
+
+@implementation NYSTopicModel
+@end
+
+@implementation NYSNewsModel
+@end
+

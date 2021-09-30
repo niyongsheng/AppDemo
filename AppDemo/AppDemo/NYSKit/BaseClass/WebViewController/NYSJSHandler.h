@@ -12,8 +12,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NYSJSHandler : NSObject <WKScriptMessageHandler>
-@property (nonatomic, strong) UIViewController * webVC;
-@property (nonatomic, strong) WKWebViewConfiguration * configuration;
+@property (nonatomic, strong) UIViewController *webVC;
+@property (nonatomic, strong) WKWebViewConfiguration *configuration;
 
 - (instancetype)initWithViewController:(UIViewController *)webVC configuration:(WKWebViewConfiguration *)configuration;
 

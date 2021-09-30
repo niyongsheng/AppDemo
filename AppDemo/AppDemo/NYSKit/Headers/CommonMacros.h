@@ -40,29 +40,35 @@
 /** 接口前缀-开发服务器*/
 static NSString *const APP_BaseURL = @"https://newanju.qmook.com";
 static NSString *const APP_CDNURL  = @"http://lpr.qmook.com";
+static NSString *const APP_FBURL   = @"https://txc.qq.com/minvite.html?s=c0cc93c04b";
 #elif TestSever
 /** 接口前缀-测试服务器*/
 static NSString *const APP_BaseURL = @"http://192.168.31.182";
 static NSString *const APP_CDNURL  = @"http://192.168.31.182";
+static NSString *const APP_FBURL   = @"https://txc.qq.com/minvite.html?s=c0cc93c04b";
 #elif ProductSever
 /** 接口前缀-生产服务器*/
 static NSString *const APP_BaseURL = @"https://newanju.qmook.com";
 static NSString *const APP_CDNURL  = @"http://127.1.1";
+static NSString *const APP_FBURL   = @"https://txc.qq.com/minvite.html?s=c0cc93c04b";
 #endif
 
 // 网络状态变化
 #define NNotificationNetWorkStateChange         @"KNotificationNetWorkStateChange"
+// 基类生命周期变化
+#define NNotificationBCViewWillAppear           @"KNNotificationBCViewWillAppear"
+#define NNotificationBCViewDidAppear            @"KNNotificationBCViewDidAppear"
 
 
 #pragma mark -- 第三方平台相关 --
+// Company Name
+#define CompanyName     @"硕鼠工作室"
 // App Store ID
 #define APPID           @"1438587777"
 // App Store详情页
 #define AppStoreURL     [NSString stringWithFormat:@"https://itunes.apple.com/cn/app/id%@", APPID]
 // App APIs
 #define AppAPIsURL      [NSString stringWithFormat:@"%@/api/swagger-ui.html", APP_BaseURL]
-// GitHub
-#define GitHubURl       [NSString stringWithFormat:@"https://github.com/%@", @"niyongsheng/AppDemo"]
 
 // 微信登录
 #define WXAPPID         @""
@@ -79,6 +85,9 @@ static NSString *const APP_CDNURL  = @"http://127.1.1";
 
 // 友盟+
 #define UMengKey        @""
+
+// 兔小巢
+#define TXCAppID        @"3445558"
 
 // 融云IM
 #define RCAPPKEY_DEV    @"n19jmcy5n8fz9" // 开发环境

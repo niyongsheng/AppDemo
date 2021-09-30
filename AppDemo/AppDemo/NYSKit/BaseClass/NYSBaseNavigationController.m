@@ -19,6 +19,9 @@
     UINavigationBar *navBar = [UINavigationBar appearance];
 //    [navBar setBackgroundImage:[[UIImage imageWithColor:[UIColor whiteColor ]] imageByBlurRadius:40 tintColor:nil tintMode:0 saturation:1 maskImage:nil] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     
+//    navBar.backgroundImage = imageColor;
+//    navBar.shadowColor = UIColor.clearColor;
+    
     // delete bottom line
     [navBar setShadowImage:[UIImage new]];
 }
@@ -27,8 +30,8 @@
     [super viewDidLoad];
     
     if (@available(iOS 11.0, *)) {
-        self.navigationBar.prefersLargeTitles = YES;
-        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeAutomatic;
+        self.navigationBar.prefersLargeTitles = NO;
+        self.navigationItem.largeTitleDisplayMode = UINavigationItemLargeTitleDisplayModeNever;
     }
     
     [self configTheme];
@@ -38,11 +41,13 @@
 
 /// theme config
 - (void)configTheme {
-
     if (CurrentSystemVersion < 13.0) {
         self.navigationBar.lee_theme
         .LeeConfigBarTintColor(@"common_bg_color_2")
-        .LeeConfigTintColor(@"common_nav_font_color_1");
+        .LeeConfigTintColor(@"app_theme_color");
+    } else {
+        self.navigationBar.lee_theme
+        .LeeConfigTintColor(@"app_theme_color");
     }
     
     self.navigationBar.lee_theme
@@ -51,7 +56,7 @@
         bar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor blackColor]};
         if (@available(iOS 11.0, *)) {
             bar.largeTitleTextAttributes = @{NSForegroundColorAttributeName : [UIColor blackColor],
-            NSFontAttributeName : [UIFont fontWithName:@"04b_03b" size:50.0f]
+            NSFontAttributeName : [UIFont fontWithName:@"DOUYU Font" size:30.0f]
             };
         }
     })
@@ -60,7 +65,7 @@
         bar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor lightGrayColor]};
         if (@available(iOS 11.0, *)) {
             bar.largeTitleTextAttributes = @{NSForegroundColorAttributeName : [UIColor lightGrayColor],
-                                             NSFontAttributeName : [UIFont fontWithName:@"04b_03b" size:50.0f]
+                                             NSFontAttributeName : [UIFont fontWithName:@"DOUYU Font" size:30.0f]
             };
         }
     });

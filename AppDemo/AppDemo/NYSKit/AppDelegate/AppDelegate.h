@@ -12,5 +12,7 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 @property (strong, nonatomic) UIWindow * window;
 @property (strong, nonatomic) NYSTabBarViewController *tabBarVC;
+/// 后台背景虚化遮罩
+@property (strong, nonatomic) UIVisualEffectView *visualEffectView;
 @end
 

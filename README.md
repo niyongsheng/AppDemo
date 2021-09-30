@@ -8,12 +8,12 @@ AppDemo
 > ios project demo based on [NYSKit](https://github.com/niyongsheng/NYSKit)
 
 ## Features:
-    * 用户管理                  `User Manager`
-    * 广告管理                  `AD Manager`
-    * 主题管理                  `Theme Manager`
+    * 用户管理                  `UserManager`
+    * 广告管理                  `ADManager`
+    * 主题管理                  `ThemeManager`
     * 新特性页                  `NewFeature`
-    * 核心动画                  `CoreAnimation`
-    * 苹果登录                  `Sign With Apple`
+    * 暗黑模式                  `DarkMode`
+    * 苹果登录                  `SignWithApple`
     * 自动填充                  `Autofill iOS 12.0`
     * 自定义TabBar              `CALayer、UIBezierPath`
     * IM+推送+分享+统计+第三方登录 `IM+Push+Share+Statistical`

@@ -16,11 +16,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-#if defined(DEBUG)
-    [[AppManager sharedAppManager] showFPS];
-    [[AppManager sharedAppManager] showMemory];
-#endif
 }
 
 - (void)viewDidLoad {
@@ -28,6 +23,16 @@
  
     [self configTheme];
 //    [self setDelegate:self];
+    
+    if (@available(iOS 13, *)) {
+        UITabBarAppearance *appearance = [self.tabBar.standardAppearance copy];
+        appearance.shadowImage = [UIImage imageWithColor:[UIColor clearColor]];
+        // 重置阴影为透明
+        [appearance configureWithTransparentBackground];
+        self.tabBar.standardAppearance = appearance;
+    } else {
+        self.tabBar.shadowImage = [UIImage new];
+    }
 }
 
 - (void)setVCArray:(NSArray<NSDictionary *> *)VCArray {
@@ -36,7 +41,6 @@
     NSMutableArray *subControllers = [[NSMutableArray alloc] init];
     for (NSDictionary *viewController in VCArray) {
         NYSBaseNavigationController *navC = [[NYSBaseNavigationController alloc] initWithRootViewController:[[NSClassFromString(viewController[@"vc"]) alloc] init]];
-//        navC.viewControllers.firstObject.title = viewController[@"itemTitle"];
         navC.tabBarItem.title = viewController[@"itemTitle"];
         navC.tabBarItem.image = [UIImage imageNamed:viewController[@"normalImg"]];
         navC.tabBarItem.selectedImage = [UIImage imageNamed:viewController[@"selectImg"]];
@@ -48,45 +52,23 @@
 }
 
 - (void)configTheme {
-    // push\pop导航栏右上角阴影
-    self.view.lee_theme.LeeConfigBackgroundColor(@"common_bg_color_1");
     
     if (CurrentSystemVersion < 13.0) {
+        // push\pop导航栏右上角阴影
+        self.view.lee_theme.LeeConfigBackgroundColor(@"common_bg_color_1");
+        
         self.tabBar.lee_theme
-        .LeeAddBarTintColor(DAY, [UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:0.85f])
-        .LeeAddBarTintColor(NIGHT, [UIColor colorWithRed:0.07 green:0.07 blue:0.07 alpha:0.85]);
-        //    .LeeConfigBarTintColor(@"common_bg_color_2");
+        .LeeConfigBarTintColor(@"common_bg_color_2")
+        .LeeConfigTintColor(@"app_theme_color");
+    } else {
+        self.tabBar.lee_theme
+        .LeeConfigTintColor(@"app_theme_color");
     }
 }
 
 #pragma mark - UITabBarControllerDelegate
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
-    if (tabBarController.selectedIndex == 0) {
-        [self popTabAnimation:tabBarController.tabBar.items[0]];
-    } else {
-        [self dismissTabAnimation:tabBarController.tabBar.items[0]];
-    }
-}
-
-- (void)popTabAnimation:(UITabBarItem *)tabBarItem {
-    tabBarItem.badgeValue = @"1000";
-        [tabBarItem setSelectedImage:[UIImage imageNamed:@"tabbar_home_launch"]];
-        CATransition *animation = [CATransition animation];
-        animation.type = kCATransitionPush;//设置动画的类型
-        animation.subtype = kCATransitionFromTop; //设置动画的方向
-        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-        animation.duration = 0.25f;
-//        [tabBarItem. addAnimation:animation forKey:@"pushAnimation"];
-}
-
-- (void)dismissTabAnimation:(UITabBarItem *)tabBarItem {
-    tabBarItem.badgeValue = nil;
-        [self.tabBarItem setSelectedImage:[UIImage imageNamed:@"tabbar_home_selecetedLogo"]];
-        CATransition *animation = [CATransition animation];
-        animation.type = kCATransitionPush;//设置动画的类型
-        animation.subtype = kCATransitionFromBottom; //设置动画的方向
-        animation.duration = 0.25f;
-//        [self.homeTabAnimateImageView.layer addAnimation:animation forKey:@"pushAnimation"];
+    
 }
 
 #pragma mark - auto rotate

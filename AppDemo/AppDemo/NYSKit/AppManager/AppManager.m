@@ -32,7 +32,33 @@ SINGLETON_FOR_CLASS(AppManager);
     _memLabel.bottom = NScreenHeight - (isIphonex ? RealValue(115) : RealValue(80));
     _memLabel.right = NScreenWidth - 10;
     _memLabel.alpha = 0.8f;
-    [NAppWindow addSubview:_memLabel];
+    [NRootViewController.view addSubview:_memLabel];
+}
+
+/// APP名称
+- (NSString *)getAppName {
+    // CFBundleName
+    return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"];
+}
+
+/// APP版本
+- (NSString *)getAppVersion {
+    return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+}
+
+/// APP构建版本
+- (NSString *)getAppBuildVersion {
+    return [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+}
+
+/// APP ID
+- (NSString *)getAppBundleId {
+    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
+}
+
+/// APP App Store URL
+- (NSString *)getAppUrlInItunes {
+    return  [NSString stringWithFormat:@"https://itunes.apple.com/cn/lookup?bundleId=%@", [self getAppBundleId]];
 }
 
 @end

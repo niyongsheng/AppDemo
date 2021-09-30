@@ -129,23 +129,6 @@
     [layer addAnimation:animation forKey:@"wiggle"];
 }
 
-/**
- 判断是否为有效手机号码
- 
- @param phone 手机号
- @return 是否有效
- */
-+ (BOOL)isValidPhone:(NSString *)phone {
-    if (phone.length != 11) {
-        return NO;
-    } else {
-//        NSString *phoneRegex = @"^((13[0-9])|(15[^4,\\D])|(18[0-9])|(14[57])|(17[013678]))\\d{8}$";
-//        NSPredicate *phoneTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",phoneRegex];
-//        return [phoneTest evaluateWithObject:phone];
-        return YES;
-    }
-}
-
 /// 将某个时间转化成 时间戳
 /// @param formatTime 时间z字符串
 /// @param format 格式（@"YYYY-MM-dd hh:mm:ss"）----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
@@ -288,6 +271,21 @@
     theview.layer.mask = shape;
 }
 
++ (void)addRoundedCorners:(UIView *)theview
+                  corners:(UIRectCorner)corners
+                withRadii:(CGSize)radii
+                 viewRect:(CGRect)rect
+              borderWidth:(CGFloat)borderWidth
+              borderColor:(UIColor *)borderColor {
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:theview.bounds byRoundingCorners:corners cornerRadii:radii];
+    CAShapeLayer *borderLayer = [CAShapeLayer layer];
+    borderLayer.frame = theview.bounds;
+    borderLayer.path = path.CGPath;
+    borderLayer.lineWidth = borderWidth;
+    borderLayer.fillColor = [UIColor clearColor].CGColor;
+    borderLayer.strokeColor = borderColor.CGColor;
+    [theview.layer addSublayer:borderLayer];
+}
 
 ///  判断NSString值是否为空或null并转换为空字符串
 /// @param string str
@@ -328,20 +326,39 @@
     return [mutableString stringByReplacingOccurrencesOfString:@"'" withString:@""];
 }
 
-/// Toast
+/// Toast 头部
 /// @param str 内容
-+ (void)showToast:(NSString *)str {
++ (void)showTopToast:(NSString *)str {
     [SVProgressHUD setHapticsEnabled:YES];
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
     
     [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
-    [SVProgressHUD setBackgroundColor:NAppThemeColor];
+//    [SVProgressHUD setBackgroundColor:NAppThemeColor];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD setDefaultAnimationType:(SVProgressHUDAnimationTypeFlat)];
+    [SVProgressHUD setOffsetFromCenter:UIOffsetMake(0, -NScreenHeight * 0.3)];
+    [SVProgressHUD showImage:[UIImage imageNamed:@"_NULL_"] status:str];
+    [SVProgressHUD dismissWithDelay:1.5 completion:^{
+        [SVProgressHUD resetOffsetFromCenter];
+        [SVProgressHUD setDefaultStyle:[[LEETheme currentThemeTag] isEqualToString:DAY] ? SVProgressHUDStyleLight : SVProgressHUDStyleDark];
+    }];
+}
+
+/// Toast 底部
+/// @param str 内容
++ (void)showBottomToast:(NSString *)str {
+    [SVProgressHUD setHapticsEnabled:YES];
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
+    
+    [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
+//    [SVProgressHUD setBackgroundColor:NAppThemeColor];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
     [SVProgressHUD setDefaultAnimationType:(SVProgressHUDAnimationTypeFlat)];
     [SVProgressHUD setOffsetFromCenter:UIOffsetMake(0, NScreenHeight * 0.4)];
-    [SVProgressHUD showImage:[UIImage imageNamed:@"_xxx_"] status:str];
+    [SVProgressHUD showImage:[UIImage imageNamed:@"_NULL_"] status:str];
     [SVProgressHUD dismissWithDelay:1.5 completion:^{
         [SVProgressHUD resetOffsetFromCenter];
+        [SVProgressHUD setDefaultStyle:[[LEETheme currentThemeTag] isEqualToString:DAY] ? SVProgressHUDStyleLight : SVProgressHUDStyleDark];
     }];
 }
 

@@ -24,7 +24,7 @@ SINGLETON_FOR_CLASS(ADManager);
     [NNotificationCenter addObserverForName:UIApplicationDidFinishLaunchingNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
 #if !defined(DEBUG)
         // 播放本地开屏动画
-        //            [self showLocalVideo];
+//        [self showLocalVideo];
         [self getADData];
 #endif
     }];
@@ -37,14 +37,14 @@ SINGLETON_FOR_CLASS(ADManager);
     [XHLaunchAd setWaitDataDuration:2];
     
     XHLaunchImageAdConfiguration *imageAdconfiguration = [XHLaunchImageAdConfiguration new];
-    imageAdconfiguration.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height * 1);
-    imageAdconfiguration.duration = 3.0f;
-    imageAdconfiguration.imageNameOrURLString = @"https://developer.apple.com/assets/elements/hardware/iphone_x_silver/medium_2x.png";
+    imageAdconfiguration.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height * 0.85);
+    imageAdconfiguration.duration = 2.0f;
+    imageAdconfiguration.imageNameOrURLString = @"icon_sunnyday.png";
     imageAdconfiguration.openModel = @"https://github.com/niyongsheng/NYSKit";
     imageAdconfiguration.GIFImageCycleOnce = NO;
     imageAdconfiguration.imageOption = XHLaunchAdImageCacheInBackground;
-    imageAdconfiguration.contentMode = UIViewContentModeScaleToFill;
-    imageAdconfiguration.showFinishAnimate = ShowFinishAnimateLite;
+    imageAdconfiguration.contentMode = UIViewContentModeCenter;
+    imageAdconfiguration.showFinishAnimate = ShowFinishAnimateFadein;
     imageAdconfiguration.showFinishAnimateTime = 0.77;
     imageAdconfiguration.skipButtonType = SkipTypeRoundProgressText;
     imageAdconfiguration.showEnterForeground = NO;

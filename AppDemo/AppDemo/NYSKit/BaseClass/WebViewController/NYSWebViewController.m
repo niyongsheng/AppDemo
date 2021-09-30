@@ -20,11 +20,7 @@
 - (instancetype)initWithUrlStr:(NSString *)urlStr {
     self = [super init];
     if (self) {
-        _urlStr = urlStr;
-        _progressViewColor = NWKProgressColor;
-        
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:_urlStr]];
-        [self.webView loadRequest:request];
+        [self setUrlStr:urlStr];
     }
     return self;
 }
@@ -32,6 +28,7 @@
 - (void)setUrlStr:(NSString *)urlStr {
     if (_urlStr != urlStr) {
         _urlStr = urlStr;
+        
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:_urlStr]];
         [self.webView loadRequest:request];
     }
@@ -44,44 +41,48 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self configTheme];
     [self setAutoTitle:YES];
     [self.view addSubview:self.webView];
+    
+    UIBarButtonItem *rightItem1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:nil];
+    WS(weakSelf);
+    [rightItem1 setActionBlock:^(id _Nonnull sender) {
+        [weakSelf.webView reload];
+    }];
+    self.navigationItem.rightBarButtonItems = @[rightItem1];
 }
 
 #pragma mark - webview
 - (WKWebView *)webView {
-    if (!_webView) {
+    if (_webView == nil) {
         WKWebViewConfiguration * configuration = [[WKWebViewConfiguration alloc] init];
         configuration.preferences.javaScriptEnabled = YES; // 打开js交互
         configuration.allowsInlineMediaPlayback = YES; // 允许H5嵌入视频
         _webConfiguration = configuration;
         _jsHandler = [[NYSJSHandler alloc] initWithViewController:self configuration:configuration];
         
-        _webView = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:configuration];
+        _webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, NScreenWidth, NScreenHeight) configuration:configuration];
         _webView.navigationDelegate = self;
         _webView.UIDelegate = self;
         _webView.allowsBackForwardNavigationGestures = YES; // 打开网页间的 滑动返回
         _webView.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
+
+        [_webView addSubview:self.progressView];
         // 监听进度条
         [_webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
-       
-        // 进度条
-        _progressView = [[UIProgressView alloc]initWithProgressViewStyle:UIProgressViewStyleDefault];
-        _progressView.tintColor = _progressViewColor;
-        _progressView.trackTintColor = [UIColor clearColor];
-        _progressView.frame = CGRectMake(0, 0, self.view.bounds.size.width, 3.0);
-        [_webView addSubview:_progressView];
     }
     return _webView;
 }
 
-- (void)backButtonClicked {
-    if ([self.webView canGoBack]) {
-        [self.webView goBack];
-    } else {
-        [super backBtnClicked];
+- (UIProgressView *)progressView {
+    if (!_progressView) {
+        _progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+        _progressView.frame = CGRectMake(0, NTopHeight, NScreenWidth, 0);
+        _progressView.transform = CGAffineTransformMakeScale(1.0, 0.5);
+        _progressView.trackTintColor = [UIColor clearColor];
+        _progressView.progressTintColor = [NAppThemeColor colorWithAlphaComponent:0.75];
     }
+    return _progressView;
 }
 
 #pragma mark - 进度条
@@ -93,9 +94,9 @@
 #pragma mark - 更新进度条
 - (void)updateProgress:(double)progress {
     self.progressView.alpha = 1;
-    if(progress > _lastProgress){
+    if (progress > _lastProgress) {
         [self.progressView setProgress:self.webView.estimatedProgress animated:YES];
-    }else{
+    } else {
         [self.progressView setProgress:self.webView.estimatedProgress];
     }
     _lastProgress = progress;
@@ -116,10 +117,11 @@
     }
     [self updateProgress:webView.estimatedProgress];
     
+    WS(weakSelf)
     if ([[LEETheme currentThemeTag] isEqualToString:DAY]) {
-        dayThemeJS(webView);
+        [weakSelf dayThemeJS:webView];
     } else {
-        nightThemeJS(webView);
+        [weakSelf nightThemeJS:webView];
     }
 }
 
@@ -136,7 +138,9 @@
         return;
     }
     
-    NSURL * url = webView.URL;
+    NSString *urlString = navigationAction.request.URL.absoluteString;
+    NSURL *url = [NSURL URLWithString:urlString];
+    
     // 打开wkwebview禁用了电话和跳转appstore 通过这个方法打开
     UIApplication *app = [UIApplication sharedApplication];
     if ([url.scheme isEqualToString:@"tel"]) {
@@ -145,14 +149,32 @@
             decisionHandler(WKNavigationActionPolicyCancel);
             return;
         }
-    } if ([url.absoluteString containsString:@"itunes.apple.com"]) {
+    }
+    
+    if ([url.absoluteString containsString:@"itunes.apple.com"]) {
         if ([app canOpenURL:url]) {
             [app openURL:url options:@{} completionHandler:nil];
             decisionHandler(WKNavigationActionPolicyCancel);
             return;
         }
     }
-    decisionHandler(WKNavigationActionPolicyAllow);
+    
+    if ([urlString hasPrefix:@"weixin://"]) {
+        Boolean canOpenUrl = [[UIApplication sharedApplication] canOpenURL:url];
+        if(canOpenUrl) {
+            NSLog(@"已安装微信");
+            [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
+            // 允许跳转
+            decisionHandler(WKNavigationActionPolicyAllow);
+        }else {
+            NSLog(@"尚未安装微信");
+            // 不允许跳转
+            decisionHandler(WKNavigationActionPolicyCancel);
+        }
+    } else {
+        // 允许跳转
+        decisionHandler(WKNavigationActionPolicyAllow);
+    }
 }
 
 #pragma mark - UIDelegate
@@ -172,6 +194,7 @@
 
 - (void)backBtnClicked {
     [self.webView stopLoading];
+    
     if ([self.webView canGoBack]) {
         [self.webView goBack];
     } else {
@@ -180,71 +203,35 @@
 }
 
 /** 加载本地error html 文件 */
-- (void)loadHostPathURL:(NSString *)url {
+- (void)loadHostPathURL:(NSString *)html {
     // 获取html文件的路径
-    NSString *path = [[NSBundle bundleForClass:self.class] pathForResource:url ofType:@"html"];
+    NSString *path = [[NSBundle bundleForClass:self.class] pathForResource:html ofType:@"html"];
     // 获取html内容
-    NSString *html = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    NSString *htmlStr = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     // 加载html
-    [self.webView loadHTMLString:html baseURL:[[NSBundle bundleForClass:self.class] bundleURL]];
+    [self.webView loadHTMLString:htmlStr baseURL:[[NSBundle bundleForClass:self.class] bundleURL]];
 }
 
-static void dayThemeJS(id  _Nonnull item) {
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.body.style.backgroundColor=%@", @"\"#FFFFFF\""] completionHandler:nil];
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust=%@", @"\'100%\'"] completionHandler:nil];
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextFillColor=%@", @"'#666666'"] completionHandler:nil];
-    
-    [(WKWebView *)item evaluateJavaScript:@"document.getElementsByClassName('bg-gray-light')[1].classList.add('bg-gray-light')" completionHandler:nil];
-    [(WKWebView *)item evaluateJavaScript:@"document.getElementsByClassName('js-repo-nav')[0].classList.add('bg-gray-light')" completionHandler:nil];
-    [(WKWebView *)item evaluateJavaScript:@"document.getElementsByClassName('Box-header')[1].classList.add('bg-white')" completionHandler:nil];
-    
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementsByClassName('Box-header')[0].style.backgroundColor=%@", @"\"#FFFFFF\""] completionHandler:nil];
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementsByClassName('Box-header')[1].style.backgroundColor=%@", @"\"#FFFFFF\""] completionHandler:nil];
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementsByClassName('Box-footer')[0].style.backgroundColor=%@", @"\"#FFFFFF\""] completionHandler:nil];
-    
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementsByClassName('btn')[3].style.backgroundColor=%@", @"\"#F9FAFC\""] completionHandler:nil];
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementsByClassName('btn')[4].style.backgroundColor=%@", @"\"#F9FAFC\""] completionHandler:nil];
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementsByClassName('btn')[6].style.backgroundColor=%@", @"\"#F9FAFC\""] completionHandler:nil];
-    
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementById('readme').style.backgroundColor=%@", @"\"#FFFFFF\""] completionHandler:nil];
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementsByTagName('pre')[0].style.backgroundColor=%@", @"\"#F4F7F9\""] completionHandler:nil];
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementsByTagName('pre')[1].style.backgroundColor=%@", @"\"#F4F7F9\""] completionHandler:nil];
+- (void)dayThemeJS:(WKWebView *)webview {
+    [webview evaluateJavaScript:@"document.body.style.backgroundColor=\"#FFFFFF\"" completionHandler:nil];
 }
 
-static void nightThemeJS(id  _Nonnull item) {
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.body.style.backgroundColor=%@", @"\"#000000\""] completionHandler:nil];
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextSizeAdjust=%@", @"\'100%\'"] completionHandler:nil];
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementsByTagName('body')[0].style.webkitTextFillColor=%@", @"'#2D65FE'"] completionHandler:nil];
-    
-    [(WKWebView *)item evaluateJavaScript:@"document.getElementsByClassName('bg-gray-light')[1].classList.remove('bg-gray-light')" completionHandler:nil];
-    [(WKWebView *)item evaluateJavaScript:@"document.getElementsByClassName('js-repo-nav')[0].classList.remove('bg-gray-light')" completionHandler:nil];
-    [(WKWebView *)item evaluateJavaScript:@"document.getElementsByClassName('Box-header')[1].classList.remove('bg-white')" completionHandler:nil];
-    
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementsByClassName('Box-header')[0].style.backgroundColor=%@", @"\"#000000\""] completionHandler:nil];
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementsByClassName('Box-header')[1].style.backgroundColor=%@", @"\"#000000\""] completionHandler:nil];
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementsByClassName('Box-footer')[0].style.backgroundColor=%@", @"\"#000000\""] completionHandler:nil];
-    
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementsByClassName('btn')[3].style.backgroundColor=%@", @"\"#131313\""] completionHandler:nil];
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementsByClassName('btn')[4].style.backgroundColor=%@", @"\"#131313\""] completionHandler:nil];
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementsByClassName('btn')[6].style.backgroundColor=%@", @"\"#131313\""] completionHandler:nil];
-    
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementById('readme').style.backgroundColor=%@", @"\"#000000\""] completionHandler:nil];
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementsByTagName('pre')[0].style.backgroundColor=%@", @"\"#131313\""] completionHandler:nil];
-    [(WKWebView *)item evaluateJavaScript:[NSString stringWithFormat:@"document.getElementsByTagName('pre')[1].style.backgroundColor=%@", @"\"#131313\""] completionHandler:nil];
+- (void)nightThemeJS:(WKWebView *)webview {
+    [webview evaluateJavaScript:@"document.body.style.backgroundColor=\"#000000\"" completionHandler:nil];
 }
 
 /// 设置主题
 - (void)configTheme {
-    self.view.lee_theme.LeeConfigBackgroundColor(@"common_bg_color_1");
+    [super configTheme];
     
     self.webView.lee_theme.LeeConfigBackgroundColor(@"common_bg_color_1");
-    
+    WS(weakSelf)
     self.webView.lee_theme
     .LeeAddCustomConfig(DAY, ^(id  _Nonnull item) {
-        dayThemeJS(item);
+        [weakSelf dayThemeJS:item];
     })
     .LeeAddCustomConfig(NIGHT, ^(id  _Nonnull item) {
-        nightThemeJS(item);
+        [weakSelf nightThemeJS:item];
     });
 }
 

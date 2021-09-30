@@ -9,6 +9,9 @@
 #ifndef UtilsMacros_h
 #define UtilsMacros_h
 
+// 全局block
+typedef void(^NYSBlock)(id obj);
+
 // 获取系统对象
 #define NApplication        [UIApplication sharedApplication]
 #define NAppWindow          [UIApplication sharedApplication].delegate.window
@@ -18,19 +21,6 @@
 #define NNotificationCenter [NSNotificationCenter defaultCenter]
 // 发送通知
 #define NPostNotification(name,obj) [[NSNotificationCenter defaultCenter] postNotificationName:name object:obj];
-
-// 状态栏高度
-#define NStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
-
-#define NGetNavBarHight \
-({\
-CGRect rectNav = self.navigationController.navigationBar.frame;\
-(rectNav.size.height);\
-})\
-
-#define NNavBarHeight 44.0
-#define NTabBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?83:49)
-#define NTopHeight (NStatusBarHeight + NNavBarHeight)
 
 // 获取屏幕宽高
 #define NScreenWidth ([[UIScreen mainScreen] bounds].size.width)
@@ -56,6 +46,20 @@ tmp = 0;\
 tmp;\
 })
 
+// 状态栏高度
+#define NStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+
+#define NGetNavBarHight \
+({\
+CGRect rectNav = self.navigationController.navigationBar.frame;\
+(rectNav.size.height);\
+})\
+
+#define NNavBarHeight 44.0
+#define NTabBarHeight (isIphonex ? 83 : 49)
+#define NTopHeight (NStatusBarHeight + NNavBarHeight)
+#define NBottomHeight (isIphonex ? 34 : 0)
+
 // 强弱引用
 #define NWeakSelf(type)  __weak typeof(type) weak##type = type;
 #define NStrongSelf(type) __strong typeof(type) type = weak##type;
@@ -64,17 +68,17 @@ tmp;\
 #define SS(strongSelf) __strong __typeof(&*self)strongSelf = self;
 
 // View 圆角和加边框
-#define ViewBorderRadius(View, Radius, Width, Color)\
+#define ViewBorderRadius(View, NRadius, Width, Color)\
 \
-[View.layer setCornerRadius:(Radius)];\
+[View.layer setCornerRadius:(NRadius)];\
 [View.layer setMasksToBounds:YES];\
 [View.layer setBorderWidth:(Width)];\
 [View.layer setBorderColor:[Color CGColor]]
 
 // View 圆角
-#define ViewRadius(View, Radius)\
+#define ViewRadius(View, NRadius)\
 \
-[View.layer setCornerRadius:(Radius)];\
+[View.layer setCornerRadius:(NRadius)];\
 [View.layer setMasksToBounds:YES]
 
 // IOS 版本判断

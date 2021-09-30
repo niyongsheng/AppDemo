@@ -21,6 +21,7 @@
 #import <ChameleonFramework/Chameleon.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import <SafariServices/SFSafariViewController.h>
+#import <TABAnimated/TABAnimated.h>
 #import <NYSTK/NYSTK.h>
 
 #pragma mark -- 宏定义 --
@@ -36,6 +37,7 @@
 #import "NYSBaseNavigationController.h"
 #import "NYSBaseViewController.h"
 #import "NYSWebViewController.h"
+#import "NYSBaseObject.h"
 
 #pragma mark -- 服务类 --
 #import "AppDelegate+AppService.h"
@@ -58,6 +60,8 @@
 #import "NYSSignHandleKeyChain.h"
 
 #pragma mark -- 分类 --
+#import "UIImage+NYS.h"
+#import "UIView+Tools.h"
 #import "NSDictionary+NilSafe.h"
 
 #endif /* PrefixHeader_pch */

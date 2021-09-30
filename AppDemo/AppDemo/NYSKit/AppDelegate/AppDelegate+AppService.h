@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 初始化 window */
 - (void)initWindow;
 
+/** 初始化导航栏 */
+- (void)initNavBarAppearence;
+
 /** 初始化友盟 */
 - (void)initUMeng;
 

@@ -166,8 +166,6 @@ ASAuthorizationControllerPresentationContextProviding
         self.passwordTextField.lee_theme
         .LeeAddBackgroundColor(DAY , LEEColorRGB(255, 255, 255))
         .LeeAddBackgroundColor(NIGHT, LEEColorRGB(85, 85, 85));
-        
-        self.view.lee_theme.LeeConfigBackgroundColor(@"common_bg_color_1");
     }
 }
 

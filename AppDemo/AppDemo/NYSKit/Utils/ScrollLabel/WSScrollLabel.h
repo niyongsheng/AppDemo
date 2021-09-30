@@ -14,9 +14,12 @@
 @property (nonatomic, strong) UIColor *textColor; /**< 字体颜色 默认白色*/
 @property (nonatomic, strong) UIFont *textFont; /**< 字体大小 默认25*/
 
-@property (nonatomic, assign) CGFloat space; /**< 首尾间隔 默认25*/
-@property (nonatomic, assign) CGFloat velocity; /**< 滚动速度 pixels/second,默认30*/
-@property (nonatomic, assign) NSTimeInterval pauseTimeIntervalBeforeScroll; /**< 每次开始滚动前暂停的间隔 默认2s*/
+/**< 首尾间隔 默认25*/
+@property (nonatomic, assign) CGFloat space;
+/**< 滚动速度 pixels/second,默认30*/
+@property (nonatomic, assign) CGFloat velocity;
+/**< 每次开始滚动前暂停的间隔 默认2s*/
+@property (nonatomic, assign) NSTimeInterval pauseTimeIntervalBeforeScroll;
 
 - (void)addCycleScrollObserverNotification;
 

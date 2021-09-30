@@ -20,6 +20,21 @@ SINGLETON_FOR_HEADER(AppManager);
 /// Mem监测
 - (void)showMemory;
 
+/// APP名称
+- (NSString *)getAppName;
+
+/// APP版本
+- (NSString *)getAppVersion;
+
+/// APP构建版本
+- (NSString *)getAppBuildVersion;
+
+/// APP ID
+- (NSString *)getAppBundleId;
+
+/// APP App Store URL
+- (NSString *)getAppUrlInItunes;
+
 @end
 
 NS_ASSUME_NONNULL_END

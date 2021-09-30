@@ -62,8 +62,9 @@
     
     self.velocity = 30.0;
     self.space = 25;
-    self.pauseTimeIntervalBeforeScroll = 2;
-    
+    self.pauseTimeIntervalBeforeScroll = 0.7;
+   
+    [self addCycleScrollObserverNotification];
 }
 
 - (void)layoutSubviews{
@@ -113,14 +114,14 @@
 
 #pragma mark -- 进入后台 前台
 
-- (void)addCycleScrollObserverNotification
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
-    //活跃状态
+- (void)addCycleScrollObserverNotification {
+    // 活跃状态
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scrollTextIfNeed) name:UIApplicationDidBecomeActiveNotification object:nil];
-    //即将进入前台
+    // 即将进入前台
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scrollTextIfNeed) name:UIApplicationWillEnterForegroundNotification object:nil];
+    // 生命周期变化
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scrollTextIfNeed) name:NNotificationBCViewDidAppear object:nil];
+    
 }
 
 - (void)dealloc
@@ -172,7 +173,7 @@
     if(!_scrollAnimation)
     {
         _scrollAnimation = [CABasicAnimation animationWithKeyPath:@"transform.translation.x"];
-        _scrollAnimation.beginTime = self.pauseTimeIntervalBeforeScroll; //延迟三秒
+        _scrollAnimation.beginTime = self.pauseTimeIntervalBeforeScroll; //延迟2秒
         _scrollAnimation.repeatCount = MAXFLOAT;
         _scrollAnimation.fromValue = @(0);
     }

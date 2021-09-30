@@ -43,6 +43,18 @@
     [self.window makeKeyAndVisible];
     [[UIButton appearance] setExclusiveTouch:YES];
     [[UIButton appearance] setShowsTouchWhenHighlighted:YES];
+    
+    // 骨架屏初始化
+    [[TABAnimated sharedAnimated] initWithOnlySkeleton];
+#if defined(DEBUG)
+    [TABAnimated sharedAnimated].openLog = YES;
+    [TABAnimated sharedAnimated].openAnimationTag = YES;
+#endif
+}
+
+#pragma mark -- 初始化三方导航栏样式 --
+- (void)initNavBarAppearence {
+    
 }
 
 #pragma mark -- 初始化网络 --
@@ -89,7 +101,6 @@
         NRootViewController = [[NYSNewfeatureViewController alloc] init];
     }
     
-    [[ThemeManager sharedThemeManager] initBubble:self.window];
 }
 
 #pragma mark -- 初始化 IQKM --

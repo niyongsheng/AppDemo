@@ -21,109 +21,134 @@ PODS:
   - ChameleonFramework (2.1.0):
     - ChameleonFramework/Default (= 2.1.0)
   - ChameleonFramework/Default (2.1.0)
-  - FLAnimatedImage (1.0.15)
+  - CWLateralSlide (1.6.5)
+  - DZNEmptyDataSet (1.8.1)
+  - FLAnimatedImage (1.0.16)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
   - IQKeyboardManager (6.5.6)
-  - JCore (2.4.0)
-  - JPush (3.4.0):
+  - JCore (2.7.1)
+  - JPush (3.7.4):
     - JCore (< 3.0.0, >= 2.0.0)
-  - JXCategoryView (1.5.8)
-  - JXPagingView/Pager (2.0.13)
+  - JXCategoryView (1.5.9)
+  - JXPagingView/Pager (2.1.0)
   - Masonry (1.1.0)
-  - MJRefresh (3.5.0)
+  - MJRefresh (3.7.2)
   - NYSTK (0.0.8):
     - Masonry (>= 1.0.0)
   - pop (1.0.12)
   - ReactiveObjC (3.1.1)
-  - RongCloudIM (5.0.0):
-    - RongCloudIM/ChatRoom (= 5.0.0)
-    - RongCloudIM/CustomerService (= 5.0.0)
-    - RongCloudIM/Discussion (= 5.0.0)
-    - RongCloudIM/IMKit (= 5.0.0)
-    - RongCloudIM/IMLib (= 5.0.0)
-    - RongCloudIM/IMLibCore (= 5.0.0)
-    - RongCloudIM/Location (= 5.0.0)
-    - RongCloudIM/PublicService (= 5.0.0)
-    - RongCloudIM/RongSticker (= 5.0.0)
-    - RongCloudIM/Sight (= 5.0.0)
-  - RongCloudIM/ChatRoom (5.0.0):
+  - RongCloudIM (5.1.4.1):
+    - RongCloudIM/ChatRoom (= 5.1.4.1)
+    - RongCloudIM/CustomerService (= 5.1.4.1)
+    - RongCloudIM/Discussion (= 5.1.4.1)
+    - RongCloudIM/IMKit (= 5.1.4.1)
+    - RongCloudIM/IMLib (= 5.1.4.1)
+    - RongCloudIM/IMLibCore (= 5.1.4.1)
+    - RongCloudIM/Location (= 5.1.4.1)
+    - RongCloudIM/PublicService (= 5.1.4.1)
+    - RongCloudIM/RongSticker (= 5.1.4.1)
+    - RongCloudIM/Sight (= 5.1.4.1)
+  - RongCloudIM/ChatRoom (5.1.4.1):
     - RongCloudIM/IMLibCore
-  - RongCloudIM/CustomerService (5.0.0):
+  - RongCloudIM/CustomerService (5.1.4.1):
     - RongCloudIM/IMLibCore
-  - RongCloudIM/Discussion (5.0.0):
+  - RongCloudIM/Discussion (5.1.4.1):
     - RongCloudIM/IMLibCore
-  - RongCloudIM/IMKit (5.0.0):
+  - RongCloudIM/IMKit (5.1.4.1):
     - RongCloudIM/IMLib
-  - RongCloudIM/IMLib (5.0.0):
+  - RongCloudIM/IMLib (5.1.4.1):
     - RongCloudIM/ChatRoom
     - RongCloudIM/CustomerService
     - RongCloudIM/Discussion
     - RongCloudIM/IMLibCore
     - RongCloudIM/Location
     - RongCloudIM/PublicService
-  - RongCloudIM/IMLibCore (5.0.0)
-  - RongCloudIM/Location (5.0.0):
+  - RongCloudIM/IMLibCore (5.1.4.1)
+  - RongCloudIM/Location (5.1.4.1):
     - RongCloudIM/IMLibCore
-  - RongCloudIM/PublicService (5.0.0):
+  - RongCloudIM/PublicService (5.1.4.1):
     - RongCloudIM/IMLibCore
-  - RongCloudIM/RongSticker (5.0.0):
+  - RongCloudIM/RongSticker (5.1.4.1):
     - RongCloudIM/IMKit
-  - RongCloudIM/Sight (5.0.0):
+  - RongCloudIM/Sight (5.1.4.1):
     - RongCloudIM/IMKit
   - SDAutoLayout (2.2.1)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
+  - SGPagingView (1.7.2)
+  - SGQRCode (3.5.1)
   - SVProgressHUD (2.2.5)
-  - UMAPM (1.1.1)
-  - UMCCommon (7.2.5):
+  - TABAnimated (2.6.0)
+  - TXScrollLabelView (1.3.2)
+  - TZImagePickerController (3.6.4)
+  - UMAPM (1.4.1)
+  - UMCCommon (7.3.3):
     - UMAPM
     - UMDevice
-  - UMCCommonLog (2.0.0)
-  - UMDevice (1.1.0)
+  - UMCCommonLog (2.0.2)
+  - UMDevice (2.0.4)
   - UMengUShare/Core (6.4.8.2):
     - UMengUShare/Network
   - UMengUShare/Network (6.4.8.2)
+  - UMengUShare/Social/ReducedQQ (6.4.8.2):
+    - UMengUShare/Core
   - UMengUShare/Social/ReducedWeChat (6.4.8.2):
     - UMengUShare/Core
   - UMengUShare/UI (6.4.8.2):
     - UMengUShare/Core
+  - WMZBanner (1.2.0):
+    - SDWebImage
   - XHLaunchAd (3.9.12):
     - FLAnimatedImage (~> 1.0.12)
-  - YTKNetwork (3.0.5):
+  - YTKNetwork (3.0.6):
     - AFNetworking/NSURLSession (~> 4.0)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
-  - BRPickerView
-  - ChameleonFramework
-  - FMDB
-  - IQKeyboardManager
-  - JPush
+  - BRPickerView (= 2.7.3)
+  - ChameleonFramework (= 2.1.0)
+  - CWLateralSlide (= 1.6.5)
+  - DZNEmptyDataSet (= 1.8.1)
+  - FMDB (= 2.7.5)
+  - IQKeyboardManager (= 6.5.6)
+  - JPush (= 3.7.4)
   - JXCategoryView
   - JXPagingView/Pager
-  - Masonry
-  - MJRefresh
+  - Masonry (= 1.1.0)
+  - MJRefresh (= 3.7.2)
   - NYSTK (= 0.0.8)
-  - pop
-  - ReactiveObjC
-  - RongCloudIM
-  - SDAutoLayout
-  - SVProgressHUD
+  - pop (= 1.0.12)
+  - ReactiveObjC (= 3.1.1)
+  - RongCloudIM (= 5.1.4.1)
+  - SDAutoLayout (= 2.2.1)
+  - SGPagingView (= 1.7.2)
+  - SGQRCode (= 3.5.1)
+  - SVProgressHUD (= 2.2.5)
+  - TABAnimated (= 2.6.0)
+  - TXScrollLabelView (= 1.3.2)
+  - TZImagePickerController
   - UMCCommon
-  - UMCCommonLog
+  - UMCCommonLog (= 2.0.2)
+  - UMengUShare/Social/ReducedQQ
   - UMengUShare/Social/ReducedWeChat
   - UMengUShare/UI
-  - XHLaunchAd
-  - YTKNetwork
-  - YYKit
+  - WMZBanner (= 1.2.0)
+  - XHLaunchAd (= 3.9.12)
+  - YTKNetwork (= 3.0.6)
+  - YYKit (= 1.0.9)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - BRPickerView
     - ChameleonFramework
+    - CWLateralSlide
+    - DZNEmptyDataSet
     - FLAnimatedImage
     - FMDB
     - IQKeyboardManager
@@ -138,12 +163,19 @@ SPEC REPOS:
     - ReactiveObjC
     - RongCloudIM
     - SDAutoLayout
+    - SDWebImage
+    - SGPagingView
+    - SGQRCode
     - SVProgressHUD
+    - TABAnimated
+    - TXScrollLabelView
+    - TZImagePickerController
     - UMAPM
     - UMCCommon
     - UMCCommonLog
     - UMDevice
     - UMengUShare
+    - WMZBanner
     - XHLaunchAd
     - YTKNetwork
     - YYKit
@@ -152,30 +184,39 @@ SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   BRPickerView: 9cc11880ac79c4872d081ccb88f306224c1501d7
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  FLAnimatedImage: dd3db277b17e909ec3c7fd41adfce79b321d960e
+  CWLateralSlide: 8939c8dea91a24e40d0793553118cb57cd67f64b
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FLAnimatedImage: 8f3e854ebf9680b71f0b6e700939687fc4d82b4b
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
-  JCore: a29e4b0ee54e1301446dc02d8e1c350404108b34
-  JPush: defaa108c38806f6efdcfaf4c416854d25fca8e5
-  JXCategoryView: 778a620f76070d6598fd8d7239991b8da8326170
-  JXPagingView: 821ed274f09eaf2843a96c3a74e9d138e27d9730
+  JCore: 9d5bda3a172c65bbe14f2806ab0f6246f8a06065
+  JPush: e455ad2a7b854bca8149df085772d6c4f79b2416
+  JXCategoryView: 2ef9ecfd3735158d009ce02d1f29811aa822da65
+  JXPagingView: ef48a5a2392252c68db7999de38f4761a2707e2a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
+  MJRefresh: 30997d30b347c8e9508a4db11e3a690da0c9b85a
   NYSTK: 2a3ed92c57614cce6fc20ed21cf82db2d9146217
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
-  RongCloudIM: e915e63a1ec35a6bbf4ddbfa8db3dff6b7ff19c6
+  RongCloudIM: bf1279dae817727c3f3cc0c106123b5bf96ae3d2
   SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SGPagingView: 0b91bd360370e56a6496b06df9b3e28bc3f075cc
+  SGQRCode: 65d6170ddcf3feecc6e2f3601aac78ad93e56589
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  UMAPM: d0623e0b3ca8b1a1df855e0bddb91b5c002d097d
-  UMCCommon: f7480d316381612f90cdde3a3c0f39a7e2c0a788
-  UMCCommonLog: 9b7ddde5d14a52fc1986ba5ac3121b8b2f433638
-  UMDevice: 28d21a568c8e8322e5a03bbd53b138d0c098d3b3
+  TABAnimated: 9a638d362d1b3d23c7b46226e33e112a5dab5bbf
+  TXScrollLabelView: 0e1650caf61198bf5dc0938ea6493254aeb80f90
+  TZImagePickerController: 1cc39ec0454d6e94d0397418953164d7aa631719
+  UMAPM: 8ec4afd565f07e81dec5eb0c2d4a590cdcea7314
+  UMCCommon: a9144bf81e1e27ab319e93a7aa9f3dca947610b2
+  UMCCommonLog: bea707e50c85cef4b0eb47cc5c7226bb843245ca
+  UMDevice: 590115ebb238250e574988c7a3e9511f5d5cd4d3
   UMengUShare: 370d180101e13ee0227ae657ab119ba97243d2b3
+  WMZBanner: 42d02896dc7a67a4d7a2ebe1ef5b7a79f8d2c540
   XHLaunchAd: 6320f9c68732667323072fc3a5f104e40fbe9cfe
-  YTKNetwork: a2337af4b444b5d0a658122fa3d8a425e2425716
+  YTKNetwork: c16be90b06be003de9e9cd0d3b187cc8eaf35c04
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 0b0d935652fcf41099c50bc21ec0bb9fccb42062
+PODFILE CHECKSUM: a77fbc856a76f37e4699e4ecd981b64074de877f
 
 COCOAPODS: 1.10.0

@@ -9,28 +9,53 @@
 #import <UIKit/UIKit.h>
 #import <MJRefresh.h>
 #import "UITableView+XSAnimationKit.h"
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSInteger, NYSShowMessageStyle) {
+    NYSShowMessageStyleDefault,
+    NYSShowMessageStyleSecondary,
+    NYSShowMessageStyleLight,
+    NYSShowMessageStyleSuccess,
+    NYSShowMessageStyleInfo,
+    NYSShowMessageStyleWarning,
+    NYSShowMessageStyleDanger
+};
+
+typedef void (^ _Nullable NYSAction)(id _Nullable obj);
+
 @interface NYSBaseViewController : UIViewController
+{
+    /// tabview style. default:UITableViewStylePlain
+    UITableViewStyle _tableviewStyle;
+}
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UICollectionView *collectionView;
 
-/** 状态栏类型 */
+/** 状态栏样式 */
 @property (nonatomic, assign) UIStatusBarStyle customStatusBarStyle;
 /** 是否隐藏导航栏 default :NO **/
 @property (nonatomic, assign) BOOL isHidenNaviBar;
 /** 是否显示返回按钮 default :YES */
 @property (nonatomic, assign) BOOL isShowLiftBack;
 
+/// 是否使用系统下拉刷新样式UIRefreshControl     default :YES
+@property (nonatomic, assign) BOOL isUseUIRefreshControl;
+/// empty view error info
+@property (nonatomic) NSError *emptyError;
+
+#pragma mark - 设置主题
+- (void)configTheme;
+
 /** 默认返回按钮的点击事件，默认是返回，子类可重写 */
 - (void)backBtnClicked;
 
-/** 显示无数据页面 */
-- (void)showNoDataView;
-/** 移除无数据页面 */
-- (void)removeNoDataView;
+/// pull down refresh handler
+- (void)headerRereshing;
+/// pull up refresh handler
+- (void)footerRereshing;
 
 /**
  导航栏添加文字按钮
@@ -54,6 +79,15 @@ NS_ASSUME_NONNULL_BEGIN
  @param tags tags数组 回调区分用
  */
 - (void)addNavigationItemWithImageNames:(NSArray *)imageNames isLeft:(BOOL)isLeft target:(id)target action:(SEL)action tags:(NSArray<NSString *> *)tags;
+
+#pragma mark - 页面提示信息
+- (void)NYSShowMessage:(NSString *)msg;
+
+#pragma mark - 页面固定提示信息
+- (void)NYSShowFixMessage:(NSString *)msg tapBlock:(NYSAction)tapBlock;
+
+#pragma mark - 页面固定提示信息
+- (void)NYSShowFixMessage:(NSString *)msg style:(NYSShowMessageStyle)style tapBlock:(NYSAction)tapBlock;
 
 @end
 

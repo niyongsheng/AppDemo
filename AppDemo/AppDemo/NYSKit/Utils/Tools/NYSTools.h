@@ -48,18 +48,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (void)shakeAnimationWithLayer:(CALayer *)layer;
 
-
 /// 删除动画抖动效果
 /// @param layer 作用图层
 + (void)deleteAnimationWithLayer:(CALayer *)layer;
 
-/**
- 判断是否为有效手机号码
- 
- @param phone 手机号
- @return 是否有效
- */
-+ (BOOL)isValidPhone:(NSString *)phone;
 
 /// 将某个时间转化成 时间戳
 /// @param formatTime 时间z字符串
@@ -102,6 +94,8 @@ NS_ASSUME_NONNULL_BEGIN
 */
 + (void)addRoundedCorners:(UIView *)theview corners:(UIRectCorner)corners withRadii:(CGSize)radii viewRect:(CGRect)rect;
 
++ (void)addRoundedCorners:(UIView *)theview corners:(UIRectCorner)corners withRadii:(CGSize)radii viewRect:(CGRect)rect borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor;
+
 /// 判断NSString值是否为空或null并转换为空字符串
 /// @param string str
 + (NSString *)nullToString:(id)string;
@@ -117,9 +111,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param str content
 + (NSString *)transformToPinyin:(NSString *)str;
 
-/// Toast
+/// Toast 头部
 /// @param str 内容
-+ (void)showToast:(NSString *)str;
++ (void)showTopToast:(NSString *)str;
+
+/// Toast 底部
+/// @param str 内容
++ (void)showBottomToast:(NSString *)str;
 
 @end
 

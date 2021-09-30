@@ -1,54 +1,18 @@
 {
     "color": {
+        "app_theme_color" : "#2D65FE",
         
-        "common_font_color_1" : "#222222",
-        "common_font_color_2" : "#333333",
-        "common_font_color_3" : "#666666",
-        "common_font_color_4" : "#999999",
-        "common_font_color_5" : "#bbbbbb",
+        "common_font_color_0" : "#2B2B2B",
+        "common_font_color_1" : "#B5B5B5",
+        "common_font_color_2" : "#",
 
-        "common_nav_font_color_1"   : "#2D65FE",
-        "common_separator_color_1"  : "#bbbbbb",
-        "common_tabar_line_color_1" : "#bbbbbb",
-        
         "common_bg_color_1" : "#ffffff",
         "common_bg_color_2" : "#F6F4F5",
         "common_bg_color_3" : "#fefefe",
         
-        "common_bg_blue_1" : "#68c2ff",
-        "common_bg_blue_2" : "#44b6ff",
-        "common_bg_blue_3" : "#008cea",
-        "common_bg_blue_4" : "#007dce",
-        "common_bg_blue_5" : "#1676bd",
-        
-        "common_bg_red_1" : "#c50000",
-        "common_bg_red_2" : "#ff0000",
-        "common_bg_yellow_1" : "#fe9a00",
-        "common_bg_yellow_2" : "#f8c743",
-        "common_bg_white_1" : "#ffffff",
-        
-        "common_black_transparent100" : "#ff000000",
-        "common_black_transparent90" : "#e6000000",
-        "common_black_transparent80" : "#cc000000",
-        "common_black_transparent70" : "#b3000000",
-        "common_black_transparent60" : "#99000000",
-        "common_black_transparent50" : "#80000000",
-        "common_black_transparent40" : "#66000000",
-        "common_black_transparent30" : "#4c000000",
-        "common_black_transparent20" : "#33000000",
-        "common_black_transparent10" : "#19000000",
-        "common_black_transparent0" : "#00000000",
-        
-        "common_nav_bg_color1" : "#007dce",
-        "common_nav_bg_color2" : "#ffffff",
-        "common_nav_bg_divider" : "#d7d7d7",
-        
-        "common_tab_bg_color" : "#fafafa",
-        "common_tab_bar_divider" : "#d7d7d7",
-        
-        "common_bar_divider1" : "#e8e8e8",
-        "common_bar_divider2" : "#d7d7d7",
-        "common_bar_divider3" : "#ffffff",
+        "common_nav_font_color_1"   : "#2D65FE",
+        "common_separator_color_1"  : "#bbbbbb",
+        "common_tabar_line_color_1" : "#bbbbbb",
         
     },
     
@@ -56,6 +20,7 @@
         
         "dark_mode_btn_image" : "day",
         "nav_btn_image" : "",
+        "test_image": "icon_center_letter",
     },
     
     "other": {

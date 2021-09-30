@@ -30,7 +30,7 @@ SINGLETON_FOR_CLASS(IMManager);
     [RCIM sharedRCIM].userInfoDataSource = [IMDataSource sharedIMDataSource];
     [RCIM sharedRCIM].groupInfoDataSource = [IMDataSource sharedIMDataSource];
     [RCIM sharedRCIM].groupMemberDataSource = [IMDataSource sharedIMDataSource];
-    RCKitConfigCenter.ui.enableDarkMode = YES; // 暗黑模式
+    RCKitConfigCenter.ui.enableDarkMode = YES;
     RCKitConfigCenter.ui.globalNavigationBarTintColor = NAppThemeColor;
     // 开启多端同步未读状态
     RCKitConfigCenter.message.enableSyncReadStatus = YES;
