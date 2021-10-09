@@ -508,7 +508,7 @@ UIScrollViewDelegate
     if (!_billboardArray) {
         NYSBillboardModel *billboard = [NYSBillboardModel new];
         billboard.title = @"app demo";
-        billboard.richContent = @"App Demo 1.0.0 Release^^";
+        billboard.richContent = @"App Demo 2.0.0 Release now.";
         billboard.targetLink = @"https://appdemo.com/";
         _billboardArray = @[billboard, billboard];
     }

@@ -27,7 +27,6 @@
     self.navigationItem.rightBarButtonItems = @[rightItem];
     
     [self.view addSubview:self.tableView];
-    [self.tableView.mj_footer beginRefreshing];
 }
 
 @end

@@ -13,10 +13,10 @@
 @property (nonatomic, strong) NSMutableArray *datasourceArray;
 /// 是否允许通知
 @property (nonatomic, assign) BOOL isEnableNotification;
-/// 切换中英文圣经版本
-@property (nonatomic, strong) UISwitch *bibleEnSwitch;
-/// 调整圣经字号大小
-@property (nonatomic, strong) UISlider *bibleFontSizeSlider;
+/// 深色主题跟随系统
+@property (nonatomic, strong) UISwitch *followSysDarkModelEnSwitch;
+/// 调整字号大小
+@property (nonatomic, strong) UISlider *fontSizeSlider;
 @end
 
 @implementation NYSSettingViewController
@@ -153,14 +153,14 @@
         switch (indexPath.row) {
             case 0: {
                 cell.textLabel.text = @"深色模式跟随系统";
-                cell.accessoryView = self.bibleEnSwitch;
+                cell.accessoryView = self.followSysDarkModelEnSwitch;
             }
                 break;
                 
             case 1: {
                 cell.textLabel.text = @"字体大小";
-                cell.detailTextLabel.text = [NSString stringWithFormat:@"当前字号:%.2f", self.bibleFontSizeSlider.value];
-                cell.accessoryView = self.bibleFontSizeSlider;
+                cell.detailTextLabel.text = [NSString stringWithFormat:@"当前字号:%.2f", self.fontSizeSlider.value];
+                cell.accessoryView = self.fontSizeSlider;
             }
                 break;
                 
@@ -174,12 +174,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-//    UITableViewCell *cell = (UITableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
 
     if (indexPath.section == 0) {
         switch (indexPath.row) {
             case 0: {
-//                [PPNetworkCache removeAllHttpCache];
                 [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
             }
                 break;
@@ -240,58 +238,38 @@
     [NUserDefaults synchronize];
 }
 
-- (UISwitch *)bibleEnSwitch {
-    if (!_bibleEnSwitch) {
-        _bibleEnSwitch = [[UISwitch alloc] init];
-        [_bibleEnSwitch setOn:[NUserDefaults boolForKey:@""]];
-        _bibleEnSwitch.lee_theme.LeeConfigOnTintColor(@"app_theme_color");
-        [_bibleEnSwitch addTarget:self action:@selector(bibleEnSwitchChanged:) forControlEvents:UIControlEventValueChanged];
+- (UISwitch *)followSysDarkModelEnSwitch {
+    if (!_followSysDarkModelEnSwitch) {
+        _followSysDarkModelEnSwitch = [[UISwitch alloc] init];
+        [_followSysDarkModelEnSwitch setOn:[NUserDefaults boolForKey:@""]];
+        _followSysDarkModelEnSwitch.lee_theme.LeeConfigOnTintColor(@"app_theme_color");
+        [_followSysDarkModelEnSwitch addTarget:self action:@selector(bibleEnSwitchChanged:) forControlEvents:UIControlEventValueChanged];
     }
-    return _bibleEnSwitch;
+    return _followSysDarkModelEnSwitch;
 }
 
-- (UISlider *)bibleFontSizeSlider {
-    if (!_bibleFontSizeSlider) {
-        _bibleFontSizeSlider = [[UISlider alloc] init];
-//        _bibleFontSizeSlider.lee_theme.LeeConfigTrackTintColor(@"app_theme_color");
-        [_bibleFontSizeSlider setMinimumValue:10.f];
-        [_bibleFontSizeSlider setMaximumValue:50.f];
-        [_bibleFontSizeSlider addTarget:self action:@selector(_bibleFontSizeSliderChanged:) forControlEvents:UIControlEventValueChanged];
-        
-//        CGFloat bibleFontSize = [NUserDefaults floatForKey:SettingKey_BibleFontSize];
-//        CGFloat bfz = bibleFontSize ? bibleFontSize : Settingdefault_BibleFontSize;
-//        [_bibleFontSizeSlider setValue:bfz animated:YES];
+- (UISlider *)fontSizeSlider {
+    if (!_fontSizeSlider) {
+        _fontSizeSlider = [[UISlider alloc] init];
+        [_fontSizeSlider setMinimumValue:10.f];
+        [_fontSizeSlider setMaximumValue:50.f];
+        [_fontSizeSlider addTarget:self action:@selector(fontSizeSliderChanged:) forControlEvents:UIControlEventValueChanged];
+
     }
-    return _bibleFontSizeSlider;
+    return _fontSizeSlider;
 }
 
 #pragma mark - UI widget event deal
 - (void)bibleEnSwitchChanged:(UISwitch *)sender {
-//    [NUserDefaults setBool:sender.on forKey:SettingKey_IsEnBible];
-//    [NUserDefaults synchronize];
-//    [NBibleManager refreshCurrentBible];
+
 }
 
 - (void)_bibleFontSizeSliderChanged:(UISlider *)sender {
-    [NUserDefaults setFloat:sender.value forKey:@""];
-    [NUserDefaults synchronize];
-    [self.tableView reloadData];
+
 }
 
 /// 重置所有设置
 - (void)loadDefaultAllSetting {
-//    // 响应界面
-//    [self.bibleEnSwitch setOn:NO animated:YES];
-//    [self.bibleFontSizeSlider setValue:Settingdefault_BibleFontSize animated:YES];
-//    self.isEnableNotification = YES;
-//
-//    // 持久化数据
-//    [NUserDefaults setBool:NO forKey:SettingKey_IsEnBible];
-//    [NUserDefaults setFloat:Settingdefault_BibleFontSize forKey:SettingKey_BibleFontSize];
-//    [NUserDefaults synchronize];
-//
-//    // 发送bible版本变更通知
-//    [NBibleManager refreshCurrentBible];
 
     // 刷新cell
     WS(weakSelf);

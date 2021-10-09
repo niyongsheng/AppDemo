@@ -104,7 +104,7 @@
 //    self.navigationItem.rightBarButtonItems = @[rightItem1];
     
     WS(weakSelf)
-    UIMenu *action1 = [UIAction actionWithTitle:@"Copy"
+    UIMenu *action1 = [UIAction actionWithTitle:@"AI Voice"
                         image:[UIImage systemImageNamed:@"doc.on.doc"]
                    identifier:@"copy"
                       handler:^(__kindof UIAction * _Nonnull action) {
